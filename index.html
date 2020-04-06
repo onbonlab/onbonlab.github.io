@@ -51,9 +51,9 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
+    <li class="toctree-l2"><a class="reference internal" href="#this-is-from-onbon">This is from onbon</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
+    <li class="toctree-l2"><a class="reference internal" href="#this-is-a-demo-of-veriloghdl">This is a demo of verilogHDL</a>
     </li>
     </ul>
                     </li>
@@ -97,20 +97,30 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs<a class="headerlink" href="#welcome-to-mkdocs" title="Permanent link">&para;</a></h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
-</ul>
-<h2 id="project-layout">Project layout<a class="headerlink" href="#project-layout" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
+                <h1 id="welcome-to-bxdocs">Welcome to BxDocs<a class="headerlink" href="#welcome-to-bxdocs" title="Permanent link">&para;</a></h1>
+<p>Our website <a href="www.onbonbx.com">www.onbonbx.com</a>.</p>
+<h2 id="this-is-from-onbon">This is from onbon<a class="headerlink" href="#this-is-from-onbon" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">print</span><span class="p">(</span><span class="s">&quot;hello, world!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="this-is-a-demo-of-veriloghdl">This is a demo of verilogHDL<a class="headerlink" href="#this-is-a-demo-of-veriloghdl" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><code><span class="k">module</span> <span class="n">hello</span><span class="p">(</span>
+    <span class="kt">wire</span> <span class="n">clk</span><span class="p">;</span>
+    <span class="kt">wire</span> <span class="n">rst_n</span><span class="p">;</span>
+    <span class="kt">wire</span> <span class="n">in</span><span class="p">;</span>
+    <span class="kt">wire</span> <span class="n">out</span><span class="p">;</span>
+<span class="p">)</span>
+
+<span class="k">input</span>   <span class="kt">wire</span> <span class="n">clk</span><span class="p">;</span>
+<span class="k">input</span>   <span class="kt">wire</span> <span class="n">rst_n</span><span class="p">;</span>
+<span class="k">input</span>   <span class="kt">wire</span> <span class="n">in</span><span class="p">;</span>
+<span class="k">output</span>  <span class="kt">wire</span> <span class="n">out</span><span class="p">;</span>
+
+<span class="k">assign</span> <span class="n">out</span> <span class="o">=</span> <span class="n">in</span><span class="p">;</span>
+
+<span class="k">endmodule</span>
 </code></pre></div>
               
             </div>
@@ -169,5 +179,5 @@ docs/
 
 <!--
 MkDocs version : 1.1
-Build Date UTC : 2020-04-06 09:01:32
+Build Date UTC : 2020-04-06 09:12:52
 -->
