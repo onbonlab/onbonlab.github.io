@@ -1,8 +1,6 @@
 $(document).ready(function () {
     'use strict';
 
-    
-    
 
     //返回顶部
     window.onscroll = function () {
@@ -16,7 +14,7 @@ $(document).ready(function () {
         }
     }
 
-    //添加Isso评论
+    // comments
     var isDirIndex = location.pathname.endsWith("/index.html");
     var hr = document.getElementsByTagName("footer")[0].getElementsByTagName("hr")[0];
     hr.insertAdjacentHTML('beforebegin', '</hr><div id="gitalk-container"><h1>This is a gitalk container.</h1></div>');
@@ -33,18 +31,4 @@ $(document).ready(function () {
 
 	gitalk.render('gitalk-container')
 	
-	/*
-    var hs = document.createElement("script");
-    hs.type = "text/javascript";
-    hs.src = 'https://open.saintic.com/isso/docs/js/embed.min.js';
-    hs.dataset.isso = 'https://open.saintic.com/isso/docs';
-    hs.dataset.issoAvatar = 'false';
-    hs.dataset.issoGravatar = 'true';
-    hs.dataset.issoReplyNotifications = 'true';
-    hs.dataset.issoRequireAuthor = 'true';
-    if (isDirIndex === true) {
-        hs.dataset.issoId = location.pathname.split("index.html")[0];
-    }
-    document.getElementsByTagName('head')[0].appendChild(hs);
-	*/
 });
