@@ -23,7 +23,7 @@ $(document).ready(function () {
 	  clientID: '3baa3b16a3d577c43a23',
 	  clientSecret: '43510ababc849a377a047f733f6e5735b062835c',
 	  repo: 'onbonlab.github.io',
-	  owner: 'tataba',
+	  owner: 'onbonlab',
 	  admin: ['tataba'],
 	  id: location.pathname,      // Ensure uniqueness and length less than 50
 	  distractionFreeMode: false  // Facebook-like distraction free mode
