@@ -22,11 +22,11 @@ $(document).ready(function () {
     hr.insertAdjacentHTML('beforebegin', '</hr><div id="gitalk-container"><h1>This is a gitalk container.</h1></div>');
 	
 	const gitalk = new Gitalk({
-	  clientID: 'GitHub Application Client ID',
-	  clientSecret: 'GitHub Application Client Secret',
-	  repo: 'GitHub repo',
-	  owner: 'GitHub repo owner',
-	  admin: ['GitHub repo owner and collaborators, only these guys can initialize github issues'],
+	  clientID: '3baa3b16a3d577c43a23',
+	  clientSecret: '43510ababc849a377a047f733f6e5735b062835c',
+	  repo: 'onbonlab.github.io',
+	  owner: 'tataba',
+	  admin: ['tataba'],
 	  id: location.pathname,      // Ensure uniqueness and length less than 50
 	  distractionFreeMode: false  // Facebook-like distraction free mode
 	})
