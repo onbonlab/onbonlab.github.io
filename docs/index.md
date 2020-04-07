@@ -1,36 +1,37 @@
-# Welcome to BxDocs
+# BX控制器 开发指南
 
-Our website [www.onbonbx.com](www.onbonbx.com).
+这里是仰邦科技（www.onbonbx.com）二次开发的文档中心。
 
+这里包含所有BX异步控制器二次开发的相关资料。
 
-
-## This is from onbon
-
-```c
-void main(void) {
-	print("hello, world!");
-}
-```
+BX 异步LED控制器，主要包括全彩系列，单双色系列与字库系列三类。
 
 
 
-## This is a demo of verilogHDL
+| <img src="\img\y1a.png" />  | <img src="\img\6e1.png" />    | <img src="\img\6k1.png" /> |
+| --------------------------- | ----------------------------- | -------------------------- |
+| [全彩播放器系列](zh/y/y.md) | [单双色系列](zh/dual/dual.md) | [字库系列](zh/k/k.md)      |
+| BX-Y 系列                   | BX-5M/5E/BX-XW</br>BX-6M/6E等 | BX-5K/5MK</br>BX-6K等      |
 
-```verilog
-module hello(
-	wire clk;
-	wire rst_n;
-	wire in;
-	wire out;
-)
 
-input	wire clk;
-input	wire rst_n;
-input	wire in;
-output	wire out;
 
-assign out = in;
+----
 
-endmodule
-```
+
+
+## 联系我们
+
+您可以通过以下方式来获取我们的二次开发支持：
+
+
+
+**邮件支持:**
+
+ dev@onbonbx.com
+
+**电话支持:**
+
+0512-65988651
+
+0512-65988652
 

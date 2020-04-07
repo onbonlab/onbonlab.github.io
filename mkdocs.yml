@@ -1,11 +1,23 @@
 site_name: Onbon Docs
 
+
+
 nav:
-    - Home : 'index.md'
-    - About : 'about.md'
+    - 主页: index.md
+    - 全彩系列:
+        - Java: zh/dual/java/manual.md
+        - C: zh/dual/java/manual.md
+    - 单双色系列:
+        - JAVA: zh/dual/java/manual.md
+        - C: zh/dual/c/c.md
+    - 字库系列 : 'zh/k/k.md'
+    - 关于我们 : 'about.md'
     
 
-theme: readthedocs
+theme: 
+    name: readthedocs
+    highlightjs: true
+    navigation_depth: 4
 
 # repository addr
 repo_url: https://github.com/onbonlab/onbonlab.github.io.git
@@ -13,6 +25,14 @@ repo_url: https://github.com/onbonlab/onbonlab.github.io.git
 repo_name: 'GitHub'
 
 site_author: 'tataba'
+
+# 图标
+site_favicon: favicon.ico
+
+site_description: "This is the doc of onbon dev."
+
+# 版权
+copyright: "Copyright © 2020 onbon. All rights reserved. "
 
 
 
@@ -48,4 +68,8 @@ extra_javascript:
 extra_css:
   - 'css/my.css'
   - "https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"
+  
+extra:
+  search:
+    language: 'jp'
 
