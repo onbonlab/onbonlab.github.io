@@ -1,48 +1,66 @@
-# JAVA 开发包
-## 1. 开发前必读
-### 1.1 控制器型号选择
-本说明只适用于BX系列五代六代控制卡（不包括字库卡），例如：BX-5E1、BX-5M1、BX-6E1X等，其中BX-5E1、BX-5E2、BX-5E3支持动态区（4个），BX-6E1、BX-6E2、BX-6E1X、BX-6E2X、BX-6Q系列支持动态区（32个）。
-### 1.2 关于动态区
-根据存储介质的不同，我们将控制器上现实的内容分为两类：普通节目（数据存储在flash中）和动态区（数据存储在ram中）。普通节目可以包括各种区域：时间区、传感器区、图文区等。
+# JAVA SDK 使用说明
+## 1. 平台支持
 
-普通节目，会被存储在控制器的flash中，其内容掉电不丢失，但是因为flash存储器擦写寿命只有十万次，所以，其不能用于更新频率很高的场合，例如：停车场车位信息，外部传感器状态的实时更新，车次状态的实时更新等。
+JAVA SDK 在设计过程中，充分考虑了跨平台的需求。本 SDK 可以支持 windows/linux/android 操作系统，同时支持网络与串口通讯。而且在不同平台下，所有的操作都拥有统一的接口。
 
-动态区完全独立于普通节目，其内容可以按区域进行单独更新，它可以与普通节目一起播放，也可以单独播放，它最大的特点是内容存储在ram中，没有擦写次数限制，内容掉电不保存，通常用于信息更新频繁场合。
-### 1.3 准备工作
-在进行开发之前，请使用通用软件LedshowTW图文编辑软件对控制器进行相关配置，比如控制器IP地址（串口号）、屏幕参数、扫描方式等，在使用LedshowTW软件能发送普通节目到控制器兵能显示正常后，在进行二次开发。
+## 2. 获取 SDK
 
-## 2. 接口说明
-### 2.1 SDK初始化
+a. windows/linux demo: 
+
+https://doc.onbonbx.com/
+
+b. android demo: 
+
+https://doc.onbonbx.com/
+
+## 3. 使用说明
+
+对于五代和六代控制器，我们提供了不同的 JAR 包，而其接口定义遵循了相同的命名规则，五代控制器的接口通常命名为 Bx5Gxxxx, 而相对应的六代控制器通常命名为 Bx6Gxxx。而以下接口说明中，为了简便只提到了五代SDK的接口，而六代SDK的接口，可根据命名规则自行推断或查看SDK中附带的相应的 JAVADOC 文档。
+
+### 3.1 SDK初始化
+
+在使用 SDK 之前，必需先对整个 SDK 进行初始化。而初始化操作，在整个应用中只能进行一次（**注: 非常重要**)。如果反复调用 initial() 接口，会导致系统的 cpu load 变高。其调用方法如下：
+
+**五代控制器**
+
 ```java 
 // 五代控制器
 // 初始化SDK
 // 初始化有3种方法，如下
 Bx5GEnv.initial();
+// log.properties是日志配置文件
+Bx5GEnv.initial("log.properties"); 
+// 30000为通讯超时时间，单位是毫秒
+Bx6GEnv.initial("log.properties",30000);
+```
+**六代控制器**
 
-Bx5GEnv.initial("log.properties"); // log.properties是日志配置文件
-
-Bx6GEnv.initial("log.properties",30000);// 30000为通讯超时时间，单位是毫秒
-
+```java
 // 六代控制卡
 // 初始化SDK
 // 初始化有3种方法，如下
 Bx6GEnv.initial();
-
-Bx6GEnv.initial("log.properties");// log.properties是日志配置文件
-
-Bx6GEnv.initial("log.properties",30000);// 30000为通讯超时时间，单位是毫秒
+// log.properties是日志配置文件
+Bx6GEnv.initial("log.properties");
+// 30000为通讯超时时间，单位是毫秒
+Bx6GEnv.initial("log.properties",30000);
 ```
-### 2.2 Screen类
-与控制器的所有交互都需要通过Bx5GScreen类或其子类来进行，其子类包括：
-Bx5GScreenClient（客户端模式使用），Bx5GScreenRS（串口模式使用），Bx5GScreenServer（服务器模式使用）。
-创建screen对象的通常代码如下：
+### 3.2 Screen类
+
+要SDK中与控制器的所有交互都需要通过Bx5GScreen类或其子类来进行，其子类包括：
+Bx5GScreenClient（client模式使用），Bx5GScreenRS（串口模式使用），Bx5GScreenServer（server模式使用）。创建screen对象的通常代码如下：
+
+**五代控制器**
 ```java 
 // 五代控制器
 // 创建screen对象，用于对控制器进行访问，客户端模式
 Bx5GScreenClient screen = new Bx5GScreenClient("MyScreen");
 // 创建screen对象，用于对控制器进行访问，串口模式
 Bx5GScreenRS screen = new Bx5GScreenRS("MyScreen");
+```
+**六代控制器**
 
+```java
 // 六代控制器创建screen对象方法，以BX-6M系列为例
 // Bx6M 为控制卡型号，只有型号对应才能通讯正常，否则会出现逾时未回应
 // 如果使用的控制器型号在SDK中没有定义，则用Bx6M替代
@@ -51,12 +69,11 @@ Bx6GScreenClient screen = new Bx6GScreenClient("MyScreen",new Bx6M());
 // 创建screen对象，用于对控制器进行访问，串口模式
 Bx6GScreenRS screen = new Bx6GScreenRS("MyScreen",new Bx6M());
 ```
-### 2.3 屏幕连接
+### 3.3 屏幕连接
 在对控制器交互之前，需要先与控制器建立连接，代码如下：
 ```java
 // 连接控制器
 // 其中，192.168.100.199为控制器的实际IP地址，请根据实际情况填写
-// 如果不知道控制器IP地址，请先使用LedshowTW软件设置IP地址，软件下载地址：https://www.onbonbx.com/download/165.html
 // 端口号默认为5005
 // 五代控制器和六代控制器屏幕连接方法一样
 screen.connect("192.168.100.199",5005);
@@ -66,42 +83,92 @@ screen.connect("192.168.100.199",5005);
 // 断开与控制器之间的连接
 screen.disconnect();
 ```
-### 2.4 屏幕控制
-```java 
-// 以下为一些简单控制命令的使用方法
-// 开关机命令
-screen.turnOff();// 关机
-screen.turnOn();// 开机
-screen.syncTime();// 校时
-screen.ping();// ping命令
-// 查询控制器状态
-screen.checkControllerStatus();
-// 查询控制器当前固件版本
-screen.checkFirmware();
-// 查询控制器内存
-screen.checkMemVolumes();
+**注1：connect 与 disconnect 必需成对出现，通讯结束时一定要记得断开连接**
+
+**注2：如果不知道控制器IP地址，请先使用LedshowTW软件设置IP地址，软件下载地址：https://www.onbonbx.com/download/165.html**
+
+### 3.4 屏幕控制
+
+SDK 还提供了一些接口，用于对 屏幕进行一些常用操作。
+
+#### 3.4.1 开关机
+
+```java
+// 关机
+screen.turnOff();
+// 开机
+screen.turnOn();
+```
+
+#### 3.4.2 校正时钟
+
+控制器上的时钟不准确时，可以通过此命令对其进行校正。
+
+```java
+// 校时
+screen.syncTime();
+```
+
+#### 3.4.3 锁定屏幕
+
+```java
 // 锁定屏幕当前画面
 screen.lock();
 // 解除锁定屏幕当前画面
 screen.unlock();
+```
+
+屏幕锁定后，画面将被锁定不动。
+
+#### 3.4.4 锁定节目
+
+节目锁定后，控制器将仅播放当前锁定的节目，不再轮播其它节目。
+
+```java
+// 锁定指定节目
+screen.lockProgram(programId, lockDuration);
+// 解除节目锁定
+screen.unlockProgram(programId);
+```
+
+其中，
+
+programId - 节目的 id
+
+lockDuration - 锁定的时间长度，如果为0，则一直锁定
+
+#### 3.4.5 查询固件版本
+
+```java
+// 查询控制器当前固件版本
+screen.checkFirmware();
+```
+
+#### 3.4.6 获取控制器状态
+
+控制器状态中，包含连接在控制器上的传感器的值。如下所示：
+
+```java 
 // 通过以下接口回读控制器状态
-Bx5GScreen.Result<ReturnControllersStatus> result = screen.checkControllerStatua();
-if(result.isOK())
-{
+Bx5GScreen.Result<ReturnControllersStatus> result = screen.checkControllerStatus();
+if(result.isOK()){
     ReturnControllerStatus status = result.reply;
-    status.getBrightness();// 取得亮度值
-    status.getTemperature1();// 取得温度传感器温度值
+    // 取得亮度值
+    status.getBrightness();
+    // 取得温度传感器温度值
+    status.getTemperature1();
     // status还有很多接口，根据实际应用进行调用
+    ...
 }
-else
-{
+else{
     ErrorType error = result.getError();
     System.out.println(error);
 }
 ```
-### 2.5 节目与区域
+### 3.5 节目与区域
 节目主要用于组合屏幕上现实的内容，它由多个区域组成。控制器同一时间只能播放一个集美，它是控制器现实内容可以单独更新的最小单位。
 以下，我们将按步骤创建一个节目，并将其发送到控制器进行显示
+
 ```java
 // 创建节目文件
 // 第二个参数为显示屏属性，具体可以参照Bx5GScreenProfile类
