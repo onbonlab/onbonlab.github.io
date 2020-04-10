@@ -10,7 +10,7 @@
   
   <link rel="shortcut icon" href="../../../../favicon.ico">
   
-  <title>1.开发前必读 - Onbon Docs</title>
+  <title>JAVA - Onbon Docs</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../../../../css/theme.css" />
@@ -21,7 +21,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "1.\u5f00\u53d1\u524d\u5fc5\u8bfb";
+    var mkdocs_page_name = "JAVA";
     var mkdocs_page_input_path = "zh\\dual\\java\\manual.md";
     var mkdocs_page_url = null;
   </script>
@@ -54,16 +54,48 @@
                     <li class="toctree-l1"><a class="reference internal" href="../../../..">主页</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../../y/y/">全彩系列</a>
+                <p class="caption"><span class="caption-text">单双色系列</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../../dual/">开发指南</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">JAVA</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1">1. 开发前必读</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#11">1.1 控制器型号选择</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#12">1.2 关于动态区</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#13">1.3 准备工作</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2">2. 接口说明</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#21-sdk">2.1 SDK初始化</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#22-screen">2.2 Screen类</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#23">2.3 屏幕连接</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#24">2.4 屏幕控制</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#25">2.5 节目与区域</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#26">2.6 动态区</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#27-servergprs">2.7 Server模式（包含GPRS）</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../c/c/">C</a>
                     </li>
                 </ul>
+                <p class="caption"><span class="caption-text">常用工具</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../dual/">单双色系列</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../../k/k/">字库系列</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../tool/wireshark/">网络抓包</a>
                     </li>
                 </ul>
                 <ul>
@@ -90,8 +122,12 @@
     <li><a href="../../../..">Docs</a> &raquo;</li>
     
       
+        
+          <li>单双色系列 &raquo;</li>
+        
+      
     
-    <li>1.开发前必读</li>
+    <li>JAVA</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/onbonlab/onbonlab.github.io.git/edit/master/docs/zh/dual/java/manual.md"
@@ -105,21 +141,18 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="1">1.开发前必读<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
-<h2 id="11">1.1 控制器型号选择<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+                <h1 id="java">JAVA 开发包<a class="headerlink" href="#java" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 开发前必读<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 控制器型号选择<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
 <p>本说明只适用于BX系列五代六代控制卡（不包括字库卡），例如：BX-5E1、BX-5M1、BX-6E1X等，其中BX-5E1、BX-5E2、BX-5E3支持动态区（4个），BX-6E1、BX-6E2、BX-6E1X、BX-6E2X、BX-6Q系列支持动态区（32个）。</p>
-<h2 id="12">1.2 关于动态区<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<h3 id="12">1.2 关于动态区<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
 <p>根据存储介质的不同，我们将控制器上现实的内容分为两类：普通节目（数据存储在flash中）和动态区（数据存储在ram中）。普通节目可以包括各种区域：时间区、传感器区、图文区等。</p>
 <p>普通节目，会被存储在控制器的flash中，其内容掉电不丢失，但是因为flash存储器擦写寿命只有十万次，所以，其不能用于更新频率很高的场合，例如：停车场车位信息，外部传感器状态的实时更新，车次状态的实时更新等。</p>
 <p>动态区完全独立于普通节目，其内容可以按区域进行单独更新，它可以与普通节目一起播放，也可以单独播放，它最大的特点是内容存储在ram中，没有擦写次数限制，内容掉电不保存，通常用于信息更新频繁场合。</p>
-<h2 id="13">1.3 准备工作<a class="headerlink" href="#13" title="Permanent link">&para;</a></h2>
+<h3 id="13">1.3 准备工作<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
 <p>在进行开发之前，请使用通用软件LedshowTW图文编辑软件对控制器进行相关配置，比如控制器IP地址（串口号）、屏幕参数、扫描方式等，在使用LedshowTW软件能发送普通节目到控制器兵能显示正常后，在进行二次开发。</p>
-<h2 id="14">1.4 常见问题<a class="headerlink" href="#14" title="Permanent link">&para;</a></h2>
-<ul>
-<li>关于表格 控制器不支持Excel或其他表格，所以，需要将表格转换成图片添加到区域中</li>
-</ul>
-<h1 id="2">2. 接口说明<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
-<h2 id="21-sdk">2.1 SDK初始化<a class="headerlink" href="#21-sdk" title="Permanent link">&para;</a></h2>
+<h2 id="2">2. 接口说明<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21-sdk">2.1 SDK初始化<a class="headerlink" href="#21-sdk" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="c1">// 五代控制器</span>
 <span class="c1">// 初始化SDK</span>
 <span class="c1">// 初始化有3种方法，如下</span>
@@ -139,7 +172,7 @@
 <span class="n">Bx6GEnv</span><span class="p">.</span><span class="na">initial</span><span class="p">(</span><span class="s">&quot;log.properties&quot;</span><span class="p">,</span><span class="mi">30000</span><span class="p">);</span><span class="c1">// 30000为通讯超时时间，单位是毫秒</span>
 </code></pre></div>
 
-<h2 id="22-screen">2.2 Screen类<a class="headerlink" href="#22-screen" title="Permanent link">&para;</a></h2>
+<h3 id="22-screen">2.2 Screen类<a class="headerlink" href="#22-screen" title="Permanent link">&para;</a></h3>
 <p>与控制器的所有交互都需要通过Bx5GScreen类或其子类来进行，其子类包括：
 Bx5GScreenClient（客户端模式使用），Bx5GScreenRS（串口模式使用），Bx5GScreenServer（服务器模式使用）。
 创建screen对象的通常代码如下：
@@ -157,7 +190,7 @@ Bx5GScreenClient（客户端模式使用），Bx5GScreenRS（串口模式使用�
 <span class="c1">// 创建screen对象，用于对控制器进行访问，串口模式</span>
 <span class="n">Bx6GScreenRS</span> <span class="n">screen</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bx6GScreenRS</span><span class="p">(</span><span class="s">&quot;MyScreen&quot;</span><span class="p">,</span><span class="k">new</span> <span class="n">Bx6M</span><span class="p">());</span>
 </code></pre></div></p>
-<h2 id="23">2.3 屏幕连接<a class="headerlink" href="#23" title="Permanent link">&para;</a></h2>
+<h3 id="23">2.3 屏幕连接<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
 <p>在对控制器交互之前，需要先与控制器建立连接，代码如下：
 <div class="codehilite"><pre><span></span><code><span class="c1">// 连接控制器</span>
 <span class="c1">// 其中，192.168.100.199为控制器的实际IP地址，请根据实际情况填写</span>
@@ -170,7 +203,7 @@ Bx5GScreenClient（客户端模式使用），Bx5GScreenRS（串口模式使用�
 <div class="codehilite"><pre><span></span><code><span class="c1">// 断开与控制器之间的连接</span>
 <span class="n">screen</span><span class="p">.</span><span class="na">disconnect</span><span class="p">();</span>
 </code></pre></div></p>
-<h2 id="24">2.4 屏幕控制<a class="headerlink" href="#24" title="Permanent link">&para;</a></h2>
+<h3 id="24">2.4 屏幕控制<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><code><span class="c1">// 以下为一些简单控制命令的使用方法</span>
 <span class="c1">// 开关机命令</span>
 <span class="n">screen</span><span class="p">.</span><span class="na">turnOff</span><span class="p">();</span><span class="c1">// 关机</span>
@@ -203,7 +236,7 @@ Bx5GScreenClient（客户端模式使用），Bx5GScreenRS（串口模式使用�
 <span class="p">}</span>
 </code></pre></div>
 
-<h2 id="25">2.5 节目与区域<a class="headerlink" href="#25" title="Permanent link">&para;</a></h2>
+<h3 id="25">2.5 节目与区域<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
 <p>节目主要用于组合屏幕上现实的内容，它由多个区域组成。控制器同一时间只能播放一个集美，它是控制器现实内容可以单独更新的最小单位。
 以下，我们将按步骤创建一个节目，并将其发送到控制器进行显示
 <div class="codehilite"><pre><span></span><code><span class="c1">// 创建节目文件</span>
@@ -257,7 +290,7 @@ Bx5GScreenClient（客户端模式使用），Bx5GScreenRS（串口模式使用�
 <span class="n">screen</span><span class="p">.</span><span class="na">WriteProgram</span><span class="p">(</span><span class="n">p0</span><span class="p">);</span>
 <span class="c1">// 更新节目还有很多命令，请参考JAVADOC</span>
 </code></pre></div></p>
-<h2 id="26">2.6 动态区<a class="headerlink" href="#26" title="Permanent link">&para;</a></h2>
+<h3 id="26">2.6 动态区<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
 <p>动态区是一种比较特殊的区域，其有以下几个主要特点：
 * 更新次数没有限制
 * 内容掉电不保存
@@ -307,7 +340,7 @@ TextBxPage page = new TextBxPage(&quot;动态区abc&quot;);
 area.addPage(page);
 screen.writeDynamic(rule,area);
 </code></pre></div></p>
-<h2 id="27-servergprs">2.7 Server模式（包含GPRS）<a class="headerlink" href="#27-servergprs" title="Permanent link">&para;</a></h2>
+<h3 id="27-servergprs">2.7 Server模式（包含GPRS）<a class="headerlink" href="#27-servergprs" title="Permanent link">&para;</a></h3>
 <p>Server使用流程如下：
 * 初始化API（在一个进程内只需要初始化一次）
 * 建立服务器
@@ -355,6 +388,15 @@ screen.writeDynamic(rule,area);
           </div>
           <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../c/c/" class="btn btn-neutral float-right" title="C">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../dual/" class="btn btn-neutral" title="开发指南"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
 
   <hr/>
 
@@ -381,6 +423,10 @@ screen.writeDynamic(rule,area);
           <a href="https://github.com/onbonlab/onbonlab.github.io.git/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
+        <span><a href="../../dual/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../c/c/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
