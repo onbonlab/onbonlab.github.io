@@ -1,72 +1,11 @@
-# About us
+# 关于我们
 
-We are a team.
+仰邦科技（证券代码：833096）成立于2005年，总部位于中国著名的高科技产业集聚区——上海漕河泾经济技术开发区，下属苏州软件研发基地、深圳视频研发中心和昆山产业基地，是LED控制器领域首家新三板挂牌企业。
 
-This is a new item.
+仰邦科技致力于视频设备、LED控制器、iLEDCloud信息发布云平台三大业务，为LED显示屏应用领域提供完整的解决方案。
 
-* item 1
-* item 2
-* item 3
+我们可以为您提供 LED 显示相关的，从异步到同步，从单双色到全彩，从小屏到大屏的完整解决方案。
 
 
-
-This is a panda.
 
 ![panda](img\panda.png)
-
-
-
-This best team.
-
-
-
-**This is a table**
-
-| #    | Name  | Memo    |
-| ---- | ----- | ------- |
-| 1    | Hello | world   |
-| 2    | Tang  | Chao    |
-| 3    | Qing  | Dynasty |
-
-
-
-----
-
-**This is a code demo**
-
-```c
-void main(void) {
-	// This is a comment
-	printf("hello, world");
-}
-```
-
-
-
-------
-
-*This is a Math demo*
-
-
-$$
-y=\frac{1}{x+1}
-$$
-
-
-
-----
-
-
-
-Contact me:
-
-
-
-Wangyq@onbonbx.com
-
-
-
-Our website:
-
-www.onbonbx.com
-
