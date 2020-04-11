@@ -90,11 +90,19 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#35">3.5 节目与区域</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#26">2.6 动态区</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#27-servergprs">2.7 Server模式（包含GPRS）</a>
+    <li class="toctree-l3"><a class="reference internal" href="#36">3.6 动态区</a>
     </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-server">4. Server模式</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#41">4.1 模式简介</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#42-demo">4.2 Demo说明</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-android">5. Android平台</a>
     </li>
     </ul>
                     </li>
@@ -275,21 +283,34 @@ Bx5GScreenClient（client模式使用），Bx5GScreenRS（串口模式使用）�
 </code></pre></div>
 
 <h3 id="35">3.5 节目与区域<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
-<p>节目主要用于组合屏幕上现实的内容，它由多个区域组成。控制器同一时间只能播放一个集美，它是控制器现实内容可以单独更新的最小单位。
-以下，我们将按步骤创建一个节目，并将其发送到控制器进行显示</p>
+<p>节目主要用于组合屏幕上现实的内容，它由多个区域组成。控制器同一时间只能播放一个节目，它是控制器显示内容可以单独更新的最小单位（除动态区外）。
+以下，我们将按步骤创建一个节目，并将其发送到控制器进行显示。</p>
+<p>注：此处以五代控制器为例</p>
+<p><strong>步骤1：</strong></p>
+<p>创建节目文件，如下所示：</p>
 <p><div class="codehilite"><pre><span></span><code><span class="c1">// 创建节目文件</span>
 <span class="c1">// 第二个参数为显示屏属性，具体可以参照Bx5GScreenProfile类</span>
 <span class="n">Bx5GScreenProfile</span> <span class="n">profile</span> <span class="o">=</span> <span class="n">screen</span><span class="p">.</span><span class="na">getProfile</span><span class="p">();</span>
-<span class="n">ProgramBxFile</span> <span class="n">p0</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProgramBxFile</span><span class="p">(</span><span class="s">&quot;P000&quot;</span><span class="p">,</span><span class="n">profile</span><span class="p">);</span>
+<span class="n">ProgramBxFile</span> <span class="n">p0</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProgramBxFile</span><span class="p">(</span><span class="n">programId</span><span class="p">,</span> <span class="n">profile</span><span class="p">);</span>
 <span class="c1">// 关于节目类的其他接口可以参考ProgramBxFile类</span>
 </code></pre></div>
-控制器支持的区域有很多种，例如：图文区、时间区、传感器区等。其中，最常用的是图文区。图文区可以支持显示文本和图片，文字或图片可以按数据也依次添加到图文区中，每页数据均可以设置特技方式，停留时间等属性
-创建图文区的步骤大致如下：
-创建TextCaptionBxArea对象
-创建TextBxPage或ImageFileBxPage对象
-将创建好的page对象添加到TextCaptionBxArea中
-如下代码，创建一个文本区，并向这个区域中添加一个文本页
-<div class="codehilite"><pre><span></span><code><span class="c1">// 创建一个图文区</span>
+其中，programId 为节目的 id，每个节目文件都有一个唯一的id。更新节目时，id 相同的节目会被覆盖。而锁定节目时，也可以使用此 id 来锁定相应的节目。</p>
+<p><strong>步骤2：</strong></p>
+<p>创建相关区域，并将相关区域添加到节目文件中。</p>
+<p>控制器支持的区域有很多种，例如：图文区、时间区、表盘区和传感器区等。其中，最常用的是图文区。图文区可以用于显示文本和图片。文字或图片可以按顺序依次添加到图文区中，而每页数据均可以设置特技方式，停留时间等属性。而创建一个图文区的步骤大致如下：</p>
+<ul>
+<li>
+<p>创建TextCaptionBxArea对象</p>
+</li>
+<li>
+<p>创建TextBxPage或ImageFileBxPage对象</p>
+</li>
+<li>
+<p>将创建好的page对象添加到TextCaptionBxArea中</p>
+</li>
+</ul>
+<p>下例代码，创建一个文本区，并向这个区域中添加一个文本页</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 创建一个图文区</span>
 <span class="c1">// 参数为X、Y、width、heigth</span>
 <span class="c1">// 注意区域左边和宽度高度，不要越界</span>
 <span class="n">TextCaptionBxArea</span> <span class="n">area</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextCaptionBxArea</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="mi">64</span><span class="p">);</span>
@@ -300,12 +321,20 @@ Bx5GScreenClient（client模式使用），Bx5GScreenRS（串口模式使用）�
 <span class="c1">// 将图文区添加到节目中</span>
 <span class="n">p0</span><span class="p">.</span><span class="na">addArea</span><span class="p">(</span><span class="n">area</span><span class="p">);</span>
 </code></pre></div>
-关于时间区
-时间区的创建过程大致如下：
-创建DateTimeBxArea对象
-设置各时间单元显示格式
-将DateTimeBxArea添加到节目中
-<div class="codehilite"><pre><span></span><code><span class="c1">// 下面代码创建了一个时间区</span>
+时间区也是比较常用的区域，而时间区的创建过程大致如下：</p>
+<ul>
+<li>
+<p>创建DateTimeBxArea对象</p>
+</li>
+<li>
+<p>设置各时间单元显示格式</p>
+</li>
+<li>
+<p>将DateTimeBxArea添加到节目中</p>
+</li>
+</ul>
+<p>具体代码如下：</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 下面代码创建了一个时间区</span>
 <span class="c1">// 注意：只需输入时间区的起始坐标，区域的宽度和高度SDK会根据字体和显示方式自动计算</span>
 <span class="n">DateTimeBxArea</span> <span class="n">dtArea</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DateTimeBxArea</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">screen</span><span class="p">.</span><span class="na">getProfile</span><span class="p">());</span>
 <span class="c1">// 设置字体</span>
@@ -323,104 +352,154 @@ Bx5GScreenClient（client模式使用），Bx5GScreenRS（串口模式使用）�
 <span class="n">p0</span><span class="p">.</span><span class="na">addArea</span><span class="p">(</span><span class="n">dtArea</span><span class="p">);</span>
 <span class="c1">// 关于DateTimeBxArea类的更多接口，请参考JAVADOC中相关类的说明</span>
 </code></pre></div>
-更新节目
+<strong>步骤3：</strong></p>
+<p>发送更新节目</p>
+<p>节目文件创建好后，即可将节目发送到控制器以进行显示。其代码如下所示：</p>
 <div class="codehilite"><pre><span></span><code><span class="c1">// 以下为更新节目命令</span>
 <span class="n">screen</span><span class="p">.</span><span class="na">WriteProgram</span><span class="p">(</span><span class="n">p0</span><span class="p">);</span>
 <span class="c1">// 更新节目还有很多命令，请参考JAVADOC</span>
-</code></pre></div></p>
-<h3 id="26">2.6 动态区<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
-<p>动态区是一种比较特殊的区域，其有以下几个主要特点：
-* 更新次数没有限制
-* 内容掉电不保存
-* 独立于节目进行编辑
-* 可以支持多个区域，且每个区域可以进行单独更新
-* 可以和单个活多个节目绑定显示，即作为节目的一个区域进行显示
-* 可以作为单独一个节目进行独立播放
-* 灵活的控制方式：超时时间控制、是否立即显示灯</p>
-<p>以下为动态区代码
-<div class="codehilite"><pre><span></span><code>// 五代控制器动态区（BX-5E系列）
-// BX-5E系列控制卡最高支持4个动态区，当屏幕上需要同时显示多个动态区时，动态区ID不可以相同
-// DynamicBxRule(id,runMode,immediatePlay,timeout);
-// runMode 运行模式
-// 0:循环显示
-// 1:显示完成后静止显示最后一页数据
-// 2:循环显示，超过设定时间后数据仍未更新时不显示
-// 3:循环显示，超过设定时间后数据仍未更新时显示Logo信息
-// 4:循环显示，显示完最后一页后不再显示
-// immediatePlay
-// 0:与异步节目一起播放
-// 1:异步节目停止播放，仅播放动态区
-// 2:当播放完节目编号最高的异步节目后播放该动态区
-DynamicBxAreaRule rule = new DynamicBxRule(0,(byte)0,(byte)1,0);
-TextCaptionBxArea darea = new TextCaptionBxArea(0,0,160,64,screen.getProfile());
-TextBxPage dapge = new TextBxPage(&quot;动态区123abc&quot;);
-darea.addPage(dpage);
-screen.writeDynamic(rule,darea);
+</code></pre></div>
 
-// 六代控制器动态区
-DynamicBxAreaRule rule = new DynamicBxAreaRule();
-// 设定动态区ID，此处ID为0，多个动态区ID不能相同
-rule.setId(0);
-// 设定异步节目停止播放，仅播放动态区
-// 0:动态区与异步节目一起播放
-// 1:异步节目停止播放，仅播放动态区
-// 2:当播放完节目编号最高的异步节目后播放该动态区
-rule.setImmediatePlay((byte)1);
-// 设定动态区循环播放
-// 0:循环播放
-// 1:显示完成后静置显示最后一页数据
-// 2:循环显示，超过设定时间后仍未更新时不再显示
-// 3:循环显示，超过设定时间后仍未更新时显示Logo信息
-// 4:显示完成最后一页后就不再显示
-rule.setRunMode((byte)0);
-DynamicBxArea area = new DynamicBxArea(0,0,160,32,screen.getProfile());
-TextBxPage page = new TextBxPage(&quot;动态区abc&quot;);
-area.addPage(page);
-screen.writeDynamic(rule,area);
-</code></pre></div></p>
-<h3 id="27-servergprs">2.7 Server模式（包含GPRS）<a class="headerlink" href="#27-servergprs" title="Permanent link">&para;</a></h3>
-<p>Server使用流程如下：
-* 初始化API（在一个进程内只需要初始化一次）
-* 建立服务器
-* 设定监听等待屏幕的连线与断线事件
-* 关闭服务器</p>
-<p>主要代码如下：
-<div class="codehilite"><pre><span></span><code><span class="n">Bx5GEnv</span><span class="p">.</span><span class="na">initial</span><span class="p">();</span> <span class="c1">//初始化</span>
-<span class="c1">// 建立服务器</span>
+<h3 id="36">3.6 动态区<a class="headerlink" href="#36" title="Permanent link">&para;</a></h3>
+<p>动态区是一种比较特殊的区域（<a href="/zh/dual/dual/#11">关于动态区</a>），其有以下几个主要特点：</p>
+<ul>
+<li>刷新次数没有限制</li>
+<li>内容掉电不保存</li>
+<li>独立于节目进行编辑</li>
+<li>
+<p>可以支持多个区域，且每个区域可以进行单独更新</p>
+</li>
+<li>
+<p>可以和单个活多个节目绑定显示，即作为节目的一个区域进行显示</p>
+</li>
+<li>可以作为单独一个节目进行独立播放</li>
+<li>灵活的控制方式：超时时间控制、是否立即显示灯</li>
+</ul>
+<p>以下代码创建了一个动态区，将将其更新到控制器上显示。</p>
+<p>五代控制器</p>
+<p><div class="codehilite"><pre><span></span><code><span class="c1">// 五代控制器动态区（BX-5E系列）</span>
+<span class="c1">// BX-5E系列控制卡最高支持4个动态区，当屏幕上需要同时显示多个动态区时，动态区ID不可以相同</span>
+<span class="c1">// DynamicBxRule(id,runMode,immediatePlay,timeout);</span>
+<span class="c1">// runMode 运行模式</span>
+<span class="c1">// 0:循环显示</span>
+<span class="c1">// 1:显示完成后静止显示最后一页数据</span>
+<span class="c1">// 2:循环显示，超过设定时间后数据仍未更新时不显示</span>
+<span class="c1">// 3:循环显示，超过设定时间后数据仍未更新时显示Logo信息</span>
+<span class="c1">// 4:循环显示，显示完最后一页后不再显示</span>
+<span class="c1">// immediatePlay</span>
+<span class="c1">// 0:与异步节目一起播放</span>
+<span class="c1">// 1:异步节目停止播放，仅播放动态区</span>
+<span class="c1">// 2:当播放完节目编号最高的异步节目后播放该动态区</span>
+<span class="n">DynamicBxAreaRule</span> <span class="n">rule</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DynamicBxRule</span><span class="p">(</span><span class="mi">0</span><span class="p">,(</span><span class="kt">byte</span><span class="p">)</span><span class="mi">0</span><span class="p">,(</span><span class="kt">byte</span><span class="p">)</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">TextCaptionBxArea</span> <span class="n">darea</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextCaptionBxArea</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="n">screen</span><span class="p">.</span><span class="na">getProfile</span><span class="p">());</span>
+<span class="n">TextBxPage</span> <span class="n">dapge</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextBxPage</span><span class="p">(</span><span class="s">&quot;动态区123abc&quot;</span><span class="p">);</span>
+<span class="n">darea</span><span class="p">.</span><span class="na">addPage</span><span class="p">(</span><span class="n">dpage</span><span class="p">);</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">writeDynamic</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span><span class="n">darea</span><span class="p">);</span>
+</code></pre></div>
+六代控制器</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">// 六代控制器动态区</span>
+<span class="n">DynamicBxAreaRule</span> <span class="n">rule</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DynamicBxAreaRule</span><span class="p">();</span>
+
+<span class="c1">// 设定动态区ID，此处ID为0，多个动态区ID不能相同</span>
+<span class="n">rule</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="c1">// 设定异步节目停止播放，仅播放动态区</span>
+<span class="c1">// 0:动态区与异步节目一起播放</span>
+<span class="c1">// 1:异步节目停止播放，仅播放动态区</span>
+<span class="c1">// 2:当播放完节目编号最高的异步节目后播放该动态区</span>
+<span class="n">rule</span><span class="p">.</span><span class="na">setImmediatePlay</span><span class="p">((</span><span class="kt">byte</span><span class="p">)</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// 设定动态区循环播放</span>
+<span class="c1">// 0:循环播放</span>
+<span class="c1">// 1:显示完成后静置显示最后一页数据</span>
+<span class="c1">// 2:循环显示，超过设定时间后仍未更新时不再显示</span>
+<span class="c1">// 3:循环显示，超过设定时间后仍未更新时显示Logo信息</span>
+<span class="c1">// 4:显示完成最后一页后就不再显示</span>
+<span class="n">rule</span><span class="p">.</span><span class="na">setRunMode</span><span class="p">((</span><span class="kt">byte</span><span class="p">)</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">DynamicBxArea</span> <span class="n">area</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DynamicBxArea</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="n">screen</span><span class="p">.</span><span class="na">getProfile</span><span class="p">());</span>
+<span class="n">TextBxPage</span> <span class="n">page</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextBxPage</span><span class="p">(</span><span class="s">&quot;动态区abc&quot;</span><span class="p">);</span>
+<span class="n">area</span><span class="p">.</span><span class="na">addPage</span><span class="p">(</span><span class="n">page</span><span class="p">);</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">writeDynamic</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span><span class="n">area</span><span class="p">);</span>
+</code></pre></div>
+
+<p><strong>注意：对于单双色控制器，区域之间不能出现重叠。</strong></p>
+<h2 id="4-server">4. Server模式<a class="headerlink" href="#4-server" title="Permanent link">&para;</a></h2>
+<p>Server模式通常应用于广域网或者 GPRS/3G/4G 无线通讯的场合。在SDK中，Bx5GServer/Bx6GServer 对 server进行封装。它实现了控制器与 server 之间的链接维护，心跳解析，上下线提醒等功能。您可以像client模式一样，对广域网上的屏幕进行控制。</p>
+<h3 id="41">4.1 模式简介<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>Server的使用流程通常如下：</p>
+<ul>
+<li>初始化API（在一个进程内只需要初始化一次）</li>
+<li>建立并启动 Server</li>
+<li>设定监听等待屏幕的连线与断线事件</li>
+<li>获取在线屏幕</li>
+<li>通过相应的 screen 对象对控制器进行相应的操作</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="c1">// 初始化 SDK</span>
+<span class="n">Bx5GEnv</span><span class="p">.</span><span class="na">initial</span><span class="p">();</span> 
+<span class="c1">// 建立并启动服务器</span>
+<span class="c1">// 此端口号为server进行监听的端口号</span>
+<span class="c1">// 其必需与控制器参数中设置的 server port 一致</span>
 <span class="n">Bx5GServer</span> <span class="n">server</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bx5GServer</span><span class="p">(</span><span class="s">&quot;Hello Screen&quot;</span><span class="p">,</span> <span class="mi">8036</span><span class="p">);</span>
 <span class="c1">// 添加监听</span>
 <span class="n">server</span><span class="p">.</span><span class="na">addListener</span><span class="p">(</span><span class="k">new</span> <span class="n">ConnectionListener</span><span class="p">());</span>
 <span class="c1">// 启动服务器</span>
 <span class="n">server</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;waiting 30 secs&quot;</span><span class="p">);</span>
-<span class="n">Thread</span><span class="p">.</span><span class="na">sleep</span><span class="p">(</span><span class="mi">30000</span><span class="p">);</span>
-<span class="c1">// 更新节目或者动态区</span>
-<span class="c1">//</span>
-<span class="c1">//</span>
-<span class="c1">//</span>
 
-
-<span class="c1">// 关闭服务器</span>
-<span class="n">server</span><span class="p">.</span><span class="na">stop</span><span class="p">();</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;done!&quot;</span><span class="p">);</span>
+<span class="c1">// </span>
+<span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//</span>
+    <span class="c1">// 获取在线的控制器列表</span>
+    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Bx5GScreen</span><span class="o">&gt;</span> <span class="n">screens</span> <span class="o">=</span> <span class="p">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Bx5GScreen</span><span class="o">&gt;</span><span class="p">)</span> <span class="n">server</span><span class="p">.</span><span class="na">getOnlineScreens</span><span class="p">();</span>
+    <span class="c1">// 对相应的控制器进行操作</span>
+    <span class="p">......</span>
+<span class="p">}</span>
 
 <span class="c1">// 监听</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConnectionListener</span> <span class="kd">implements</span> <span class="n">Bx5GServerListener</span> <span class="p">{</span>
-<span class="nd">@Override</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">connected</span><span class="p">(</span><span class="n">String</span> <span class="n">socketId</span><span class="p">,</span> <span class="n">String</span> <span class="n">controllerAddr</span><span class="p">,</span>
-<span class="n">Bx5GScreen</span> <span class="n">screen</span><span class="p">)</span> <span class="p">{</span>
-<span class="n">Result</span><span class="o">&lt;</span><span class="n">ReturnPingStatus</span><span class="o">&gt;</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">screen</span><span class="p">.</span><span class="na">ping</span><span class="p">();</span>
-<span class="n">Result</span><span class="o">&lt;</span><span class="n">ReturnControllerStatus</span><span class="o">&gt;</span> <span class="n">result2</span> <span class="o">=</span>
-<span class="n">screen</span><span class="p">.</span><span class="na">checkControllerStatus</span><span class="p">();</span>
-<span class="p">...</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">connected</span><span class="p">(</span><span class="n">String</span> <span class="n">socketId</span><span class="p">,</span> <span class="n">String</span> <span class="n">controllerAddr</span><span class="p">,</span> <span class="n">Bx5GScreen</span> <span class="n">screen</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 控制器上线后，会触发此事件</span>
+        <span class="n">Result</span><span class="o">&lt;</span><span class="n">ReturnPingStatus</span><span class="o">&gt;</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">screen</span><span class="p">.</span><span class="na">ping</span><span class="p">();</span>
+        <span class="n">Result</span><span class="o">&lt;</span><span class="n">ReturnControllerStatus</span><span class="o">&gt;</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">screen</span><span class="p">.</span><span class="na">checkControllerStatus</span><span class="p">();</span>
+        <span class="p">......</span>
+    <span class="p">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">disconnected</span><span class="p">(</span><span class="n">String</span> <span class="n">socketId</span><span class="p">,</span> <span class="n">String</span> <span class="n">controllerAddr</span><span class="p">,</span> <span class="n">Bx5GScreen</span> <span class="n">screen</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 控制器下线后，会触发此事件</span>
+        <span class="p">......</span>
+    <span class="p">}</span>
 <span class="p">}</span>
-<span class="nd">@Override</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">disconnected</span><span class="p">(</span><span class="n">String</span> <span class="n">socketId</span><span class="p">,</span> <span class="n">String</span> <span class="n">controllerAddr</span><span class="p">,</span>
-<span class="n">Bx5GScreen</span> <span class="n">screen</span><span class="p">)</span> <span class="p">{</span>
-<span class="p">...</span>
-<span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
+
+<h3 id="42-demo">4.2 Demo说明<a class="headerlink" href="#42-demo" title="Permanent link">&para;</a></h3>
+<p>您可以从以下链接获取相应的 demo：</p>
+<p><a href="https://github.com/onbonlab/bx.dual.java.server.git">https://github.com/onbonlab/bx.dual.java.server.git</a></p>
+<p>此项目主要用于测试仰邦五代和六代网口控制器的服务器模式。其工作方式如下：</p>
+<ol>
+<li>
+<p>服务端启动后，开始等待控制器上线</p>
+</li>
+<li>
+<p>每隔5秒，检查一下在线控制器</p>
+</li>
+<li>依次发送节目至在线的控制器</li>
+<li>如果控制器支持动态区，则更新动态区</li>
+</ol>
+<p>其主要包含以下一个类：</p>
+<ul>
+<li>Bx5GTestbench: 五代控制器的测试平台</li>
+</ul>
+<p>调用方式如下：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">//</span>
+<span class="c1">// 获取 testbench 实例</span>
+<span class="n">Bx5GTestbench</span> <span class="n">g5tb</span> <span class="o">=</span> <span class="n">Bx5GTestbench</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
+
+<span class="c1">//</span>
+<span class="c1">// run</span>
+<span class="n">g5tb</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="mi">8001</span><span class="p">);</span>
+</code></pre></div>
+
+<h2 id="5-android">5. Android平台<a class="headerlink" href="#5-android" title="Permanent link">&para;</a></h2>
               
             </div>
           </div>
