@@ -5,9 +5,9 @@ JAVA SDK 在设计过程中，充分考虑了跨平台的需求。本 SDK 可以
 
 ## 2. 获取 SDK
 
-a. windows/linux demo: 
+a. windows/linux sdk demo: 
 
-https://doc.onbonbx.com/
+https://github.com/onbonlab/bx.dual.java.git
 
 b. android demo: 
 
@@ -73,7 +73,12 @@ Bx6GScreenClient screen = new Bx6GScreenClient("MyScreen",new Bx6M());
 // 创建screen对象，用于对控制器进行访问，串口模式
 Bx6GScreenRS screen = new Bx6GScreenRS("MyScreen",new Bx6M());
 ```
+注意：
+
+在六代 SDK 中创建Screen对象时，需要传入相应的控制器型号，例如：new Bx6Q(), new Bx6M() 等，如果 SDK 中未定义可使用 new Bx6M()。
+
 ### 3.3 屏幕连接
+
 在对控制器交互之前，需要先与控制器建立连接，代码如下：
 ```java
 // 连接控制器
@@ -214,6 +219,8 @@ area.addPage(page);
 // 将图文区添加到节目中
 p0.addArea(area);
 ```
+***注意：创建 TextBxPage() 时，不允许为空或空格，否则可能出现屏幕显示异常。***
+
 时间区也是比较常用的区域，而时间区的创建过程大致如下：
 
 * 创建DateTimeBxArea对象
@@ -545,63 +552,34 @@ new Thread(new Runnable() {
 
 您可以通过如下链接获取 ANDROID SDK 与 DEMO:
 
-b. android demo: 
+a. android demo: 
 
 https://github.com/onbonlab/bx.dual.android.git
 
-c. android 串口通讯 sdk 与 demo:
+b. android 串口通讯 sdk 与 demo:
 
 https://github.com/onbonlab/bx.dual.android.serial.git
 
 ## 6. 常见问题
 
- 1. 逾时未回应问题
- 逾时未回应一般是使用的控制卡型号和代码里设置的不一致导致，比如使用的控制卡型号是BX-6E1，在创建Screen对象时候，写的是new Bx6M(),就会导致该问题，SDK提供的型号有:new Bx6Q()/new Bx6M()/newBx6E(),如果使用的控制卡型号，SDK中没有提供，比如BX-6A1，可以使用new Bx6M()替代。创建Screen对象代码如下：
+### 6.1 中文字体显示异常
+
+如果您发现将中文字符发送到屏幕上不显示，或者显示为方块，此时通常是由于您选择的字体不支持中文，或者选择的字体在操作系统中没有安装。此时，选择支持中文的字体或在操作系统中安装相应字体即可解决。
+
+### 6.2 文本对齐方式设置
+
+SDK 提供了一些文本对齐方式的设置，接口如下：
+
 ```java
-Bx6GScreenClient screen = new Bx6GScreenClient("MyScreen",new Bx6E());
-```
- 2. 连接失败问题
- 连接失败时候，可以检查通讯情况，在命令行ping控制卡的IP地址，使用LedshowTW软件和控制卡通讯测试，或者频繁更新节目也会导致连接失败。
- 3. 表格显示问题
- SDK中不支持直接添加表格显示，需要把表格画成图片，添加到区域中进行显示，图片包括单元格和单元格里的内容，如果，某个单元格中内容有更新，则重新生成图片，替换原来图片显示。
- 4. 控制卡固件版本查询
- 控制卡的固件版本更新可以通过LedshowTW软来更新，设置--控制器程序维护--密码888-查询。在该界面也可以更新固件版本。通过代码查询，查询代码如下：
-```java 
-screen.checkFirmware();
-```
- 5. 动态区关联（绑定）节目
- 动态区完全独立于节目更新，但是可以和节目绑定，绑定后动态区可以和节目一起显示，绑定节目代码如下：
-```java 
-DynamicBxAreaRule rule = new DynamicBxAreaRule();
-rule.setId(0);
-rule.setRunMode((byte)0);
-// 新增动态区关联异步节目，一旦关联了节目，则动态区和节目一起播放
-// 设定动态区关联节目
-// true 所有异步节目播放时都播放该动态区
-// false 由规则决定
-rule.setRelativeAllProgram(false);
-// 规则
-// 设置动态区和节目0绑定
-rule.addRelativeProgram(0);
-```
- 6. 什么时候用动态区，什么时候用节目
- 动态区指的是频繁更新的区域，不是滚动效果，比如停车场车位信息，停车场车牌信息，传感器状态实时展示，车次状态实时更新等，需要使用动态区，节目一般用在一些欢迎标语等很少更新或不更新场合。
- 7. 汉字显示方块问题
- 该问题常见于Linux系统，首先需要确认的是linux系统中是否安装了中文字体，一般情况安装中文字体后即可解决，SDK中设置字体代码如下：
-```java 
-page.setFont(new Font("宋体",Font.PLAIN,12));
-```
- 8. 对齐方式设置问题
- SDK提供了一些对齐方式的设置，如果SDK中提过的对齐方式设置不能满足需求，可以把要显示的内容画成图片，在图片上排版，然后添加到区域中进行显示，SDK中对齐方式设置代码如下：
-```java
-// 水平对齐方式设置
+// 水平方向
 // 设置居左对齐
 page.setHorizontalAlignment(TextBinary.Alignment.NEAR);
 // 设置居中对齐
 page.setHorizontalAlignment(TextBinary.Alignment.CENTER);
 // 设置居右对齐
 page.setHorizontalAlignment(TextBinary.Alignment.FAR);
-// 设置垂直对齐方式
+
+// 垂直方向
 // 设置居上对齐
 page.setVerticalAlignment(TextBinary.Alignmet.NEAR);
 // 设置居中对齐
@@ -609,39 +587,52 @@ page.setVerticalAlignment(TextBinary.Alignmet.CENTER);
 // 设置居下对齐
 page.setVerticalAlignment(TextBinary.Alignmet.FAR);
 ```
- 9. 天气显示问题
- SDK中没有提供天气显示相关接口，可以自行获取天气信息数据，排版后添加到动态区来实时更新显示
- 10. 服务器模式在监听里写数据和在监听外写数据的区别
 
- 11. 手动换行显示
- 换行显示有2种方式，第一是通过换行符来换行，第二是通过SDK中的接口换行，换行代码如下：
+### 6.3 节目发送成功却不显示
+
+如果发送节目时，返回成功，但是屏上却不显示。此时，最大的可能性是区域越界造成的。例如：一个屏幕的宽度为 128， 高度为32。而一个区域如果其 (x,y) 为 (0,0), 宽高为 (192, 32)，则此区域即超过了屏幕参数的大小，此时节目发送成功后，不会被显示出来。
+
+调试过程中，可以通过如下方式获取屏幕的参数信息。
+
+```java
+// 获取屏幕的一些基本信息
+Bx5GScreenProfile profile = screen.getProfile();
+// 获取屏幕宽度
+profile.getWidth();
+// 获取屏幕高度
+profile.getHeight();
 ```
+
+如果使用的是节目，则在添加完区域后，可以通过 validate() 接口进行检查，如下所示：
+
+```java
+// pf 为ProgramBxFile 对象
+// 如果返回值不库null，说明有些区域参数越界, 而返回的即存在参数越界的BxArea对象
+if(pf.validate()!=null){
+    System.out.println("pf out of range");
+    return;
+}
+```
+
+### 6.4 如何显示表格
+
+由于表格的编排非常复杂，因此，SDK没有集成表格功能。如果您想在屏幕上显示表格，则可以先将表格绘制成图片，然后再使用SDK的图片接口，将图片发送至屏幕。
+
+而将绘制文字和表格，可以使用 Graphics2D 相关类。
+
+### 6.5 如果升级固件
+
+控制器的固件可以通过LedshowTW软来更新。可以在 “设置 -> 控制器程序维护” (密码: 888) 页面下操作。
+
+### 6.6 如何实现文本换行
+
+控制文本换行显示有2种方法，一种是通过换行符来强制换行，另一种是通过SDK中的接口来实现换行。代码如下所示：
+
+```java
 // 通过换行符换行
 TextBxPage page = new TextBxPage("第一行\r\n第二行");
 // 通过接口换行
 TextBxPage page = new TextBxPage("第一行");
 page.newLine("第二行");
 ```
- 12. 区域越界问题
- 区域越界指的是区域超出屏幕范围，一般情况下，最右边的区域X+区域宽度大于LED屏宽度，或者最下面区域Y+区域高度大于LED屏高度即为区域越界，如果程序中有判断是否越界，在越界的时候程序会报out of range，如果程序中没有判断是否越界，则有可能导致LED屏显示异常，判断是否越界代码如下：
-```java 
-if(pf.validate()!=null){
-    System.out.println("pf out of range");
-    return;
-}
-```
- 13. 连接问题
- 控制卡用的短连接方式通讯，所以，在发送完数据后，需要断开与控制卡的连接，再次发送数据时候，重新连接控制卡，大概步骤如下：
-```java 
-// 创建连接
-screen.connect();
-// 发送数据
-......
-// 断开连接
-screen.disconnect();
-```
- 14. 其他一些显示异常问题
- 显示异常，一般是更新数据相关，可以自行检查program/area/page等对象创建是否有问题，这些对象不可以为空，也不可以是空格，如果需要显示黑屏，可以使用黑色图片。
-
-
 

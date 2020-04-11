@@ -7,7 +7,7 @@ nav:
     - 单双色系列:
         - 开发指南: zh/dual/dual.md
         - JAVA: zh/dual/java/java.md
-        - C: zh/dual/c/c.md
+        - C/C++: zh/dual/c/c.md
     - 常用工具:
         - 网络抓包: zh/tool/wireshark.md
     - 关于我们 : 'about.md'
