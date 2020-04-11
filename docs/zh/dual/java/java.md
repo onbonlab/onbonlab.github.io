@@ -636,3 +636,10 @@ TextBxPage page = new TextBxPage("第一行");
 page.newLine("第二行");
 ```
 
+### 6.7 CPU LOAD 过高
+
+使用 SDK 过程中，如果发现 CPU LOAD 过高，通常可能是以下原因造成：
+
+* 多次调用 Bx6GEnv.initial()/Bx5GEnv.initial() 接口
+* screen.connect() 后没有调用相应 screen.disconnect()，从而造成 screen 对象一直未释放
+
