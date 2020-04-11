@@ -166,22 +166,38 @@ else{
 }
 ```
 ### 3.5 节目与区域
-节目主要用于组合屏幕上现实的内容，它由多个区域组成。控制器同一时间只能播放一个集美，它是控制器现实内容可以单独更新的最小单位。
-以下，我们将按步骤创建一个节目，并将其发送到控制器进行显示
+节目主要用于组合屏幕上现实的内容，它由多个区域组成。控制器同一时间只能播放一个节目，它是控制器显示内容可以单独更新的最小单位（除动态区外）。
+以下，我们将按步骤创建一个节目，并将其发送到控制器进行显示。
+
+注：此处以五代控制器为例
+
+**步骤1：**
+
+创建节目文件，如下所示：
 
 ```java
 // 创建节目文件
 // 第二个参数为显示屏属性，具体可以参照Bx5GScreenProfile类
 Bx5GScreenProfile profile = screen.getProfile();
-ProgramBxFile p0 = new ProgramBxFile("P000",profile);
+ProgramBxFile p0 = new ProgramBxFile(programId, profile);
 // 关于节目类的其他接口可以参考ProgramBxFile类
 ```
-控制器支持的区域有很多种，例如：图文区、时间区、传感器区等。其中，最常用的是图文区。图文区可以支持显示文本和图片，文字或图片可以按数据也依次添加到图文区中，每页数据均可以设置特技方式，停留时间等属性
-创建图文区的步骤大致如下：
-创建TextCaptionBxArea对象
-创建TextBxPage或ImageFileBxPage对象
-将创建好的page对象添加到TextCaptionBxArea中
-如下代码，创建一个文本区，并向这个区域中添加一个文本页
+其中，programId 为节目的 id，每个节目文件都有一个唯一的id。更新节目时，id 相同的节目会被覆盖。而锁定节目时，也可以使用此 id 来锁定相应的节目。
+
+**步骤2：**
+
+创建相关区域，并将相关区域添加到节目文件中。
+
+控制器支持的区域有很多种，例如：图文区、时间区、表盘区和传感器区等。其中，最常用的是图文区。图文区可以用于显示文本和图片。文字或图片可以按顺序依次添加到图文区中，而每页数据均可以设置特技方式，停留时间等属性。而创建一个图文区的步骤大致如下：
+
+* 创建TextCaptionBxArea对象
+
+* 创建TextBxPage或ImageFileBxPage对象
+
+* 将创建好的page对象添加到TextCaptionBxArea中
+
+  下例代码，创建一个文本区，并向这个区域中添加一个文本页
+
 ```java 
 // 创建一个图文区
 // 参数为X、Y、width、heigth
@@ -194,11 +210,16 @@ area.addPage(page);
 // 将图文区添加到节目中
 p0.addArea(area);
 ```
-关于时间区
-时间区的创建过程大致如下：
-创建DateTimeBxArea对象
-设置各时间单元显示格式
-将DateTimeBxArea添加到节目中
+时间区也是比较常用的区域，而时间区的创建过程大致如下：
+
+* 创建DateTimeBxArea对象
+
+* 设置各时间单元显示格式
+
+* 将DateTimeBxArea添加到节目中
+
+  具体代码如下：
+
 ```java
 // 下面代码创建了一个时间区
 // 注意：只需输入时间区的起始坐标，区域的宽度和高度SDK会根据字体和显示方式自动计算
@@ -218,24 +239,34 @@ dtArea.setWeekStyle(null);
 p0.addArea(dtArea);
 // 关于DateTimeBxArea类的更多接口，请参考JAVADOC中相关类的说明
 ```
-更新节目
+**步骤3：**
+
+发送更新节目
+
+节目文件创建好后，即可将节目发送到控制器以进行显示。其代码如下所示：
+
 ```java 
 // 以下为更新节目命令
 screen.WriteProgram(p0);
 // 更新节目还有很多命令，请参考JAVADOC
 ```
-### 2.6 动态区
-动态区是一种比较特殊的区域，其有以下几个主要特点：
-* 更新次数没有限制
+### 3.6 动态区
+动态区是一种比较特殊的区域（[关于动态区](/zh/dual/dual/#11)），其有以下几个主要特点：
+
+* 刷新次数没有限制
 * 内容掉电不保存
 * 独立于节目进行编辑
 * 可以支持多个区域，且每个区域可以进行单独更新
+
 * 可以和单个活多个节目绑定显示，即作为节目的一个区域进行显示
 * 可以作为单独一个节目进行独立播放
 * 灵活的控制方式：超时时间控制、是否立即显示灯
 
-以下为动态区代码
-```
+以下代码创建了一个动态区，将将其更新到控制器上显示。
+
+五代控制器
+
+```java
 // 五代控制器动态区（BX-5E系列）
 // BX-5E系列控制卡最高支持4个动态区，当屏幕上需要同时显示多个动态区时，动态区ID不可以相同
 // DynamicBxRule(id,runMode,immediatePlay,timeout);
@@ -254,16 +285,22 @@ TextCaptionBxArea darea = new TextCaptionBxArea(0,0,160,64,screen.getProfile());
 TextBxPage dapge = new TextBxPage("动态区123abc");
 darea.addPage(dpage);
 screen.writeDynamic(rule,darea);
+```
+六代控制器
 
+```java
 // 六代控制器动态区
 DynamicBxAreaRule rule = new DynamicBxAreaRule();
+
 // 设定动态区ID，此处ID为0，多个动态区ID不能相同
 rule.setId(0);
+
 // 设定异步节目停止播放，仅播放动态区
 // 0:动态区与异步节目一起播放
 // 1:异步节目停止播放，仅播放动态区
 // 2:当播放完节目编号最高的异步节目后播放该动态区
 rule.setImmediatePlay((byte)1);
+
 // 设定动态区循环播放
 // 0:循环播放
 // 1:显示完成后静置显示最后一页数据
@@ -276,51 +313,94 @@ TextBxPage page = new TextBxPage("动态区abc");
 area.addPage(page);
 screen.writeDynamic(rule,area);
 ```
-### 2.7 Server模式（包含GPRS）
-Server使用流程如下：
-* 初始化API（在一个进程内只需要初始化一次）
-* 建立服务器
-* 设定监听等待屏幕的连线与断线事件
-* 关闭服务器
 
-主要代码如下：
+**注意：对于单双色控制器，区域之间不能出现重叠。**
+
+## 4. Server模式
+
+Server模式通常应用于广域网或者 GPRS/3G/4G 无线通讯的场合。在SDK中，Bx5GServer/Bx6GServer 对 server进行封装。它实现了控制器与 server 之间的链接维护，心跳解析，上下线提醒等功能。您可以像client模式一样，对广域网上的屏幕进行控制。
+
+### 4.1 模式简介
+
+Server的使用流程通常如下：
+
+* 初始化API（在一个进程内只需要初始化一次）
+* 建立并启动 Server
+* 设定监听等待屏幕的连线与断线事件
+* 获取在线屏幕
+* 通过相应的 screen 对象对控制器进行相应的操作
+
 ```java 
-Bx5GEnv.initial(); //初始化
-// 建立服务器
+// 初始化 SDK
+Bx5GEnv.initial(); 
+// 建立并启动服务器
+// 此端口号为server进行监听的端口号
+// 其必需与控制器参数中设置的 server port 一致
 Bx5GServer server = new Bx5GServer("Hello Screen", 8036);
 // 添加监听
 server.addListener(new ConnectionListener());
 // 启动服务器
 server.start();
-System.out.println("waiting 30 secs");
-Thread.sleep(30000);
-// 更新节目或者动态区
-//
-//
-//
 
-
-// 关闭服务器
-server.stop();
-System.out.println("done!");
+// 
+while(true) {
+   	//
+    // 获取在线的控制器列表
+    ArrayList<Bx5GScreen> screens = (ArrayList<Bx5GScreen>) server.getOnlineScreens();
+    // 对相应的控制器进行操作
+    ......
+}
 
 // 监听
 public class ConnectionListener implements Bx5GServerListener {
-@Override
-public void connected(String socketId, String controllerAddr,
-Bx5GScreen screen) {
-Result<ReturnPingStatus> result1 = screen.ping();
-Result<ReturnControllerStatus> result2 =
-screen.checkControllerStatus();
-...
-}
-@Override
-public void disconnected(String socketId, String controllerAddr,
-Bx5GScreen screen) {
-...
-}
+    @Override
+    public void connected(String socketId, String controllerAddr, Bx5GScreen screen) {
+        // 控制器上线后，会触发此事件
+        Result<ReturnPingStatus> result1 = screen.ping();
+        Result<ReturnControllerStatus> result2 = screen.checkControllerStatus();
+        ......
+    }
+    @Override
+    public void disconnected(String socketId, String controllerAddr, Bx5GScreen screen) {
+        // 控制器下线后，会触发此事件
+   		......
+    }
 }
 ```
+
+
+
+### 4.2 Demo说明
+
+您可以从以下链接获取相应的 demo：
+
+ https://github.com/onbonlab/bx.dual.java.server.git
+
+此项目主要用于测试仰邦五代和六代网口控制器的服务器模式。其工作方式如下：
+
+1. 服务端启动后，开始等待控制器上线
+
+2. 每隔5秒，检查一下在线控制器
+3. 依次发送节目至在线的控制器
+4. 如果控制器支持动态区，则更新动态区
+
+其主要包含以下一个类：
+
+* Bx5GTestbench: 五代控制器的测试平台
+
+调用方式如下：
+
+```java
+//
+// 获取 testbench 实例
+Bx5GTestbench g5tb = Bx5GTestbench.getInstance();
+
+//
+// run
+g5tb.run(8001);
+```
+
+## 5. Android平台
 
 
 
