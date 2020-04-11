@@ -11,7 +11,11 @@ https://doc.onbonbx.com/
 
 b. android demo: 
 
-https://doc.onbonbx.com/
+https://github.com/onbonlab/bx.dual.android.git
+
+c. android 串口通讯 sdk 与 demo:
+
+https://github.com/onbonlab/bx.dual.android.serial.git
 
 ## 3. 使用说明
 
@@ -402,7 +406,242 @@ g5tb.run(8001);
 
 ## 5. Android平台
 
+### 5.1 使用说明
 
+**步骤1:**  导入 sdk
+
+将所有库文件拷贝至 libs 文件夹，并引入工程，如下所示：
+
+在 module 的 build.gradle 中添加如下代码：
+
+```gradle
+implementation files('libs/bx05-0.5.0-SNAPSHOT.jar')
+implementation files('libs/bx05.message-0.5.0-SNAPSHOT.jar')
+implementation files('libs/bx06-0.6.0-SNAPSHOT.jar')
+implementation files('libs/bx06.message-0.6.0-SNAPSHOT.jar')
+implementation files('libs/log4j-1.2.14.jar')
+implementation files('libs/simple-xml-2.7.1.jar')
+implementation files('libs/uia-comm-0.3.3.jar')
+implementation files('libs/uia-utils-0.2.0.jar')
+implementation files('libs/uia-message-0.6.0.jar')
+
+implementation(name: 'java.awt4a-0.1-release', ext: 'aar')
+```
+
+在 project 的 build.gradle 中添加如下代码：
+
+```gradle
+allprojects {
+    repositories {
+        google()
+        jcenter()
+
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+```
+
+**步骤2:** sdk 初始化
+
+SDK 初始化在整个 APP 中只能调用一次，因此，我们将其放在 application 的 onCreate() 接口调用。如下所示：
+
+```java
+public class MyApp extends Application {
+
+    private static final String TAG="MyApp";
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        try {
+            // java.awt for android 初始化
+            AwtEnv.link(this);
+            // 是否启动抗锯齿
+            AwtEnv.configPaintAntiAliasFlag(false);
+
+            // 初始化五代
+            Bx5GEnv.initial();
+
+            // 建立 BX6G API 運行環境。
+            Bx6GEnv.initial();
+            Log.d(TAG, "sdk 6 version:" + Bx6GEnv.VER_INFO);
+        }
+        catch (Exception ex) {
+            Log.d(TAG, "sdk init error");
+        }
+    }
+}
+```
+
+**步骤3：** 在 manifest.xml 中添加相关权限
+
+对于网络通讯，必需先在 manifest 文件中申请相关网络访问的权限，否则会出现通讯失败。
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.onbonbx.demo">
+    <!-- 允许联网 -->
+    <!-- 获取GSM（2g）、WCDMA（联通3g）等网络状态的信息 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 获取wifi网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 获取wifi网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <application
+        android:name=".MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
+```
+
+**步骤4：** 在线程中调用相关接口
+
+在 Android 系统中，网络通讯不能放在主线程中调用，而必需另起线程。通常如下：
+
+```java
+new Thread(new Runnable() {
+    @Override
+    public void run() {
+
+        Bx5GScreenClient screen = new Bx5GScreenClient("screen");
+        try {
+            // 连接控制器
+            screen.connect(ip.getText().toString(), 5005);
+
+            // 获取控制器状态
+            screen.ping();
+
+            // 断开链接
+            screen.disconnect();
+
+        } catch (Bx5GException e) {
+            e.printStackTrace();
+            return;
+        }
+    }
+}).start();
+```
+
+### 5.2 获取SDK与DEMO
+
+您可以通过如下链接获取 ANDROID SDK 与 DEMO:
+
+b. android demo: 
+
+https://github.com/onbonlab/bx.dual.android.git
+
+c. android 串口通讯 sdk 与 demo:
+
+https://github.com/onbonlab/bx.dual.android.serial.git
+
+## 6. 常见问题
+
+ 1. 逾时未回应问题
+ 逾时未回应一般是使用的控制卡型号和代码里设置的不一致导致，比如使用的控制卡型号是BX-6E1，在创建Screen对象时候，写的是new Bx6M(),就会导致该问题，SDK提供的型号有:new Bx6Q()/new Bx6M()/newBx6E(),如果使用的控制卡型号，SDK中没有提供，比如BX-6A1，可以使用new Bx6M()替代。创建Screen对象代码如下：
+```java
+Bx6GScreenClient screen = new Bx6GScreenClient("MyScreen",new Bx6E());
+```
+ 2. 连接失败问题
+ 连接失败时候，可以检查通讯情况，在命令行ping控制卡的IP地址，使用LedshowTW软件和控制卡通讯测试，或者频繁更新节目也会导致连接失败。
+ 3. 表格显示问题
+ SDK中不支持直接添加表格显示，需要把表格画成图片，添加到区域中进行显示，图片包括单元格和单元格里的内容，如果，某个单元格中内容有更新，则重新生成图片，替换原来图片显示。
+ 4. 控制卡固件版本查询
+ 控制卡的固件版本更新可以通过LedshowTW软来更新，设置--控制器程序维护--密码888-查询。在该界面也可以更新固件版本。通过代码查询，查询代码如下：
+```java 
+screen.checkFirmware();
+```
+ 5. 动态区关联（绑定）节目
+ 动态区完全独立于节目更新，但是可以和节目绑定，绑定后动态区可以和节目一起显示，绑定节目代码如下：
+```java 
+DynamicBxAreaRule rule = new DynamicBxAreaRule();
+rule.setId(0);
+rule.setRunMode((byte)0);
+// 新增动态区关联异步节目，一旦关联了节目，则动态区和节目一起播放
+// 设定动态区关联节目
+// true 所有异步节目播放时都播放该动态区
+// false 由规则决定
+rule.setRelativeAllProgram(false);
+// 规则
+// 设置动态区和节目0绑定
+rule.addRelativeProgram(0);
+```
+ 6. 什么时候用动态区，什么时候用节目
+ 动态区指的是频繁更新的区域，不是滚动效果，比如停车场车位信息，停车场车牌信息，传感器状态实时展示，车次状态实时更新等，需要使用动态区，节目一般用在一些欢迎标语等很少更新或不更新场合。
+ 7. 汉字显示方块问题
+ 该问题常见于Linux系统，首先需要确认的是linux系统中是否安装了中文字体，一般情况安装中文字体后即可解决，SDK中设置字体代码如下：
+```java 
+page.setFont(new Font("宋体",Font.PLAIN,12));
+```
+ 8. 对齐方式设置问题
+ SDK提供了一些对齐方式的设置，如果SDK中提过的对齐方式设置不能满足需求，可以把要显示的内容画成图片，在图片上排版，然后添加到区域中进行显示，SDK中对齐方式设置代码如下：
+```java
+// 水平对齐方式设置
+// 设置居左对齐
+page.setHorizontalAlignment(TextBinary.Alignment.NEAR);
+// 设置居中对齐
+page.setHorizontalAlignment(TextBinary.Alignment.CENTER);
+// 设置居右对齐
+page.setHorizontalAlignment(TextBinary.Alignment.FAR);
+// 设置垂直对齐方式
+// 设置居上对齐
+page.setVerticalAlignment(TextBinary.Alignmet.NEAR);
+// 设置居中对齐
+page.setVerticalAlignment(TextBinary.Alignmet.CENTER);
+// 设置居下对齐
+page.setVerticalAlignment(TextBinary.Alignmet.FAR);
+```
+ 9. 天气显示问题
+ SDK中没有提供天气显示相关接口，可以自行获取天气信息数据，排版后添加到动态区来实时更新显示
+ 10. 服务器模式在监听里写数据和在监听外写数据的区别
+
+ 11. 手动换行显示
+ 换行显示有2种方式，第一是通过换行符来换行，第二是通过SDK中的接口换行，换行代码如下：
+```
+// 通过换行符换行
+TextBxPage page = new TextBxPage("第一行\r\n第二行");
+// 通过接口换行
+TextBxPage page = new TextBxPage("第一行");
+page.newLine("第二行");
+```
+ 12. 区域越界问题
+ 区域越界指的是区域超出屏幕范围，一般情况下，最右边的区域X+区域宽度大于LED屏宽度，或者最下面区域Y+区域高度大于LED屏高度即为区域越界，如果程序中有判断是否越界，在越界的时候程序会报out of range，如果程序中没有判断是否越界，则有可能导致LED屏显示异常，判断是否越界代码如下：
+```java 
+if(pf.validate()!=null){
+    System.out.println("pf out of range");
+    return;
+}
+```
+ 13. 连接问题
+ 控制卡用的短连接方式通讯，所以，在发送完数据后，需要断开与控制卡的连接，再次发送数据时候，重新连接控制卡，大概步骤如下：
+```java 
+// 创建连接
+screen.connect();
+// 发送数据
+......
+// 断开连接
+screen.disconnect();
+```
+ 14. 其他一些显示异常问题
+ 显示异常，一般是更新数据相关，可以自行检查program/area/page等对象创建是否有问题，这些对象不可以为空，也不可以是空格，如果需要显示黑屏，可以使用黑色图片。
 
 
 
