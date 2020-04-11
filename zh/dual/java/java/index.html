@@ -124,6 +124,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#66">6.6 如何实现文本换行</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#67-cpu-load">6.7 CPU LOAD 过高</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -706,6 +708,13 @@ implementation(name: &#39;java.awt4a-0.1-release&#39;, ext: &#39;aar&#39;)
 <span class="n">TextBxPage</span> <span class="n">page</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextBxPage</span><span class="p">(</span><span class="s">&quot;第一行&quot;</span><span class="p">);</span>
 <span class="n">page</span><span class="p">.</span><span class="na">newLine</span><span class="p">(</span><span class="s">&quot;第二行&quot;</span><span class="p">);</span>
 </code></pre></div>
+
+<h3 id="67-cpu-load">6.7 CPU LOAD 过高<a class="headerlink" href="#67-cpu-load" title="Permanent link">&para;</a></h3>
+<p>使用 SDK 过程中，如果发现 CPU LOAD 过高，通常可能是以下原因造成：</p>
+<ul>
+<li>多次调用 Bx6GEnv.initial()/Bx5GEnv.initial() 接口</li>
+<li>screen.connect() 后没有调用相应 screen.disconnect()，从而造成 screen 对象一直未释放</li>
+</ul>
               
             </div>
           </div>
