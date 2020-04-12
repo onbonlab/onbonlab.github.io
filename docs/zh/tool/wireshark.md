@@ -2,21 +2,21 @@
 
 在开发过程中，当现场出现异常的时候，往往需要根据 SDK 与控制器之前的通讯数据来分析问题的原因。此时，就需要抓取通讯过程的网络数据包。而通常我们可以使用 wireshark 和 tcpdump。
 
-## 使用Wireshark
+## 1. 使用Wireshark
 
 Wireshark 是一个功能强大的，免费且开源的网络数据抓取与分析软件。它可以支持 windows, linux, Macos 等操作系统，使用起来非常简单便捷。
 
-### 下载与安装
+### 1.1 下载与安装
 
 可以从其官网（[https://www.wireshark.org/](https://www.wireshark.org/)）下载相应的安装包，即可完成安装
 
-### 如何使用？
+### 1.2 如何使用？
 
 **步骤1：**
 
 选择要抓取的网卡
 
-![](\img\wireshark1.png)
+![](..\img\wireshark1.png)
 
 **步骤2:**
 
@@ -28,7 +28,7 @@ tcp.port==5005
 
 如下图所示：
 
-![](\img\wireshark2.png)
+![](..\img\wireshark2.png)
 
 **步骤3:**
 
@@ -40,7 +40,7 @@ tcp.port==5005
 
 
 
-## 使用Tcpdump
+## 2. 使用Tcpdump
 
 在实际项目部署时，由于很多服务器没有窗口系统，所以没有办法安装 wireshark。而此时，可以选择使用 tcpdump。
 
@@ -56,9 +56,7 @@ tcpdump -i eth0 -w dump.pcap
 
 其中:
 
-```
--i #是指定要抓取的网卡
--w #指定结果保存的位置
-```
+-i  - 是指定要抓取的网卡
+-w - 指定结果保存的位置
 
 关于 tcpdump 的更多使用技巧，可自行搜索并获取。

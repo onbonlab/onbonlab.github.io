@@ -1,4 +1,4 @@
-# 单双色系列
+# 开发指南 - 单双色系列 
 
 仰邦单双色系列包括所有的五代与六代控制器。
 
@@ -48,13 +48,13 @@ BX-5E/BX-6E/BX-6Q 系列
 
 对于五代/六代单双色控制器，我们可以提供以下开发包及其 Demo。
 
-| #    | 语言                 | 操作系统                   |
-| ---- | -------------------- | -------------------------- |
-| 1    | [JAVA](../java/java) | Windows/Linux/Android/iMac |
-| 2    | C++                  | Windows/Linux              |
-| 3    | C#                   | Windows                    |
-| 4    | VB                   | Windows                    |
-| 5    | Delphi               | Windows                    |
+| #    | 语言            | 操作系统                   |
+| ---- | --------------- | -------------------------- |
+| 1    | [JAVA](../java) | Windows/Linux/Android/iMac |
+| 2    | C++             | Windows/Linux              |
+| 3    | C#              | Windows                    |
+| 4    | VB              | Windows                    |
+| 5    | Delphi          | Windows                    |
 
 > 注：针对不同的 linux 发行版，SDK 可能需要重新编译。此时，您可联系我们并获得支持。此时，可能需要您提供相应的编译工具链。
 

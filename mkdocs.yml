@@ -6,11 +6,14 @@ nav:
     - 主页: index.md
     - 单双色系列:
         - 开发指南: zh/dual/dual.md
-        - JAVA: zh/dual/java/java.md
-        - C/C++: zh/dual/c/c.md
+        - JAVA: zh/dual/java.md
+        - C/C++: zh/dual/c.md
+    - 字库系列:
+        - 开发指南: zh/k/k.md
+        - JAVA: zh/k/java.md
     - 常用工具:
         - 网络抓包: zh/tool/wireshark.md
-    - 关于我们 : 'about.md'
+    - 关于我们 : 'zh/about.md'
     
 
 theme: 
