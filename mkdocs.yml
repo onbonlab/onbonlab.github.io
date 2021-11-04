@@ -4,6 +4,9 @@ site_name: Onbon Docs
 
 nav:
     - 主页: index.md
+    - 全彩播放器系列:
+        - 开发指南: zh/y/y.md
+        - JAVA: zh/y/java.md
     - 单双色系列:
         - 开发指南: zh/dual/dual.md
         - JAVA: zh/dual/java.md
@@ -11,6 +14,8 @@ nav:
     - 字库系列:
         - 开发指南: zh/k/k.md
         - JAVA: zh/k/java.md
+        - C/C++: zh/k/c.md
+        - 开发协议: zh/k/potocol.md
     - 常用工具:
         - 网络抓包: zh/tool/wireshark.md
     - 关于我们 : 'zh/about.md'
