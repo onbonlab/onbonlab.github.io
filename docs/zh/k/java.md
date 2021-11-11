@@ -14,9 +14,9 @@ https://github.com/onbonlab/bx.k.java.git
 此项目目前已支持的功能：
 
 * 动态区（包含语音）
-
 * 开机与关机
 * 清除屏幕
+* 校时
 
 ## 4. 待实现功能
 * 文件维护
@@ -40,8 +40,19 @@ https://github.com/onbonlab/bx.k.java.git
 下面以开关机命令为例进行说明：
 
 ```java
-//
-// 创建 BxCmdTurnOnOff 对象
+// 网口发送命令：创建Socket
+Socket client = new Socket();
+// 创建 socket 地址
+SocketAddress address = new InetSocketAddress("192.168.88.8", 5005);
+// 建立 TCP 连接
+client.connect(address, 3000);
+// 设置读超时时间
+client.setSoTimeout(3000);
+// 创建输出流
+OutputStream out = client.getOutputStream();
+// 创建输入流
+InputStream in = client.getInputStream();
+// 创建 BxCmdTurnOnOff 对象(开机命令)；关机命令：BxCmdTurnOnOff(false)
 BxCmd cmdTurnOn = new BxCmdTurnOnOff(true);
 // 使用 BxDataPack 对象对命令进行封装
 BxDataPack packTurnOn = new BxDataPack(cmdTurnOn);
@@ -62,6 +73,42 @@ else {
     System.out.println("turn on, failed");
 }
 ```
+校时命令示例：
+
+```java
+// 网口发送命令：创建Socket
+Socket client = new Socket();
+// 创建 socket 地址
+SocketAddress address = new InetSocketAddress("192.168.88.8", 5005);
+// 建立 TCP 连接
+client.connect(address, 3000);
+// 设置读超时时间
+client.setSoTimeout(3000);
+// 创建输出流
+OutputStream out = client.getOutputStream();
+// 创建输入流
+InputStream in = client.getInputStream();
+// 创建 BxCmdSystemClockCorrect 对象，传入时间
+BxCmd cmdSystemClockCorrect = new BxCmdSystemClockCorrect(new Date());
+// 使用 BxDataPack 对象对命令进行封装
+BxDataPack packSystemClockCorrect = new BxDataPack(cmdSystemClockCorrect);
+// 生成命令序列
+byte[] seqSystemClockCorrect = packSystemClockCorrect.pack();
+
+// 通过 TCP 发送命令序列
+out.write(seqSystemClockCorrect);
+// 接收返回的命令序列
+len = in.read(resp);
+// 使用 BxResp 对象对返回的命令序列进行解析
+bxResp = BxResp.parse(resp, len);
+// 对返回状态进行处理
+if(bxResp.isAck()) {
+    System.out.println("system clock correct, ok");
+}
+else {
+    System.out.println("system clock correct, failed");
+}
+```
 
 ### 5.2 动态区的使用
 #### 5.2.1 什么是动态区？
@@ -71,7 +118,6 @@ else {
 #### 5.2.2 如何创建动态区？
 如下所示，创建一个动态区非常简单，创建一个 BxAreaDynamic 对象，并设置好相关属性即可。
 ```java
-//
 // 创建一个区域 1
 byte id = 0x00;
 short x = 0;
@@ -79,7 +125,6 @@ short y = 0;
 short w = 64;
 short h = 16;
 
-//
 // 要显示的内容
 // 采用 GB2312 码
 // 注：\\C2 对应转义为 "\C2" 表示颜色为绿色
@@ -99,7 +144,6 @@ try {
 #### 5.2.3 如何在动态区中使用语音功能？
 下面代码列出了动态区语音功能的相关配置接口：
 ```java
-//
 // 语音模式
 area2.setSoundMode((byte) 0x02);
 // 人声模式
@@ -123,7 +167,6 @@ area2.setSoundData(soundData);
 发送动态区命令与发送其它命令的流程一致, 创建一个 BxCmdSendDynamicArea 对象，
 并按通用命令发送流程实现即可。
 ```java
-//
 // 创建一个发送动态区命令
 BxCmd cmd = new BxCmdSendDynamicArea(areas);
 
