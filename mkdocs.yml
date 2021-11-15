@@ -79,3 +79,6 @@ extra:
   search:
     language: 'jp'
 
+theme:
+  name: material
+
