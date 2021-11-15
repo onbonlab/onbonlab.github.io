@@ -1,5 +1,5 @@
 site_name: Onbon Docs
-
+site_url: https://doc.onbonbx.com/
 
 nav:
     - 主页: index.md
@@ -26,11 +26,11 @@ theme:
     navigation_depth: 4
 
 # repository addr
-repo_url: https://github.com/onbonlab/onbonlab.github.io.git
+repo_url: https://github.com/onbon4doc/onbon4doc.github.io.git
 
 repo_name: 'GitHub'
 
-site_author: 'tataba'
+site_author: 'judy2gong'
 
 # 图标
 site_favicon: favicon.ico
