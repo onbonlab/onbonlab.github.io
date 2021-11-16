@@ -1,0 +1,1099 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This is the doc of onbon dev.">
+      
+      
+      
+        <meta name="author" content="judy2gong">
+      
+      
+        <link rel="canonical" href="https://doc.onbonbx.com/zh/k/k/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>开发指南 - Onbon Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../css/my.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#-" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Onbon Docs" class="md-header__button md-logo" aria-label="Onbon Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Onbon Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              开发指南
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/onbon4doc/onbon4doc.github.io.git/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Onbon Docs" class="md-nav__button md-logo" aria-label="Onbon Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Onbon Docs
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/onbon4doc/onbon4doc.github.io.git/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          全彩播放器系列
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="全彩播放器系列" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          全彩播放器系列
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../y/y/" class="md-nav__link">
+        开发指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../y/java.md" class="md-nav__link">
+        JAVA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          单双色系列
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="单双色系列" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          单双色系列
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dual/dual/" class="md-nav__link">
+        开发指南
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dual/java/" class="md-nav__link">
+        JAVA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dual/c.md" class="md-nav__link">
+        C/C++
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          字库系列
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="字库系列" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          字库系列
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          开发指南
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        开发指南
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 你选择的控制器型号正确吗？
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 你选择的控制器型号正确吗？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 什么是字库卡
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 字库卡与图文卡的区别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 字库卡参数表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 开发资料
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 开发资料">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 如何选择开发方式？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 通讯协议
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-sdkdemo" class="md-nav__link">
+    2.3 SDK及其DEMO
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 开发辅助工具
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 开发辅助工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 如何添加控制器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ip" class="md-nav__link">
+    3.2 如何设置控制器IP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 如何验证数据是否正常
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-crc" class="md-nav__link">
+    3.4 如何验证CRC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5 如何制作字库
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../java/" class="md-nav__link">
+        JAVA
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../c/" class="md-nav__link">
+        C/C++
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../potocol/" class="md-nav__link">
+        开发协议
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          常用工具
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="常用工具" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          常用工具
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tool/wireshark/" class="md-nav__link">
+        网络抓包
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        关于我们
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 你选择的控制器型号正确吗？
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 你选择的控制器型号正确吗？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 什么是字库卡
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 字库卡与图文卡的区别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 字库卡参数表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2. 开发资料
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 开发资料">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 如何选择开发方式？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 通讯协议
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-sdkdemo" class="md-nav__link">
+    2.3 SDK及其DEMO
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3. 开发辅助工具
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 开发辅助工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1 如何添加控制器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-ip" class="md-nav__link">
+    3.2 如何设置控制器IP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    3.3 如何验证数据是否正常
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-crc" class="md-nav__link">
+    3.4 如何验证CRC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    3.5 如何制作字库
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/onbon4doc/onbon4doc.github.io.git/edit/master/docs/zh/k/k.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <!--
+ * @Author: your name
+ * @Date: 2021-11-03 11:00:59
+ * @LastEditTime: 2021-11-12 14:58:57
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \undefinedf:\onbon\onbon_doc4c\docs\zh\k\k.md
+-->
+<h1 id="-">开发指南 - 字库系列<a class="headerlink" href="#-" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 你选择的控制器型号正确吗？<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 什么是字库卡<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>字库卡是指内置字库文件的LED控制器。此种类型的控制器，适用于屏幕较小，只显示文字，但是对通讯效率要求比较高的场合。</p>
+<p>BX-5K/6K系列字库控制卡内置多组中英文字库，支持信息动态刷新。可以广泛应用于工业现场、设备配套、车载显示、智能公交站牌和集群显示系统等领域的二次开发。</p>
+<p>BX-6K-YY系列语音字库卡支持中英文语音播报功能，提供字库实时通讯协议，兼容6K协议，基于字库模式设计，适用于信息频繁更新的应用需求。开放通讯协议，简化开发难度，便于用户在完全涵盖BX-6K字库控制卡功能基础上，新增中英文语音播报功能。面向各种LED显示语音播报的应用领域，灵活地满足用户的二次开发需求。</p>
+<h3 id="12">1.2 字库卡与图文卡的区别<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>与字库卡相比，图文卡可以支持图片和文字的显示。对字库卡而言，由于字库文件需要提前下载，而控制器的存储器容量有限，因此，控制器可以同时支持的文字种类较少。但是，对字库卡来说发送命令时，只需发送相关字符的编码(GB2312/ASCII等)，因此，其通讯的数据流量非常小，效率很高。</p>
+<p>而对于图文卡，所以文字需转换成图片，然后再转换为点阵发送。所以，对于要显示的字体没有限制。但是通讯的数据流量比较大，通讯效率相对较低。</p>
+<h3 id="13">1.3 字库卡参数表<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>型号</th>
+<th>网口</th>
+<th>串口</th>
+<th>语音</th>
+<th>动态区</th>
+<th>普通区域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>BX-5K1</td>
+<td>×</td>
+<td>√</td>
+<td>×</td>
+<td>5个</td>
+<td>10个</td>
+</tr>
+<tr>
+<td>2</td>
+<td>BX-5K2</td>
+<td>×</td>
+<td>√</td>
+<td>×</td>
+<td>5个</td>
+<td>10个</td>
+</tr>
+<tr>
+<td>3</td>
+<td>BX-5MK1</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>5个</td>
+<td>10个</td>
+</tr>
+<tr>
+<td>4</td>
+<td>BX-5MK2</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>5个</td>
+<td>10个</td>
+</tr>
+<tr>
+<td>5</td>
+<td>BX-5K1Q-YY</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>5个</td>
+<td>10个</td>
+</tr>
+<tr>
+<td>6</td>
+<td>BX-6K1</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td>5个</td>
+<td>10个</td>
+</tr>
+<tr>
+<td>7</td>
+<td>BX-6K2</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td>5个</td>
+<td>10个</td>
+</tr>
+<tr>
+<td>8</td>
+<td>BX-6K3</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td>5个</td>
+<td>10个</td>
+</tr>
+<tr>
+<td>9</td>
+<td>BX-6K1-YY</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>5个</td>
+<td>10个</td>
+</tr>
+<tr>
+<td>10</td>
+<td>BX-6K2-YY</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>5个</td>
+<td>10个</td>
+</tr>
+<tr>
+<td>11</td>
+<td>BX-6K3-YY</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+<td>5个</td>
+<td>10个</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2">2. 开发资料<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 如何选择开发方式？<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>针对 BX-5K/6K 控制器，我们可以提供通讯协议和相应的 SDK 开发包。</p>
+<p>通常，推荐您直接使用 SDK 开发，而对于无法使用 SDK 的情况，可以使用通讯协议来进行开发。</p>
+<p>例如：开发平台为单片机，PLC 等情形。</p>
+<h3 id="22">2.2 通讯协议<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>BX-5K/6K 的通讯协议可以从以下地址下载：</p>
+<p><a href="../potocol/">BX-5K/6K potocol</a></p>
+<h3 id="23-sdkdemo">2.3 SDK及其DEMO<a class="headerlink" href="#23-sdkdemo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>语言</th>
+<th>操作系统</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="../java/">JAVA</a></td>
+<td>Windows/Linux/Android/iMac</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="../c/">C/C++</a></td>
+<td>Windows 32bit/64bit</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="../k/csharp.md">C#</a></td>
+<td>Windows 32bit/64bit</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3">3. 开发辅助工具<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>使用我们提供的四合一软件可调试和配置字库系列的控制器，下载
+<a href="https://www.onbonbx.com/upload/download/LedshowZK(19.12.26.00).zip">player.exe</a></p>
+<h3 id="31">3.1 如何添加控制器<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>安装软件后，选择"内容"标签，点击"离线加屏"，如图：<img alt="离线加屏" src="../../img/ledshowkofflineaddscreen.png" /> 根据自己选择的控制器输入相关信息，系列选择K系列，信息输入完成后点击添加完成屏幕添加</p>
+<h3 id="32-ip">3.2 如何设置控制器IP<a class="headerlink" href="#32-ip" title="Permanent link">&para;</a></h3>
+<p>选择"设备"标签，点击"通讯"，如图：<img alt="设置IP" src="../../img/ledshowsetip.png" /> 根据自己网络环境设置相关IP信息</p>
+<h3 id="33">3.3 如何验证数据是否正常<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p>选择"工具"标签，点击"命令解析"，如图：<img alt="解析命令" src="../../img/ledshowkcmdparsing.png" /></p>
+<h3 id="34-crc">3.4 如何验证CRC<a class="headerlink" href="#34-crc" title="Permanent link">&para;</a></h3>
+<p>选择"工具"标签，点击"CRC效验"，如图：<img alt="CRC校验" src="../../img/ledshowkcrc.png" /></p>
+<h3 id="35">3.5 如何制作字库<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
+<p>选择"工具"标签，点击"字体制作"，如图：<img alt="字体制作" src="../../img/ledshowkfont.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../dual/java/" class="md-footer__link md-footer__link--prev" aria-label="Previous: JAVA" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              JAVA
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../java/" class="md-footer__link md-footer__link--next" aria-label="Next: JAVA" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              JAVA
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2020 onbon. All rights reserved. 
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+      
+        <script src="../../../js/my.js"></script>
+      
+    
+  </body>
+</html>
