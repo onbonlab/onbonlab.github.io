@@ -1,4 +1,4 @@
-# BK-5K/6K通讯协议用户版本
+# BX-5K/6K通讯协议用户版本
 
 ## Version list
 
