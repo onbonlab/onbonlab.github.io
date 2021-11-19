@@ -1,28 +1,37 @@
-site_name: My Docs
+site_name: ONBON Docs
 
 nav:
     - 主页: index.md
     - 全彩播放器系列:
         - 开发指南: zh/y/y.md
         - JAVA: zh/y/java.md
+        - C/C++: zh/y/c.md
+        - C#: zh/y/csharp.md
+        - 开发协议: zh/y/potocol.md
     - 单双色系列:
         - 开发指南: zh/dual/dual.md
         - JAVA: zh/dual/java.md
         - C/C++: zh/dual/c.md
+        - C#: zh/y/csharp.md
+        - 开发协议: zh/dual/potocol.md
     - 字库系列:
         - 开发指南: zh/k/k.md
         - JAVA: zh/k/java.md
         - C/C++: zh/k/c.md
+        - C#: zh/y/csharp.md
         - 开发协议: zh/k/potocol.md
     - 常用工具:
         - 网络抓包: zh/tool/wireshark.md
-    - 关于我们 : 'zh/about.md'
+    - 关于我们 : 'zh/about/about.md'
     
 
 theme: 
-    name: readthedocs
+    name: mkdocs
     highlightjs: true
     navigation_depth: 4
+    hljs_languages:
+        - yaml
+        - rust
 
 # repository addr
 repo_url: https://github.com/onbonlab/onbonlab.github.io.git
@@ -43,6 +52,7 @@ copyright: "Copyright ? 2020 onbon. All rights reserved. "
 
 markdown_extensions:
   - admonition
+  - markdown.extensions.attr_list
   - codehilite:
       guess_lang: false
       linenums: false
@@ -69,6 +79,12 @@ extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
   - "https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"
   - 'js/my.js'
+  
+  - https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js
+  - js/umlconvert.js
   
 extra_css:
   - 'css/my.css'

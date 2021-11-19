@@ -1,7 +1,13 @@
+
+
 # C/C++ SDK 使用说明 - 字库系列
+
 ## 1. 平台支持
 本项目由纯C++编写， 因此，其可以正常运行于Windows, Linux平台。本文档主要针对动态链接库（C++）开发的相关说明，需要协议开发请使用我们提供的[协议文档](../k/potocol.md)进行开发。
 如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读本文档后进行软件开发。
+
+
+
 - 获取SDK
 - 阅读错误码及说明
 - 阅读API调用顺序
@@ -56,16 +62,41 @@ ERR_FILE | 107 | 无效文件
 下的参数，连接控制器(广播模式执行函数CreateBroadCast，网络固定ip模式执行函数CreateClient，
 网络modbus模式执行函数CreateTcpModbus， 485总线模式执行函数CreateComClient， 串口modbus模式执行函数CreateComModbus)，设置网络超时时间执行函数SetTimeout。 之后可以执行图文区节目（发送节目OFS_SendFileData、删除节目OFS_DeleteFile、锁定/解锁节目SCREEN_LockProgram）、动态区节目（发送节目SCREEN_SendDynamicArea、删除节目SCREEN_DelDynamicArea）、开关（强制开关机SCREEN_ForceOnOff，定时开关机SCREEN_TimeTurnOnOff，取消定时开关机SCREEN_CancelTimeOnOff）、固件查询（查询固件信CON_CheckCurrentFirmware，激活固件CON_FirmwareActivate）、控制器状态查询（CON_ControllerStatus）、 （亮度调整SCREEN_SetBrightness，复位CON_Reset， ping CON_PING， 校时CON_SytemClockCorrect） 等操作。例如RS485模式中函数的调用：
 
-```mzermaid
-graph TD
-A{InitSdk}-->B[CreateBroadCast CreateComModbus CreateClient  CreateTcpModbus CreateComClient 创建连接]
-B-->C[OFS_SendFileData 发送数据]
-B-->D[SendDynamicArea发送动态区]
-C-->F[SendProgram发送节目]
-D-->E[Destroy销毁通讯]
-F-->E[Destroy销毁通讯]
-E-->G[ReleaseSdk]
+```flow
+​```flow
+st=>start: InitSdk
+op=>operation: CreateBroadCast CreateComModbus CreateClient  CreateTcpModbus CreateComClient 创建连接
+cond=>condition:  sendprogram or senddynamic?
+op1=>operation: OFS_SendFileData 发送数据
+op2=>operation: SendDynamicArea发送动态区
+op3=>operation: SendProgram发送节目
+op4=>operation: Destroy销毁通讯
+e=>end: ReleaseSdk
+st->op->cond
+cond(yes)->op1->op3
+cond(no)->op2
+op2->op4
+op3->op4
+op4->e
+​```
 ```
+
+```
+​```flow
+st=>start: Start:>http://www.google.com[blank]
+e=>end:>http://www.google.com
+op1=>operation: My Operation
+sub1=>subroutine: My Subroutine
+cond=>condition: Yes
+or No?:>http://www.google.com
+io=>inputoutput: catch something...
+
+st->op1->cond
+cond(yes)->io->e
+cond(no)->sub1(right)->op1
+​```
+```
+
 
 
 ## 5 函数说明
@@ -203,6 +234,8 @@ DataBits | 串口数据位 枚举类型serial_databits
 StopBits | 串口停止位 枚举类型serial_stopsbits
 card_type | 控制卡型号 枚举类型
 ScreenID | 屏号
+
+
 - 说明【不支持使用】
 
 通过串口Modbus模式连接控制卡，设置控制卡串口号、波特率、校验模式、串口数据位、串口停止位、控制卡型号、屏号。
@@ -212,11 +245,15 @@ ScreenID | 屏号
 ```
 public static extern void Destroy(uint dwHand);
 ```
+
+
 - 参数
 
 参数 | 描述
 --- | ---
 dwHand | 连接控制卡函数的返回值
+
+
 - 说明
 
 销毁通讯
@@ -226,12 +263,16 @@ dwHand | 连接控制卡函数的返回值
 ```
 public static extern void SetTimeOut(uint dwHand,uint nSec);
 ```
+
+
 - 参数
 
 参数 | 描述
 --- | ---
 dwHand | 连接控制卡函数的返回值
 nSec | 设计超时时间，单位为s
+
+
 - 说明
 
 连接控制卡后，通过调用该函数设置通讯超时时间
@@ -241,11 +282,15 @@ nSec | 设计超时时间，单位为s
 ```
 public static extern int CON_PING(uint dwHand);
 ```
+
+
 - 参数
 
 参数 | 描述
 --- | ---
 dwHand | 连接控制卡函数的返回值
+
+
 - 返回值
 
 详见错误码及说明
@@ -263,6 +308,8 @@ public static extern int CON_ReSet(uint dwHand);
 参数 | 描述
 --- | ---
 dwHand | 连接控制卡函数的返回值
+
+
 - 返回值
 
 详见错误码及说明

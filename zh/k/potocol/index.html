@@ -269,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../y/java.md" class="md-nav__link">
+      <a href="../../y/java/" class="md-nav__link">
         JAVA
       </a>
     </li>
@@ -345,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dual/c.md" class="md-nav__link">
+      <a href="../../dual/c/" class="md-nav__link">
         C/C++
       </a>
     </li>
@@ -1933,13 +1933,13 @@
 <td>1.1</td>
 <td>2020-06-23</td>
 <td>chenjd</td>
-<td>增加<a href="###8.26继电器配置命令">继电器配置命令</a> <br />增加<a href="###8.27设置外部继电器状态">设置外部继电器状态</a></td>
+<td>增加<a href="#826">继电器配置命令</a> <br />增加<a href="#827">设置外部继电器状态</a></td>
 </tr>
 <tr>
 <td>1.2</td>
 <td>2020-06-24</td>
 <td>chenjd</td>
-<td><a href="###8.26继电器配置命令">继电器配置命令修改为一个bit控制一个继电器</a></td>
+<td><a href="#826">继电器配置命令修改为一个bit控制一个继电器</a></td>
 </tr>
 <tr>
 <td>1.3</td>
@@ -2049,8 +2049,8 @@
 <p>以下为协议中各项数据的说明：</p>
 <ol>
 <li>帧头由 8 个字节的0xA5组成，帧尾由一个字节的0x5A组成。帧头采用8个帧头，是为了防止0xA5丢失导致数据接收错误。在接收数据时，只要接收到一个0xA5就可认为接收到了帧头，然后等待下一个不是0xA5的数据，该数据为该帧的第一个有效数据。</li>
-<li>包头数据包含本包数据的一些属性，其定义参考<a href="#包头数据格式">包头数据格式</a>定义。</li>
-<li>数据域为用户协议层数据，参考<a href="#数据域定义">数据域定义</a>。</li>
+<li>包头数据包含本包数据的一些属性，其定义参考<a href="#4">包头数据格式</a>定义。</li>
+<li>数据域为用户协议层数据，参考<a href="#5">数据域定义</a>。</li>
 <li>包校验为包头数据和数据域的校验值（CRC16 校验算法参考附录）。</li>
 </ol>
 <h3 id="31">3.1 协议的分层<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
@@ -2089,7 +2089,7 @@ PHY0 层数据结构为：  </p>
 </tr>
 </tbody>
 </table>
-<p>PHY0层为PHY1层数据增加帧头和帧尾，并对PHY1层数据进行转义（参考<a href="##字符转义">字符转义</a>）。</p>
+<p>PHY0层为PHY1层数据增加帧头和帧尾，并对PHY1层数据进行转义（参考<a href="#33">字符转义</a>）。</p>
 <h3 id="32">3.2 数据流向<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
 <p>在发送端，协议层数据先提交到 PHY1 层，对数据域进行封包操作。然后 PHY1 层报数据提交到PHY0层，对PHY1层数据进行字符转义并增加帧头帧尾，最后数据经过物理底层发送出去。
 在接收端，控制器将物理底层接收到的数据发送到PHY0层，PHY0层去除帧头帧尾，并对数据进行反转义，然后将数据提交到PHY1层。PHY1层将判断包数据的正确性，并去除包头和包校验值，向协议层提交有用数据。</p>
@@ -2775,13 +2775,13 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 <td>FileName</td>
 <td>4</td>
 <td></td>
-<td>文件名，参考<a href="#节目文件格式">节目文件格式</a>。</td>
+<td>文件名，参考<a href="#9">节目文件格式</a>。</td>
 </tr>
 <tr>
 <td>FileLength</td>
 <td>4</td>
 <td></td>
-<td>文件长度，参考<a href="#节目文件格式">节目文件格式</a>。</td>
+<td>文件长度，参考<a href="#9">节目文件格式</a>。</td>
 </tr>
 </tbody>
 </table>
@@ -2905,7 +2905,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 <td>Data</td>
 <td>N</td>
 <td></td>
-<td>文件包数据，参考<a href="##节目文件格式">节目文件格式</a>。</td>
+<td>文件包数据，参考<a href="#9">节目文件格式</a>。</td>
 </tr>
 </tbody>
 </table>
@@ -3444,7 +3444,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 <td>AreaData0</td>
 <td>N</td>
 <td></td>
-<td>区域 0 数据，其数据格式请参考<a href="##区域数据格式">区域数据格式</a></td>
+<td>区域 0 数据，其数据格式请参考<a href="#91">区域数据格式</a></td>
 </tr>
 <tr>
 <td>......</td>
@@ -3462,7 +3462,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 <td>AreaDataN</td>
 <td>N</td>
 <td></td>
-<td>区域 N 数据，其数据格式请参考<a href="##区域数据格式">区域数据格式</a></td>
+<td>区域 N 数据，其数据格式请参考<a href="#91">区域数据格式</a></td>
 </tr>
 </tbody>
 </table>
@@ -4561,7 +4561,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<p>返回 ACK 或 NACK。设置屏ID时必需采用广播模式（见<a href="#包头数据格式">包头数据格式</a>中目标地址的说明）。</p>
+<p>返回 ACK 或 NACK。设置屏ID时必需采用广播模式（见<a href="#4">包头数据格式</a>中目标地址的说明）。</p>
 <h3 id="812-id">8.12  读取屏 ID<a class="headerlink" href="#812-id" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -4599,7 +4599,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<p>读取屏 ID 时必需采用广播模式（见<a href="#包头数据格式">包头数据格式</a>中目标地址的说明）。</p>
+<p>读取屏 ID 时必需采用广播模式（见<a href="#4">包头数据格式</a>中目标地址的说明）。</p>
 <p>返回值：</p>
 <table>
 <thead>
@@ -5717,7 +5717,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <td>RelayStatus</td>
 <td>1</td>
 <td>0x01</td>
-<td>Bit1 用来控制继电器管脚，进而控制继 电器，此处采用 Bit1 是为了与外部信号 选节目管脚的定义顺序保持一致，便于 之后扩展多路继电器 <br />当该位为 1 时，表示继电器管脚控制的 继电器闭合<br /> 当该位为 0 时，表示继电器管脚控制的 继电器断开 <br /><br />由于 MCU 管脚驱动能力较弱，不能直接 驱动继电器，可以采用如下链接的继电器<br /> <a href="https://item.taobao.com/item.htm?spm=a230r.1.14.16.6f1031e461oKik&amp;id=570578720722&amp;ns=1&amp;abbucket=16#detail">https://item.taobao.com/item.htm?spm=a230r.1.14.16.6f1031e461oKik&amp;id=570578720722&amp;ns=1&amp;abbucket=16#detail</a></td>
+<td>Bit1 用来控制继电器管脚，进而控制继 电器，此处采用 Bit1 是为了与外部信号 选节目管脚的定义顺序保持一致，便于 之后扩展多路继电器 <br />当该位为 1 时，表示继电器管脚控制的 继电器闭合<br /> 当该位为 0 时，表示继电器管脚控制的 继电器断开 <br /><br />由于 MCU 管脚驱动能力较弱，不能直接 驱动继电器，可以采用如下链接的继电器<br /> <a href="https://item.taobao.com/item.htm?spm=a230r.1.14.16.6f1031e461oKik&amp;id=570578720722&amp;ns=1&amp;abbucket=16#detail">购买继电器链接</a></td>
 </tr>
 </tbody>
 </table>
@@ -6033,7 +6033,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <td>RelayStatus1</td>
 <td>1</td>
 <td>0x01</td>
-<td>板载继电器;板载继电器上电默认闭合     为1时，表示继电器闭合(如果不是板载继电器，就输出1) 为0时，表示继电器断开(如果不是板载继电器，就输出0)由于MCU管脚驱动能力较弱，不能直接驱动继电器，可以采用如下链接的继电器<a href="#detail">https://item.taobao.com/item.htm?spm=a230r.1.14.16.6f1031e461oKik&amp;id=570578720722&amp;ns=1&amp;abbucket=16#detail</a></td>
+<td>板载继电器;板载继电器上电默认闭合     为1时，表示继电器闭合(如果不是板载继电器，就输出1) 为0时，表示继电器断开(如果不是板载继电器，就输出0)由于MCU管脚驱动能力较弱，不能直接驱动继电器，可以采用如下链接的继电器<a href="https://item.taobao.com/item.htm?spm=a230r.1.14.16.6f1031e461oKik&amp;id=570578720722&amp;ns=1&amp;abbucket=16#detail">购买继电器链接</a></td>
 </tr>
 <tr>
 <td>RelayStatus2</td>
@@ -6193,7 +6193,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <td>AreaData0</td>
 <td>N</td>
 <td></td>
-<td>区域 0 数据，其数据格式请参考<a href="##区域数据格式">区域数据格式</a>（9.1节）</td>
+<td>区域 0 数据，其数据格式请参考<a href="#91">区域数据格式</a>（9.1节）</td>
 </tr>
 <tr>
 <td>......</td>
@@ -6211,7 +6211,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <td>AreaDataN</td>
 <td>N</td>
 <td></td>
-<td>区域 N 数据，其数据格式请参考<a href="##区域数据格式">区域数据格式</a>（9.1节）</td>
+<td>区域 N 数据，其数据格式请参考<a href="#91">区域数据格式</a>（9.1节）</td>
 </tr>
 <tr>
 <td>CHK</td>
