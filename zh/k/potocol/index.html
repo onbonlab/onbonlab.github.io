@@ -1,1918 +1,241 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="This is the doc of onbon dev.">
-      
-      
-      
-        <meta name="author" content="judy2gong">
-      
-      
-      <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
-    
-    
-      
-        <title>开发协议 - My Docs</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
-      
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
-        
-      
-    
-    
-    
-      
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
-      
-    
-    
-    
-      <link rel="stylesheet" href="../../../css/my.css">
-    
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    
-    
-      
+        <meta name="author" content="ONBON Team">
+        <link rel="canonical" href="https://doc.onbonbx.com/zh/k/potocol/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>开发协议 - ONBON Docs</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+        <link href="../../../css/extra.css" rel="stylesheet">
 
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/django.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-274394082"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-    
-    
-  </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
-  
-    
-    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#bk-5k6k" class="md-skip">
-          Skip to content
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-      
+          gtag('config', 'G-274394082');
+        </script> 
+    </head>
 
-<header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">ONBON Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            My Docs
-          </span>
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">主页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">全彩播放器系列 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../y/y/" class="dropdown-item">开发指南</a>
+</li>
+                                    
+<li>
+    <a href="../../y/java/" class="dropdown-item">JAVA</a>
+</li>
+                                    
+<li>
+    <a href="../../y/c/" class="dropdown-item">C/C++</a>
+</li>
+                                    
+<li>
+    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+</li>
+                                    
+<li>
+    <a href="../../y/potocol/" class="dropdown-item">开发协议</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">单双色系列 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../dual/dual/" class="dropdown-item">开发指南</a>
+</li>
+                                    
+<li>
+    <a href="../../dual/java/" class="dropdown-item">JAVA</a>
+</li>
+                                    
+<li>
+    <a href="../../dual/c/" class="dropdown-item">C/C++</a>
+</li>
+                                    
+<li>
+    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+</li>
+                                    
+<li>
+    <a href="../../dual/potocol/" class="dropdown-item">开发协议</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">字库系列 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../k/" class="dropdown-item">开发指南</a>
+</li>
+                                    
+<li>
+    <a href="../java/" class="dropdown-item">JAVA</a>
+</li>
+                                    
+<li>
+    <a href="../c/" class="dropdown-item">C/C++</a>
+</li>
+                                    
+<li>
+    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">开发协议</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">常用工具 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tool/wireshark/" class="dropdown-item">网络抓包</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../about/about/" class="nav-link">关于我们</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../y/csharp/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../tool/wireshark/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/onbonlab/onbonlab.github.io.git/edit/master/docs/zh/k/potocol.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              开发协议
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-      </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
         </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
     </div>
-  </div>
-</div>
+
     
-    
-      <div class="md-header__source">
-        
-<a href="https://github.com/onbonlab/onbonlab.github.io.git/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-      </div>
-    
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
             
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
-
-    </a>
-    My Docs
-  </label>
-  
-    <div class="md-nav__source">
-      
-<a href="https://github.com/onbonlab/onbonlab.github.io.git/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
+            <li class="nav-item" data-level="1"><a href="#bx-5k6k" class="nav-link">BX-5K/6K通讯协议用户版本</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#version-list" class="nav-link">Version list</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#1" class="nav-link">1. 快速开发导读</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2" class="nav-link">2. 概述</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3" class="nav-link">3. 标准通讯格式</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4" class="nav-link">4. 包头数据格式</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#5" class="nav-link">5. 数据域定义</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#6-cmderror" class="nav-link">6. 错误状态CmdError</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#7-acknack" class="nav-link">7. ACK和NACK</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#8" class="nav-link">8. 命令定义</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#9" class="nav-link">9. 节目文件格式定义</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#10" class="nav-link">10. 其他文件格式</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#11" class="nav-link">11. 图文区内容编辑</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">附录</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
     </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
+</div></div>
+                    <div class="col-md-9" role="main">
 
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
-        主页
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2">
-          全彩播放器系列
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="全彩播放器系列" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          全彩播放器系列
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../y/y/" class="md-nav__link">
-        开发指南
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../y/java/" class="md-nav__link">
-        JAVA
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          单双色系列
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="单双色系列" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          单双色系列
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../dual/dual/" class="md-nav__link">
-        开发指南
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../dual/java/" class="md-nav__link">
-        JAVA
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../dual/c/" class="md-nav__link">
-        C/C++
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4">
-          字库系列
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="字库系列" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          字库系列
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../k/" class="md-nav__link">
-        开发指南
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../java/" class="md-nav__link">
-        JAVA
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../c/" class="md-nav__link">
-        C/C++
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          开发协议
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        开发协议
-      </a>
-      
-        
-
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#version-list" class="md-nav__link">
-    Version list
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 快速开发导读
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 概述
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 概述">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    2.1 功能描述
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    2.2 通讯方式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    2.3 术语和缩略语
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
-    2.4 协议说明
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 标准通讯格式
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 标准通讯格式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31" class="md-nav__link">
-    3.1 协议的分层
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32" class="md-nav__link">
-    3.2 数据流向
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    3.3 字符转义
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. 包头数据格式
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5. 数据域定义
-  </a>
-  
-    <nav class="md-nav" aria-label="5. 数据域定义">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    5.1 请求与答复
-  </a>
-  
-    <nav class="md-nav" aria-label="5.1 请求与答复">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#511" class="md-nav__link">
-    5.1.1 请求信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#512" class="md-nav__link">
-    5.1.2 答复信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#513" class="md-nav__link">
-    5.1.3 单包发送和分包发送
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-cmderror" class="md-nav__link">
-    6. 错误状态CmdError
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-acknack" class="md-nav__link">
-    7. ACK和NACK
-  </a>
-  
-    <nav class="md-nav" aria-label="7. ACK和NACK">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#71-ack" class="md-nav__link">
-    7.1 ACK
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#72-nack" class="md-nav__link">
-    7.2 NACK
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    8. 命令定义
-  </a>
-  
-    <nav class="md-nav" aria-label="8. 命令定义">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#81" class="md-nav__link">
-    8.1  发送节目文件
-  </a>
-  
-    <nav class="md-nav" aria-label="8.1  发送节目文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#811" class="md-nav__link">
-    8.1.1 开始写文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#812" class="md-nav__link">
-    8.1.2 写文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#813" class="md-nav__link">
-    8.1.3 写多文件命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#814" class="md-nav__link">
-    8.1.4 结束写多文件命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#815" class="md-nav__link">
-    8.1.5 写客户信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#816" class="md-nav__link">
-    8.1.6 读取文件信息命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#817" class="md-nav__link">
-    8.1.7 返回文件信息命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#818" class="md-nav__link">
-    8.1.8 读取文件内容命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#819" class="md-nav__link">
-    8.1.9 返回文件内容命令
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#82" class="md-nav__link">
-    8.2  发送实时显示信息
-  </a>
-  
-    <nav class="md-nav" aria-label="8.2  发送实时显示信息">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#821" class="md-nav__link">
-    8.2.1 发送实时显示区域数据
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#83-bx-5k2-bx-5mk" class="md-nav__link">
-    8.3 BX-5K2 、BX-5MK 专属命令
-  </a>
-  
-    <nav class="md-nav" aria-label="8.3 BX-5K2 、BX-5MK 专属命令">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#831" class="md-nav__link">
-    8.3.1 设置特殊应用动态区
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#832" class="md-nav__link">
-    8.3.2 发送分页数据
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#833" class="md-nav__link">
-    8.3.3 删除页数据
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#834" class="md-nav__link">
-    8.3.4 发送点阵信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#835" class="md-nav__link">
-    8.3.5 删除特殊应用动态区
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#836-ip" class="md-nav__link">
-    8.3.6 设置IP地址
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#837-mac" class="md-nav__link">
-    8.3.7 设置MAC地址
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#838" class="md-nav__link">
-    8.3.8 网络搜索
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#839" class="md-nav__link">
-    8.3.9 网络心跳
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#84" class="md-nav__link">
-    8.4  查询控制器状态
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#85" class="md-nav__link">
-    8.5 格式化
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#86" class="md-nav__link">
-    8.6  删除文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#87-ping" class="md-nav__link">
-    8.7 PING 命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#88" class="md-nav__link">
-    8.8  波特率自适应
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#89" class="md-nav__link">
-    8.9  系统复位命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#810" class="md-nav__link">
-    8.10  系统时间校正命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#811-id" class="md-nav__link">
-    8.11  设置屏 ID
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#812-id" class="md-nav__link">
-    8.12  读取屏 ID
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#813_1" class="md-nav__link">
-    8.13  强制开关机
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#814_1" class="md-nav__link">
-    8.14 定时开关机
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#815_1" class="md-nav__link">
-    8.15  取消定时开关机
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#816_1" class="md-nav__link">
-    8.16 清屏
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#817_1" class="md-nav__link">
-    8.17  设置亮度
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#818_1" class="md-nav__link">
-    8.18  锁定 / 解锁节目
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#819_1" class="md-nav__link">
-    8.19 设置是否显示轮播信息命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#820" class="md-nav__link">
-    8.20 查询字库信息命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#821_1" class="md-nav__link">
-    8.21 参数回读命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#822" class="md-nav__link">
-    8.22 客户信息回读命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#823" class="md-nav__link">
-    8.23 设置提示信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#824" class="md-nav__link">
-    8.24 删除提示信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#825" class="md-nav__link">
-    8.25 添加语音信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#826" class="md-nav__link">
-    8.26 继电器配置命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#827" class="md-nav__link">
-    8.27 设置外部继电器状态
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#828" class="md-nav__link">
-    8.28 查询字库附加信息命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#829" class="md-nav__link">
-    8.29 配置多个外部继电器
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    9. 节目文件格式定义
-  </a>
-  
-    <nav class="md-nav" aria-label="9. 节目文件格式定义">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#91" class="md-nav__link">
-    9.1  区域数据格式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#92" class="md-nav__link">
-    9.2  多分区节目文件实例分析
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
-    10. 其他文件格式
-  </a>
-  
-    <nav class="md-nav" aria-label="10. 其他文件格式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#101" class="md-nav__link">
-    10.1  控制器参数配置文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#102" class="md-nav__link">
-    10.2  字库文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#103" class="md-nav__link">
-    10.3  图库文件
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    11. 图文区内容编辑
-  </a>
-  
-    <nav class="md-nav" aria-label="11. 图文区内容编辑">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#111" class="md-nav__link">
-    11.1  转义字符定义
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#112" class="md-nav__link">
-    11.2  文本内容编辑
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#113" class="md-nav__link">
-    11.3  时间内容编辑
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    附录
-  </a>
-  
-    <nav class="md-nav" aria-label="附录">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#crc" class="md-nav__link">
-    CRC校验算法
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5">
-          常用工具
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="常用工具" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          常用工具
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tool/wireshark/" class="md-nav__link">
-        网络抓包
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
-        关于我们
-      </a>
-    </li>
-  
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#version-list" class="md-nav__link">
-    Version list
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 快速开发导读
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    2. 概述
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 概述">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    2.1 功能描述
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    2.2 通讯方式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    2.3 术语和缩略语
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
-    2.4 协议说明
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 标准通讯格式
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 标准通讯格式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31" class="md-nav__link">
-    3.1 协议的分层
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32" class="md-nav__link">
-    3.2 数据流向
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    3.3 字符转义
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. 包头数据格式
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5. 数据域定义
-  </a>
-  
-    <nav class="md-nav" aria-label="5. 数据域定义">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    5.1 请求与答复
-  </a>
-  
-    <nav class="md-nav" aria-label="5.1 请求与答复">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#511" class="md-nav__link">
-    5.1.1 请求信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#512" class="md-nav__link">
-    5.1.2 答复信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#513" class="md-nav__link">
-    5.1.3 单包发送和分包发送
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-cmderror" class="md-nav__link">
-    6. 错误状态CmdError
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-acknack" class="md-nav__link">
-    7. ACK和NACK
-  </a>
-  
-    <nav class="md-nav" aria-label="7. ACK和NACK">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#71-ack" class="md-nav__link">
-    7.1 ACK
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#72-nack" class="md-nav__link">
-    7.2 NACK
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    8. 命令定义
-  </a>
-  
-    <nav class="md-nav" aria-label="8. 命令定义">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#81" class="md-nav__link">
-    8.1  发送节目文件
-  </a>
-  
-    <nav class="md-nav" aria-label="8.1  发送节目文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#811" class="md-nav__link">
-    8.1.1 开始写文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#812" class="md-nav__link">
-    8.1.2 写文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#813" class="md-nav__link">
-    8.1.3 写多文件命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#814" class="md-nav__link">
-    8.1.4 结束写多文件命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#815" class="md-nav__link">
-    8.1.5 写客户信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#816" class="md-nav__link">
-    8.1.6 读取文件信息命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#817" class="md-nav__link">
-    8.1.7 返回文件信息命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#818" class="md-nav__link">
-    8.1.8 读取文件内容命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#819" class="md-nav__link">
-    8.1.9 返回文件内容命令
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#82" class="md-nav__link">
-    8.2  发送实时显示信息
-  </a>
-  
-    <nav class="md-nav" aria-label="8.2  发送实时显示信息">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#821" class="md-nav__link">
-    8.2.1 发送实时显示区域数据
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#83-bx-5k2-bx-5mk" class="md-nav__link">
-    8.3 BX-5K2 、BX-5MK 专属命令
-  </a>
-  
-    <nav class="md-nav" aria-label="8.3 BX-5K2 、BX-5MK 专属命令">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#831" class="md-nav__link">
-    8.3.1 设置特殊应用动态区
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#832" class="md-nav__link">
-    8.3.2 发送分页数据
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#833" class="md-nav__link">
-    8.3.3 删除页数据
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#834" class="md-nav__link">
-    8.3.4 发送点阵信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#835" class="md-nav__link">
-    8.3.5 删除特殊应用动态区
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#836-ip" class="md-nav__link">
-    8.3.6 设置IP地址
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#837-mac" class="md-nav__link">
-    8.3.7 设置MAC地址
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#838" class="md-nav__link">
-    8.3.8 网络搜索
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#839" class="md-nav__link">
-    8.3.9 网络心跳
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#84" class="md-nav__link">
-    8.4  查询控制器状态
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#85" class="md-nav__link">
-    8.5 格式化
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#86" class="md-nav__link">
-    8.6  删除文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#87-ping" class="md-nav__link">
-    8.7 PING 命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#88" class="md-nav__link">
-    8.8  波特率自适应
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#89" class="md-nav__link">
-    8.9  系统复位命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#810" class="md-nav__link">
-    8.10  系统时间校正命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#811-id" class="md-nav__link">
-    8.11  设置屏 ID
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#812-id" class="md-nav__link">
-    8.12  读取屏 ID
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#813_1" class="md-nav__link">
-    8.13  强制开关机
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#814_1" class="md-nav__link">
-    8.14 定时开关机
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#815_1" class="md-nav__link">
-    8.15  取消定时开关机
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#816_1" class="md-nav__link">
-    8.16 清屏
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#817_1" class="md-nav__link">
-    8.17  设置亮度
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#818_1" class="md-nav__link">
-    8.18  锁定 / 解锁节目
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#819_1" class="md-nav__link">
-    8.19 设置是否显示轮播信息命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#820" class="md-nav__link">
-    8.20 查询字库信息命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#821_1" class="md-nav__link">
-    8.21 参数回读命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#822" class="md-nav__link">
-    8.22 客户信息回读命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#823" class="md-nav__link">
-    8.23 设置提示信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#824" class="md-nav__link">
-    8.24 删除提示信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#825" class="md-nav__link">
-    8.25 添加语音信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#826" class="md-nav__link">
-    8.26 继电器配置命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#827" class="md-nav__link">
-    8.27 设置外部继电器状态
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#828" class="md-nav__link">
-    8.28 查询字库附加信息命令
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#829" class="md-nav__link">
-    8.29 配置多个外部继电器
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9" class="md-nav__link">
-    9. 节目文件格式定义
-  </a>
-  
-    <nav class="md-nav" aria-label="9. 节目文件格式定义">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#91" class="md-nav__link">
-    9.1  区域数据格式
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#92" class="md-nav__link">
-    9.2  多分区节目文件实例分析
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10" class="md-nav__link">
-    10. 其他文件格式
-  </a>
-  
-    <nav class="md-nav" aria-label="10. 其他文件格式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#101" class="md-nav__link">
-    10.1  控制器参数配置文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#102" class="md-nav__link">
-    10.2  字库文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#103" class="md-nav__link">
-    10.3  图库文件
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    11. 图文区内容编辑
-  </a>
-  
-    <nav class="md-nav" aria-label="11. 图文区内容编辑">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#111" class="md-nav__link">
-    11.1  转义字符定义
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#112" class="md-nav__link">
-    11.2  文本内容编辑
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#113" class="md-nav__link">
-    11.3  时间内容编辑
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    附录
-  </a>
-  
-    <nav class="md-nav" aria-label="附录">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#crc" class="md-nav__link">
-    CRC校验算法
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                  <a href="https://github.com/onbonlab/onbonlab.github.io.git/edit/master/docs/zh/k/potocol.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="bk-5k6k">BK-5K/6K通讯协议用户版本<a class="headerlink" href="#bk-5k6k" title="Permanent link">&para;</a></h1>
-<h2 id="version-list">Version list<a class="headerlink" href="#version-list" title="Permanent link">&para;</a></h2>
+<h1 id="bx-5k6k">BX-5K/6K通讯协议用户版本<a class="headerlink" href="#bx-5k6k" title="Permanent link"></a></h1>
+<h2 id="version-list">Version list<a class="headerlink" href="#version-list" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
@@ -1955,7 +278,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="1">1. 快速开发导读<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h2 id="1">1. 快速开发导读<a class="headerlink" href="#1" title="Permanent link"></a></h2>
 <p>如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读协议，并进行软件开发。</p>
 <ol>
 <li>阅读《BX-5K 5MK 控制器二次开发及使用说明书》，学习如何通过自带软件使用控制卡。如果都还不会正确使用本控制卡，谈何二次开发？所以这一步是必须的，开发中遇到的绝大多数问题都能在本文档及使用说明书中找到答案。注意说明书中的“二次开发必读入门指导”一章。</li>
@@ -1967,10 +290,10 @@
 <li>阅读开始写文件命令和写文件命令，掌握节目文件的发送，特别要注意文件单包发送和多包发送的区别，如果需要连续发送多个节目文件，还需阅读写多文件命令和结束写多文件命令。</li>
 <li>完成以上 7 点，你已经可以编辑并发布自己的节目文件了，如果想对控制器进行更灵活的控制，可以阅读命令定义里的其他命令定义，以实现更多功能。</li>
 </ol>
-<h2 id="2">2. 概述<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<h3 id="21">2.1 功能描述<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<h2 id="2">2. 概述<a class="headerlink" href="#2" title="Permanent link"></a></h2>
+<h3 id="21">2.1 功能描述<a class="headerlink" href="#21" title="Permanent link"></a></h3>
 <p>类型：单/双/三色屏。</p>
-<p>扫描方式：&frac14;，&#8539;，1/16 扫，用命令可以修改。</p>
+<p>扫描方式：1/4，1/8，1/16 扫，用命令可以修改。</p>
 <p>标准字库：16/24/32 点阵字库，以及非8像素点倍数的字库。</p>
 <p>数据类型：字库方式。</p>
 <p>播放方式：节目顺序播放/定长播放可选。</p>
@@ -1979,13 +302,13 @@
 <p>节目个数：32 个，6代字库卡单个节目最多支持10个字库区，5代字库卡最多支持8个字库区。</p>
 <p>动态区域个数：6代字库卡5 个动态区(5代字库卡8个)，1 个特殊动态区。</p>
 <p>动态区刷新率：&gt;=1s。</p>
-<h3 id="22">2.2 通讯方式<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<h3 id="22">2.2 通讯方式<a class="headerlink" href="#22" title="Permanent link"></a></h3>
 <ol>
 <li>RS232/485  波特率 ：9600/57600, 无校验, 8 位数据, 1 停止位。</li>
 <li>GPRS/RF  波特率 ：9600/57600, 无校验, 8 位数据, 1 停止位。</li>
 <li>Ethernet         TCP/IP：10/100M</li>
 </ol>
-<h3 id="23">2.3 术语和缩略语<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<h3 id="23">2.3 术语和缩略语<a class="headerlink" href="#23" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -2012,7 +335,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="24">2.4 协议说明<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<h3 id="24">2.4 协议说明<a class="headerlink" href="#24" title="Permanent link"></a></h3>
 <ul>
 <li>本文档中十六进制数据表示为 0x？？，如 0x7E。</li>
 <li>本文档中涉及到的多字节参数，均以先低字节(LSB)后高字节(MSB)顺序发送，但是对于文件名和控制器名称等字符串参数，发送时按顺序发送，如“P123”则先发送‘P’，最后发送‘3’。</li>
@@ -2024,7 +347,7 @@
 <li>本文档中提及的“读取”和“写入”都是指上位机对控制器的动作。</li>
 <li>本文档中提及的保留字全部默认发送 0x00。</li>
 </ul>
-<h2 id="3">3. 标准通讯格式<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h2 id="3">3. 标准通讯格式<a class="headerlink" href="#3" title="Permanent link"></a></h2>
 <p>协议结构如下：</p>
 <table>
 <thead>
@@ -2053,7 +376,7 @@
 <li>数据域为用户协议层数据，参考<a href="#5">数据域定义</a>。</li>
 <li>包校验为包头数据和数据域的校验值（CRC16 校验算法参考附录）。</li>
 </ol>
-<h3 id="31">3.1 协议的分层<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<h3 id="31">3.1 协议的分层<a class="headerlink" href="#31" title="Permanent link"></a></h3>
 <p>协议采用分层模式，分为协议层和物理传输层两层，其中数据域属于协议层数据。物理传输层又分为PHY0和PHY1两层，其中PHY1层数据结构如下：</p>
 <table>
 <thead>
@@ -2090,10 +413,10 @@ PHY0 层数据结构为：  </p>
 </tbody>
 </table>
 <p>PHY0层为PHY1层数据增加帧头和帧尾，并对PHY1层数据进行转义（参考<a href="#33">字符转义</a>）。</p>
-<h3 id="32">3.2 数据流向<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<h3 id="32">3.2 数据流向<a class="headerlink" href="#32" title="Permanent link"></a></h3>
 <p>在发送端，协议层数据先提交到 PHY1 层，对数据域进行封包操作。然后 PHY1 层报数据提交到PHY0层，对PHY1层数据进行字符转义并增加帧头帧尾，最后数据经过物理底层发送出去。
 在接收端，控制器将物理底层接收到的数据发送到PHY0层，PHY0层去除帧头帧尾，并对数据进行反转义，然后将数据提交到PHY1层。PHY1层将判断包数据的正确性，并去除包头和包校验值，向协议层提交有用数据。</p>
-<h3 id="33">3.3 字符转义<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<h3 id="33">3.3 字符转义<a class="headerlink" href="#33" title="Permanent link"></a></h3>
 <ul>
 <li>封帧中遇到0xA5，则将之转义为0xA6，0x02，如遇到0xA6，则将之转义为0xA6，0x01。</li>
 <li>封帧中遇到0x5A，则将之转义为0x5B，0x02，如遇到0x5B，则将之转义为0x5B，0x01。</li>
@@ -2103,7 +426,7 @@ PHY0 层数据结构为：  </p>
 <li>解帧过程如果遇到连续两个字节为0x5B，0x01，则反转义为 0x5B。
 注意：封帧过程中，所涉及校验的数据皆是转义之前的数据，所涉及的数据长度皆是转义之前的数据长度。</li>
 </ul>
-<h2 id="4">4. 包头数据格式<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h2 id="4">4. 包头数据格式<a class="headerlink" href="#4" title="Permanent link"></a></h2>
 <p>包头数据包含数据来源和流向，以及设备类型和协议版本等信息，它与数据域、包校验一起组成PHY1层数据包。</p>
 <table>
 <thead>
@@ -2236,10 +559,10 @@ a5 a5 a5 a5 a5 a5 a5 a5 <strong>fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00</stron
 </tr>
 </tbody>
 </table>
-<h2 id="5">5. 数据域定义<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<h3 id="51">5.1 请求与答复<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<h2 id="5">5. 数据域定义<a class="headerlink" href="#5" title="Permanent link"></a></h2>
+<h3 id="51">5.1 请求与答复<a class="headerlink" href="#51" title="Permanent link"></a></h3>
 <p>信息(Message)可分为请求(Request)和答复(Response)两种，请求是指从上位机到控制器(LED Controller)的信息，答复是指从控制器到上位机的回复。所有的数据通讯必须由上位机来发起。通讯过程中广播通讯控制器不回复，点对点通讯时可配置控制器是否回复，配置为不回复的通讯必须采用单包模式（参考单包发送和分包发送）。配置为有回复的通讯，如果在超时时间(TimeoutValue)之内没有收到回复，上位机将产生超时错误(Timeout Error)。</p>
-<h4 id="511">5.1.1 请求信息<a class="headerlink" href="#511" title="Permanent link">&para;</a></h4>
+<h4 id="511">5.1.1 请求信息<a class="headerlink" href="#511" title="Permanent link"></a></h4>
 <p>请求信息是PC机软件到控制器的信息，其格式如下：</p>
 <table>
 <thead>
@@ -2284,7 +607,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 <strong>fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00</stron
 </tbody>
 </table>
 <p><strong>命令示例2：</strong>
-a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 00 00 01 23 00 00 00 80 00 00 80 80 20 00 00 00 00 0a 00 00 00 00 02 01 01 00 02 0a 08 00 00 00 bb b6 d3 ad b9 e2 c1 d9 **3c 49 5a
+a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 <strong>a3 06 01 00 00 00 01 23 00 00 00 80 00 00 80 80 20 00 00 00 00 0a 00 00 00 00 02 01 01 00 02 0a 08 00 00 00 bb b6 d3 ad b9 e2 c1 d9 </strong>3c 49 5a
 命令示例2为动态节目更新命令。控制卡型号：6K3, 屏大小为128*32，显示内容：欢迎光临，具体解析见下表。</p>
 <table>
 <thead>
@@ -2432,7 +755,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tr>
 </tbody>
 </table>
-<h4 id="512">5.1.2 答复信息<a class="headerlink" href="#512" title="Permanent link">&para;</a></h4>
+<h4 id="512">5.1.2 答复信息<a class="headerlink" href="#512" title="Permanent link"></a></h4>
 <p>答复信息为控制器到 PC 机软件的信息，其格式如下：</p>
 <table>
 <thead>
@@ -2515,9 +838,9 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tr>
 </tbody>
 </table>
-<h4 id="513">5.1.3 单包发送和分包发送<a class="headerlink" href="#513" title="Permanent link">&para;</a></h4>
+<h4 id="513">5.1.3 单包发送和分包发送<a class="headerlink" href="#513" title="Permanent link"></a></h4>
 <p>由于控制器数据接收缓存为 1024byte，所以当数据域数据大小大于1024byte时采用分包发送，小于1024byte时采用单包发送。采用分包发送时控制器可以不回复，但是这种做法不推荐，因为无法保证数据的正确接收。无论采用单包发送还是分包发送，在写文件命令前，必须先发送开始写文件命令（参考<a href="###写文件">写文件</a>命令）。</p>
-<h2 id="6-cmderror">6. 错误状态CmdError<a class="headerlink" href="#6-cmderror" title="Permanent link">&para;</a></h2>
+<h2 id="6-cmderror">6. 错误状态CmdError<a class="headerlink" href="#6-cmderror" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
@@ -2614,9 +937,9 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tr>
 </tbody>
 </table>
-<h2 id="7-acknack">7. ACK和NACK<a class="headerlink" href="#7-acknack" title="Permanent link">&para;</a></h2>
+<h2 id="7-acknack">7. ACK和NACK<a class="headerlink" href="#7-acknack" title="Permanent link"></a></h2>
 <p>ACK 和 NACK 常用于不需要返回额外数据的命令，比如PING命令时，设置命令需返回，则控制器返回ACK，表明控制器在线。</p>
-<h3 id="71-ack">7.1 ACK<a class="headerlink" href="#71-ack" title="Permanent link">&para;</a></h3>
+<h3 id="71-ack">7.1 ACK<a class="headerlink" href="#71-ack" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -2654,9 +977,9 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tbody>
 </table>
 <p><strong>命令示例4：</strong></p>
-<p>A5 A5 A5 A5 A5 A5 A5 A5 A5 00 80 FE FF 00 00 00 00 00 00 FE 02 05 00 **A0 00 00 00 00 **14 AC 5A</p>
+<p>A5 A5 A5 A5 A5 A5 A5 A5 A5 00 80 FE FF 00 00 00 00 00 00 FE 02 05 00 <strong>A0 00 00 00 00 </strong>14 AC 5A</p>
 <p>命令4即为控制卡返回的ACK，一般命令设置了控制卡需回复且发送命令正确时，控制卡会回复ACK。</p>
-<h3 id="72-nack">7.2 NACK<a class="headerlink" href="#72-nack" title="Permanent link">&para;</a></h3>
+<h3 id="72-nack">7.2 NACK<a class="headerlink" href="#72-nack" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -2694,7 +1017,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tbody>
 </table>
 <p><strong>命令示例5：</strong></p>
-<p>A5 A5 A5 A5 A5 A5 A5 A5 A5 00 80 FE FF 00 00 00 00 00 00 FE 02 05 00 **A0 01 05 00 00 **05 51 5A</p>
+<p>A5 A5 A5 A5 A5 A5 A5 A5 A5 00 80 FE FF 00 00 00 00 00 00 FE 02 05 00 <strong>A0 01 05 00 00 </strong>05 51 5A</p>
 <p>命令5即为控制卡返回的NACK，此时根据命令处理状态位的值，对应错误状态值表来检查发送命令，如此ACK处理状态位为0x05，对应的是CRC16校验错误；</p>
 <table>
 <thead>
@@ -2727,10 +1050,10 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tr>
 </tbody>
 </table>
-<h2 id="8">8. 命令定义<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
-<h3 id="81">8.1  发送节目文件<a class="headerlink" href="#81" title="Permanent link">&para;</a></h3>
+<h2 id="8">8. 命令定义<a class="headerlink" href="#8" title="Permanent link"></a></h2>
+<h3 id="81">8.1  发送节目文件<a class="headerlink" href="#81" title="Permanent link"></a></h3>
 <p>注意：节目文件因掉电不丢失，存储在Flash中，Flash擦写寿命有限制，故不适合频繁更新的情况。</p>
-<h4 id="811">8.1.1 开始写文件<a class="headerlink" href="#811" title="Permanent link">&para;</a></h4>
+<h4 id="811">8.1.1 开始写文件<a class="headerlink" href="#811" title="Permanent link"></a></h4>
 <table>
 <thead>
 <tr>
@@ -2835,7 +1158,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tr>
 </tbody>
 </table>
-<h4 id="812">8.1.2 写文件<a class="headerlink" href="#812" title="Permanent link">&para;</a></h4>
+<h4 id="812">8.1.2 写文件<a class="headerlink" href="#812" title="Permanent link"></a></h4>
 <p>在发送该命令前请先发送开始写文件命令，以判断是否有足够空间存储该文件。该命令用于发送文件数据到控制器，如果文件大小不超出控制器接收缓冲区(6代字库卡最大为1024Byte，5代字库卡最大为512Byte)的大小，可以单包发送。如果已经超出接收缓冲区大小，则必须分包发送，分包大小可以自行定义。</p>
 <table>
 <thead>
@@ -2953,7 +1276,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tbody>
 </table>
 <p><strong>命令示例7：</strong></p>
-<p>A5 A5 A5 A5 A5 A5 A5 A5 FE FF 00 80 00 00 00 00 00 00 FE 02 59 00 **A1 06 01 00 00 50 30 30 30 01 00 00 47 00 00 00 00 00 00 50 30 30 30 47 00 00 00 FF 00 00 01 FF FF FF FF FF FF FF FF 01 00 00 01 2C 00 00 00 00 00 80 00 00 80 80 20 00 FF 00 00 00 00 00 00 00 02 02 02 00 0A 0A 0D 00 00 00 BB B6 D3 AD B9 E2 C1 D9 4F 6E 62 6F 6E 0F 18 **EC F0 5A</p>
+<p>A5 A5 A5 A5 A5 A5 A5 A5 FE FF 00 80 00 00 00 00 00 00 FE 02 59 00 <strong>A1 06 01 00 00 50 30 30 30 01 00 00 47 00 00 00 00 00 00 50 30 30 30 47 00 00 00 FF 00 00 01 FF FF FF FF FF FF FF FF 01 00 00 01 2C 00 00 00 00 00 80 00 00 80 80 20 00 FF 00 00 00 00 00 00 00 02 02 02 00 0A 0A 0D 00 00 00 BB B6 D3 AD B9 E2 C1 D9 4F 6E 62 6F 6E 0F 18 </strong>EC F0 5A</p>
 <p>相应写命令发送后，控制卡返回ACK后，发送命令7。命令7为发送的节目1的内容，节目名为P000。具体分析见下表。</p>
 <table>
 <thead>
@@ -3016,7 +1339,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tr>
 </tbody>
 </table>
-<h4 id="813">8.1.3 写多文件命令<a class="headerlink" href="#813" title="Permanent link">&para;</a></h4>
+<h4 id="813">8.1.3 写多文件命令<a class="headerlink" href="#813" title="Permanent link"></a></h4>
 <table>
 <thead>
 <tr>
@@ -3054,7 +1377,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tbody>
 </table>
 <p>在连续发送多个文件时，可以先发送写多文件命令，此时屏幕关闭，等待接收文件，在所有文件发送完毕后发送结束写多文件命令。结束等待。</p>
-<h4 id="814">8.1.4 结束写多文件命令<a class="headerlink" href="#814" title="Permanent link">&para;</a></h4>
+<h4 id="814">8.1.4 结束写多文件命令<a class="headerlink" href="#814" title="Permanent link"></a></h4>
 <table>
 <thead>
 <tr>
@@ -3091,7 +1414,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tr>
 </tbody>
 </table>
-<h4 id="815">8.1.5 写客户信息<a class="headerlink" href="#815" title="Permanent link">&para;</a></h4>
+<h4 id="815">8.1.5 写客户信息<a class="headerlink" href="#815" title="Permanent link"></a></h4>
 <table>
 <thead>
 <tr>
@@ -3140,7 +1463,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tr>
 </tbody>
 </table>
-<h4 id="816">8.1.6 读取文件信息命令<a class="headerlink" href="#816" title="Permanent link">&para;</a></h4>
+<h4 id="816">8.1.6 读取文件信息命令<a class="headerlink" href="#816" title="Permanent link"></a></h4>
 <table>
 <thead>
 <tr>
@@ -3189,7 +1512,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tr>
 </tbody>
 </table>
-<h4 id="817">8.1.7 返回文件信息命令<a class="headerlink" href="#817" title="Permanent link">&para;</a></h4>
+<h4 id="817">8.1.7 返回文件信息命令<a class="headerlink" href="#817" title="Permanent link"></a></h4>
 <table>
 <thead>
 <tr>
@@ -3251,7 +1574,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tbody>
 </table>
 <p>如果请求读的文件不存在，则返回 ERR_FILENOTEXIST 错误。</p>
-<h4 id="818">8.1.8 读取文件内容命令<a class="headerlink" href="#818" title="Permanent link">&para;</a></h4>
+<h4 id="818">8.1.8 读取文件内容命令<a class="headerlink" href="#818" title="Permanent link"></a></h4>
 <table>
 <thead>
 <tr>
@@ -3306,7 +1629,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tr>
 </tbody>
 </table>
-<h4 id="819">8.1.9 返回文件内容命令<a class="headerlink" href="#819" title="Permanent link">&para;</a></h4>
+<h4 id="819">8.1.9 返回文件内容命令<a class="headerlink" href="#819" title="Permanent link"></a></h4>
 <table>
 <thead>
 <tr>
@@ -3373,8 +1696,8 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 **a3 06 01 00 
 </tr>
 </tbody>
 </table>
-<h3 id="82">8.2  发送实时显示信息<a class="headerlink" href="#82" title="Permanent link">&para;</a></h3>
-<h4 id="821">8.2.1 发送实时显示区域数据<a class="headerlink" href="#821" title="Permanent link">&para;</a></h4>
+<h3 id="82">8.2  发送实时显示信息<a class="headerlink" href="#82" title="Permanent link"></a></h3>
+<h4 id="821">8.2.1 发送实时显示区域数据<a class="headerlink" href="#821" title="Permanent link"></a></h4>
 <p>控制卡支持 5 个动态区，每个动态区数据量不能超过1024byte（5K为8个动态区，单个动态区容量最大为512byte），可以单独更新一个动态区，也可同时更新所有动态区。实时显示信息不能掉电保存，但可以无限次更新。</p>
 <table>
 <thead>
@@ -3526,8 +1849,8 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 <strong>a3 06 
 </tr>
 </tbody>
 </table>
-<h3 id="83-bx-5k2-bx-5mk">8.3 BX-5K2 、BX-5MK 专属命令<a class="headerlink" href="#83-bx-5k2-bx-5mk" title="Permanent link">&para;</a></h3>
-<h4 id="831">8.3.1 设置特殊应用动态区<a class="headerlink" href="#831" title="Permanent link">&para;</a></h4>
+<h3 id="83-bx-5k2-bx-5mk">8.3 BX-5K2 、BX-5MK 专属命令<a class="headerlink" href="#83-bx-5k2-bx-5mk" title="Permanent link"></a></h3>
+<h4 id="831">8.3.1 设置特殊应用动态区<a class="headerlink" href="#831" title="Permanent link"></a></h4>
 <p>控制器只支持一个特殊应用动态区，该区支持点阵和编码两种数据类型，当数据类型配置为编码格式时，区域支持数据分页循环播放和单独更新某页数据；当配置为点阵格式时，区域只支持数据单页显示，如果点阵信息大于1024byte，则必须分包发送。该区域的数据容量为16Kbyte(8192 个汉字)。</p>
 <table>
 <thead>
@@ -3646,7 +1969,7 @@ a5 a5 a5 a5 a5 a5 a5 a5 fe ff 00 80 00 00 00 00 00 00 fe 02 2c 00 <strong>a3 06 
 <p>返回 ACK 或 NACK。</p>
 <p>实例：
 A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00 28 00 00 00 08 00 40 00 00 01 00 02 00 02 00 02 0A 00 00 00 00 00 00 00 FD C0 5A</p>
-<h4 id="832">8.3.2 发送分页数据<a class="headerlink" href="#832" title="Permanent link">&para;</a></h4>
+<h4 id="832">8.3.2 发送分页数据<a class="headerlink" href="#832" title="Permanent link"></a></h4>
 <p>当动态区数据类型配置为编码类型时，选择该命令更新页数据。每页数据大小为（16kbyte）除以总页数且不能大于 1024byte。循环播放每页数据。</p>
 <table>
 <thead>
@@ -3703,9 +2026,9 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tbody>
 </table>
 <p>返回 ACK 或 NACK。</p>
-<p>实例：（数据为 <a href="http://www.onbonbx.com">www.onbonbx.com</a>）</p>
+<p>实例：（数据为 www.onbonbx.com）</p>
 <p>A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 17 00 A4 02 01 00 00 00 0F 00 77 77 77 2E 6F 6E 62 6F 6E 62 78 2E 63 6F 6D 68 B5 5A</p>
-<h4 id="833">8.3.3 删除页数据<a class="headerlink" href="#833" title="Permanent link">&para;</a></h4>
+<h4 id="833">8.3.3 删除页数据<a class="headerlink" href="#833" title="Permanent link"></a></h4>
 <p>如果特殊应用动态区使用分页显示数据的方式，则可以使用删除页数据来单独删除某一页数据。</p>
 <table>
 <thead>
@@ -3752,7 +2075,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <p>返回 ACK 或 NACK。</p>
 <p>实例：</p>
 <p>A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 06 00 A4 09 01 00 00 00 65 9C 5A</p>
-<h4 id="834">8.3.4 发送点阵信息<a class="headerlink" href="#834" title="Permanent link">&para;</a></h4>
+<h4 id="834">8.3.4 发送点阵信息<a class="headerlink" href="#834" title="Permanent link"></a></h4>
 <p>当动态区数据类型配置为点阵类型时，选择该命令更新页数据。点阵信息长度不能大于 16Kbyte，大于1024byte时必须分包发送。接收信息时，屏幕静止显示之前数据。点阵信息需用户自己生成。</p>
 <table>
 <thead>
@@ -3811,7 +2134,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <p>返回 ACK 或 NACK。</p>
 <p>实例：</p>
 <p>A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 08 02 A4 03 01 00 00 01 00 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FD 00 FF 00 FF 00 FC 00 FF 00 80 00 3F 00 FF 00 F0 00 07 00 FF 00 FE 00 7F 00 02 02 FF 80 FF 00 E0 00 00 00 7F 00 FF 00 9F 00 29 28 FF 00 FF 00 C0 00 02 00 7F 00 FF 00 CF 00 03 00 FF 00 FF 00 80 00 0E 00 7F 00 FF 00 E7 00 28 28 3F 00 FF 00 00 00 18 18 3F 00 FF 00 F0 00 00 00 7F 00 FE 00 FF EF F8 F8 3F 00 FF 00 FC 00 01 00 FF 00 FF 01 FE FF F8 F8 3F 00 FF 00 F8 00 03 00 FF 00 FF 01 FF FF F8 E8 7F 00 FF 00 F0 00 1F 00 FF 00 FE 00 1F 1F F0 F0 FF 00 FF 00 C0 00 8D 00 FF 00 FC 00 01 01 D0 D0 FF 00 FC 00 01 00 C7 00 FF 00 FC 00 00 00 01 00 FF 00 FC 00 61 00 A7 00 FF 00 FC 00 60 00 01 00 FF 00 FC 00 EF 20 FD 00 FF 00 FC 00 E0 00 03 00 FF 00 FD 01 8F 00 F7 00 FF 00 FC 00 85 00 07 00 FF 00 FC 00 0F 00 FF 00 FF 00 FC 00 07 00 9F 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 F5 00 9F 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FD 08 9F 80 FF 00 FF 00 F2 02 CF 00 FF 00 FF 00 F8 08 9F 80 FF 00 FF 00 FF 0F 57 50 FF 00 FF 00 FF 00 FF 80 FF 00 FF 00 FF 00 DF C0 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 EF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 DF 00 DF 00 DB 02 FF 00 FF 00 FF 00 FF 00 FF 00 C8 00 52 52 52 12 BF 80 FF 00 FF 00 FF 00 FF 00 DA 1A DB DB 52 52 C3 80 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 FF 00 2E 8B 5A</p>
-<h4 id="835">8.3.5 删除特殊应用动态区<a class="headerlink" href="#835" title="Permanent link">&para;</a></h4>
+<h4 id="835">8.3.5 删除特殊应用动态区<a class="headerlink" href="#835" title="Permanent link"></a></h4>
 <p>该命令只有 BX-5MK 支持，其他控制器不支持该命令。</p>
 <table>
 <thead>
@@ -3852,7 +2175,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <p>返回 ACK 或 NACK。</p>
 <p>实例：</p>
 <p>A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 05 00 A4 04 01 00 00 E1 C8 5A</p>
-<h4 id="836-ip">8.3.6 设置IP地址<a class="headerlink" href="#836-ip" title="Permanent link">&para;</a></h4>
+<h4 id="836-ip">8.3.6 设置IP地址<a class="headerlink" href="#836-ip" title="Permanent link"></a></h4>
 <p>TCP 端口号，默认值为 5005，UDP端口号为5007。BX-5MK系列只支持单机直连和固定 IP 模式。</p>
 <table>
 <thead>
@@ -3970,7 +2293,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </table>
 <p>实例：</p>
 <p>A5 A5 A5 A5 A5 A5 A5 A5 FE FF 00 80 00 00 00 00 00 00 FE 02 31 00 A4 05 01 00 00 02 C0 A8 00 EB FF FF FF 00 C0 A8 00 01 8D 13 00 C0 A8 00 01 71 17 30 30 30 30 30 30 30 30 14 00 42 58 2D 4E 45 54 30 30 30 30 30 16 90 5A</p>
-<h4 id="837-mac">8.3.7 设置MAC地址<a class="headerlink" href="#837-mac" title="Permanent link">&para;</a></h4>
+<h4 id="837-mac">8.3.7 设置MAC地址<a class="headerlink" href="#837-mac" title="Permanent link"></a></h4>
 <table>
 <thead>
 <tr>
@@ -4015,7 +2338,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </table>
 <p>实例：</p>
 <p>A5 A5 A5 A5 A5 A5 A5 A5 FE FF 00 80 00 00 00 00 00 00 FE 02 0B 00 A4 06 01 00 00 00 FF FE 83 A8 56 1C 2C 5A</p>
-<h4 id="838">8.3.8 网络搜索<a class="headerlink" href="#838" title="Permanent link">&para;</a></h4>
+<h4 id="838">8.3.8 网络搜索<a class="headerlink" href="#838" title="Permanent link"></a></h4>
 <p>返回网络心跳。</p>
 <table>
 <thead>
@@ -4053,7 +2376,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h4 id="839">8.3.9 网络心跳<a class="headerlink" href="#839" title="Permanent link">&para;</a></h4>
+<h4 id="839">8.3.9 网络心跳<a class="headerlink" href="#839" title="Permanent link"></a></h4>
 <table>
 <thead>
 <tr>
@@ -4138,7 +2461,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h3 id="84">8.4  查询控制器状态<a class="headerlink" href="#84" title="Permanent link">&para;</a></h3>
+<h3 id="84">8.4  查询控制器状态<a class="headerlink" href="#84" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -4278,7 +2601,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h3 id="85">8.5 格式化<a class="headerlink" href="#85" title="Permanent link">&para;</a></h3>
+<h3 id="85">8.5 格式化<a class="headerlink" href="#85" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -4318,7 +2641,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <p>格式化命令会删除控制器中的所有文件，包括节目文件和字库文件，如果只希望删除节目文件而保留字库文件，该命令需慎用。命令回复为 ACK 或 NACK。</p>
 <p>实例：</p>
 <p>A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 05 00 A1 00 01 00 00 2C F8 5A</p>
-<h3 id="86">8.6  删除文件<a class="headerlink" href="#86" title="Permanent link">&para;</a></h3>
+<h3 id="86">8.6  删除文件<a class="headerlink" href="#86" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -4386,7 +2709,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tbody>
 </table>
 <p>删除文件命令可以删除控制器中任意文件，包括节目文件和字库文件。如果需要删除所有的节目文件，则将 FileNumber 置为 0 即可。命令回复为 ACK 或 NACK。</p>
-<h3 id="87-ping">8.7 PING 命令<a class="headerlink" href="#87-ping" title="Permanent link">&para;</a></h3>
+<h3 id="87-ping">8.7 PING 命令<a class="headerlink" href="#87-ping" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -4426,7 +2749,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <p>返回值为 ACK 或 NACK。</p>
 <p>PING 命令实例：</p>
 <p>A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 05 00 A2 00 01 00 00 68 F8 5A</p>
-<h3 id="88">8.8  波特率自适应<a class="headerlink" href="#88" title="Permanent link">&para;</a></h3>
+<h3 id="88">8.8  波特率自适应<a class="headerlink" href="#88" title="Permanent link"></a></h3>
 <p>对于当前的控制器，只支持9600bps和57600bps两种波特率。所以，对于波特率自适应，我们这里采用简单的轮询模式。其过程如下：
 1. 上位机使用 9600 波特率向控制器发出 Ping 命令。
 2. 如上位机在 2S 内收到正确的回复，则说明控制器的波特率即为 9600 。
@@ -4434,7 +2757,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 4. 如上位机在 2S 内收到正确的回复，则说明控制器的波特率为 57600 。
 5. 如上位机 2S 内没有收到正确的回复信息，则重复1,2,3,4 。
 6. 如 1,2,3,4仍失败，则说明通讯失败，此时需提醒客户检查通讯线路。</p>
-<h3 id="89">8.9  系统复位命令<a class="headerlink" href="#89" title="Permanent link">&para;</a></h3>
+<h3 id="89">8.9  系统复位命令<a class="headerlink" href="#89" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -4472,7 +2795,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tbody>
 </table>
 <p>控制器接接收到系统复位命令后，擦除除Firmware文件外的所有数据文件，然后复位 CPU。命令返回ACK 或 NACK。</p>
-<h3 id="810">8.10  系统时间校正命令<a class="headerlink" href="#810" title="Permanent link">&para;</a></h3>
+<h3 id="810">8.10  系统时间校正命令<a class="headerlink" href="#810" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -4518,7 +2841,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <p>返回 ACK 或 NACK。</p>
 <p>校时命令实例：</p>
 <p>A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 0D 00 A2 03 01 08 00 13 20 01 25 11 17 26 05 B0 3F 5A</p>
-<h3 id="811-id">8.11  设置屏 ID<a class="headerlink" href="#811-id" title="Permanent link">&para;</a></h3>
+<h3 id="811-id">8.11  设置屏 ID<a class="headerlink" href="#811-id" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -4562,7 +2885,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tbody>
 </table>
 <p>返回 ACK 或 NACK。设置屏ID时必需采用广播模式（见<a href="#4">包头数据格式</a>中目标地址的说明）。</p>
-<h3 id="812-id">8.12  读取屏 ID<a class="headerlink" href="#812-id" title="Permanent link">&para;</a></h3>
+<h3 id="812-id">8.12  读取屏 ID<a class="headerlink" href="#812-id" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -4643,7 +2966,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h3 id="813_1">8.13  强制开关机<a class="headerlink" href="#813_1" title="Permanent link">&para;</a></h3>
+<h3 id="813_1">8.13  强制开关机<a class="headerlink" href="#813_1" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -4687,7 +3010,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tbody>
 </table>
 <p>返回 ACK 或 NACK。强制开关机命令的优先级高于定时开关机。如果发送强制开机命令，则在下一个定时开关机关机时段前都为开机状态，如果发送强制关机命令，则在下一个定时开关机开机时段前都为关机状态。</p>
-<h3 id="814_1">8.14 定时开关机<a class="headerlink" href="#814_1" title="Permanent link">&para;</a></h3>
+<h3 id="814_1">8.14 定时开关机<a class="headerlink" href="#814_1" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -4762,7 +3085,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </table>
 <p>返回 ACK 或 NACK。定时开关机一旦设置，则一直有效直到取消定时开关机为止。</p>
 <p>注意！关机时间一定要比开机时间大，不支持跨天设置。时间的发送顺序为先发小时后发分钟</p>
-<h3 id="815_1">8.15  取消定时开关机<a class="headerlink" href="#815_1" title="Permanent link">&para;</a></h3>
+<h3 id="815_1">8.15  取消定时开关机<a class="headerlink" href="#815_1" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -4800,7 +3123,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tbody>
 </table>
 <p>返回 ACK 或 NACK。</p>
-<h3 id="816_1">8.16 清屏<a class="headerlink" href="#816_1" title="Permanent link">&para;</a></h3>
+<h3 id="816_1">8.16 清屏<a class="headerlink" href="#816_1" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -4838,7 +3161,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tbody>
 </table>
 <p>返回 ACK 或 NACK。</p>
-<h3 id="817_1">8.17  设置亮度<a class="headerlink" href="#817_1" title="Permanent link">&para;</a></h3>
+<h3 id="817_1">8.17  设置亮度<a class="headerlink" href="#817_1" title="Permanent link"></a></h3>
 <p>该命令包含强制设置亮度和定时设置亮度功能。</p>
 <table>
 <thead>
@@ -4895,7 +3218,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tbody>
 </table>
 <p>返回 ACK 或 NACK。</p>
-<h3 id="818_1">8.18  锁定 / 解锁节目<a class="headerlink" href="#818_1" title="Permanent link">&para;</a></h3>
+<h3 id="818_1">8.18  锁定 / 解锁节目<a class="headerlink" href="#818_1" title="Permanent link"></a></h3>
 <p>被锁定的节目将一直播放直至解锁，该命令常用于节目的的选择播放。</p>
 <table>
 <thead>
@@ -4955,7 +3278,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 命令实例（掉电不保存）：
 锁定节目0：A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 0B 00 A3 04 01 00 00 00 01 50 30 30 30 C2 40 5A</p>
 <p>解锁节目0：A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 0B 00 A3 04 01 00 00 00 00 50 30 30 30 FF 80 5A</p>
-<h3 id="819_1">8.19 设置是否显示轮播信息命令<a class="headerlink" href="#819_1" title="Permanent link">&para;</a></h3>
+<h3 id="819_1">8.19 设置是否显示轮播信息命令<a class="headerlink" href="#819_1" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -5004,7 +3327,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <p>A5 A5 A5 A5 A5 A5 A5 A5 FE FF 00 80 FF 00 00 00 00 00 FE 02 06 00 A2 08 01 00 00 01 BC 51 5A</p>
 <p>显示轮播信息命令：</p>
 <p>A5 A5 A5 A5 A5 A5 A5 A5 FE FF 00 80 FF 00 00 00 00 00 FE 02 06 00 A2 08 01 00 00 00 7D 91 5A</p>
-<h3 id="820">8.20 查询字库信息命令<a class="headerlink" href="#820" title="Permanent link">&para;</a></h3>
+<h3 id="820">8.20 查询字库信息命令<a class="headerlink" href="#820" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -5123,7 +3446,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h3 id="821_1">8.21 参数回读命令<a class="headerlink" href="#821_1" title="Permanent link">&para;</a></h3>
+<h3 id="821_1">8.21 参数回读命令<a class="headerlink" href="#821_1" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -5271,7 +3594,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <td>ScanMode</td>
 <td>1</td>
 <td>0x10</td>
-<td>几扫：0x10 – 1/16 扫，0x08 – &#8539; 扫，0x04 –&frac14;扫，0x02–&frac12;扫，0x01 – 静态扫描</td>
+<td>几扫：0x10 – 1/16 扫，0x08 – 1/8 扫，0x04 –1/4扫，0x02–1/2扫，0x01 – 静态扫描</td>
 </tr>
 <tr>
 <td>ScanConfNum</td>
@@ -5293,7 +3616,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h3 id="822">8.22 客户信息回读命令<a class="headerlink" href="#822" title="Permanent link">&para;</a></h3>
+<h3 id="822">8.22 客户信息回读命令<a class="headerlink" href="#822" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -5367,7 +3690,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h3 id="823">8.23 设置提示信息<a class="headerlink" href="#823" title="Permanent link">&para;</a></h3>
+<h3 id="823">8.23 设置提示信息<a class="headerlink" href="#823" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -5478,7 +3801,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h3 id="824">8.24 删除提示信息<a class="headerlink" href="#824" title="Permanent link">&para;</a></h3>
+<h3 id="824">8.24 删除提示信息<a class="headerlink" href="#824" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -5522,7 +3845,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tbody>
 </table>
 <p>返回值： ACK 或 NACK。</p>
-<h3 id="825">8.25 添加语音信息<a class="headerlink" href="#825" title="Permanent link">&para;</a></h3>
+<h3 id="825">8.25 添加语音信息<a class="headerlink" href="#825" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -5627,7 +3950,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </table>
 <p>返回值： ACK 或 NACK。</p>
 <p>注意：该命令对所有节目均有效，主要适用于所有节目均需要播放相同的语音信息情况下，客户不需要对每个节目重复设置语音信息；或者客户发送临时语音信息，便于频繁更新语音信息。播放某个节目时，如果该节目内有语音区，同时又发送了该命令，则以该命令为准进行播放，也就是说，该命令的优先级高于节目自带语音信息。</p>
-<h3 id="826">8.26 继电器配置命令<a class="headerlink" href="#826" title="Permanent link">&para;</a></h3>
+<h3 id="826">8.26 继电器配置命令<a class="headerlink" href="#826" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -5678,7 +4001,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </table>
 <p>返回值： ACK 或 NACK。</p>
 <p>注： 配置为开关机时，关机时保持继电器断开达到断开屏幕电源目的  </p>
-<h3 id="827">8.27 设置外部继电器状态<a class="headerlink" href="#827" title="Permanent link">&para;</a></h3>
+<h3 id="827">8.27 设置外部继电器状态<a class="headerlink" href="#827" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -5722,7 +4045,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tbody>
 </table>
 <p>返回值： ACK 或 NACK。</p>
-<h3 id="828">8.28 查询字库附加信息命令<a class="headerlink" href="#828" title="Permanent link">&para;</a></h3>
+<h3 id="828">8.28 查询字库附加信息命令<a class="headerlink" href="#828" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -5994,7 +4317,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h3 id="829">8.29 配置多个外部继电器<a class="headerlink" href="#829" title="Permanent link">&para;</a></h3>
+<h3 id="829">8.29 配置多个外部继电器<a class="headerlink" href="#829" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -6100,7 +4423,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <p>实例：</p>
 <p>配置多个外部继电器:</p>
 <p>A5 A5 A5 A5 A5 A5 A5 A5 FE FF 00 80 FF 00 00 00 00 00 FE 02 06 00 A2 12 01 03 00 01 00 FF FF 5A</p>
-<h2 id="9">9. 节目文件格式定义<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<h2 id="9">9. 节目文件格式定义<a class="headerlink" href="#9" title="Permanent link"></a></h2>
 <table>
 <thead>
 <tr>
@@ -6221,7 +4544,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h3 id="91">9.1  区域数据格式<a class="headerlink" href="#91" title="Permanent link">&para;</a></h3>
+<h3 id="91">9.1  区域数据格式<a class="headerlink" href="#91" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -6403,7 +4726,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tbody>
 </table>
 <p><strong>命令示例9：</strong></p>
-<p>A5 A5 A5 A5 A5 A5 A5 A5 FE FF 00 80 00 00 00 00 00 00 FE 02 59 00 **A1 06 01 00 00 50 30 30 30 01 00 00 47 00 00 00 00 00 00 50 30 30 30 47 00 00 00 FF 00 00 01 FF FF FF FF FF FF FF FF 01 00 00 01 2C 00 00 00 00 00 80 00 00 80 80 20 00 FF 00 00 00 00 00 00 00 02 02 02 00 0A 0A 0D 00 00 00 BB B6 D3 AD B9 E2 C1 D9 4F 6E 62 6F 6E 0F 18 **EC F0 5A</p>
+<p>A5 A5 A5 A5 A5 A5 A5 A5 FE FF 00 80 00 00 00 00 00 00 FE 02 59 00 <strong>A1 06 01 00 00 50 30 30 30 01 00 00 47 00 00 00 00 00 00 50 30 30 30 47 00 00 00 FF 00 00 01 FF FF FF FF FF FF FF FF 01 00 00 01 2C 00 00 00 00 00 80 00 00 80 80 20 00 FF 00 00 00 00 00 00 00 02 02 02 00 0A 0A 0D 00 00 00 BB B6 D3 AD B9 E2 C1 D9 4F 6E 62 6F 6E 0F 18 </strong>EC F0 5A</p>
 <p>命令9发送，控制卡型号为6K3,屏幕大小为128X32，手动换行，多行显示，显示内容：“欢迎光临Onbon”，字体大小中文16X16，英文8X16，命令解析见下表。</p>
 <table>
 <thead>
@@ -6631,7 +4954,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h3 id="92">9.2  多分区节目文件实例分析<a class="headerlink" href="#92" title="Permanent link">&para;</a></h3>
+<h3 id="92">9.2  多分区节目文件实例分析<a class="headerlink" href="#92" title="Permanent link"></a></h3>
 <p><strong>命令示例10：</strong></p>
 <p>A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 63 02 77 00 <strong>A1 06 01 00 00 50 30 30 30 01 00 00 65 00 00 00 00 00 00 50 30 30 30 65 00 00 00 FF 00 00 01 FF FF FF FF FF FF FF FF 01 00 00 02 27 00 00 00 00 00 80 00 00 80 80 10 00 FF 00 00 00 00 00 00 00 02 02 03 00 0A 0A 08 00 00 00 BB B6 D3 AD B9 E2 C1 D9 23 00 00 00 00 00 80 10 00 80 80 10 00 FF 00 00 00 00 00 00 00 02 02 03 00 0A 0A 04 00 00 00 31 32 33 34 8A EC</strong> F7 4C 5A</p>
 <p>控制卡型号为6K3，屏大小128X32，手动换行，多行显示，区域1，起始坐标（0,0），区域大小为（128，16），显示内容：“欢迎光临”，区域2，起始坐标（0,16），区域大小为（128，16），显示内容：“1234”，字体为中文16X16，英文8X16。（本实例仅展示命令里各数据格式及其含义）</p>
@@ -6961,8 +5284,8 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h2 id="10">10. 其他文件格式<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
-<h3 id="101">10.1  控制器参数配置文件<a class="headerlink" href="#101" title="Permanent link">&para;</a></h3>
+<h2 id="10">10. 其他文件格式<a class="headerlink" href="#10" title="Permanent link"></a></h2>
+<h3 id="101">10.1  控制器参数配置文件<a class="headerlink" href="#101" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -7119,7 +5442,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h3 id="102">10.2  字库文件<a class="headerlink" href="#102" title="Permanent link">&para;</a></h3>
+<h3 id="102">10.2  字库文件<a class="headerlink" href="#102" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -7246,7 +5569,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h3 id="103">10.3  图库文件<a class="headerlink" href="#103" title="Permanent link">&para;</a></h3>
+<h3 id="103">10.3  图库文件<a class="headerlink" href="#103" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -7289,9 +5612,9 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h2 id="11">11. 图文区内容编辑<a class="headerlink" href="#11" title="Permanent link">&para;</a></h2>
+<h2 id="11">11. 图文区内容编辑<a class="headerlink" href="#11" title="Permanent link"></a></h2>
 <p>字库卡由于采用字符编码的方式，可以忽略不同区域类型数据的组织方式，每个区域都可以采用相同编辑的方式。编辑区域内容时将采用一些转义字符，以构成内容的显示样式。在显示文字前必须先定义文字使用的字库或图库名、文字颜色。如果文字样式没有改变，文字将按照之前设置的方式显示。在需要更改文字样式时，也要先定义文字使用的字库或图库名、文字颜色。编辑时间区时，时间参数也采用转义字符的方式，用户可以根据需要编辑出自己想要的各种显示样式。</p>
-<h3 id="111">11.1  转义字符定义<a class="headerlink" href="#111" title="Permanent link">&para;</a></h3>
+<h3 id="111">11.1  转义字符定义<a class="headerlink" href="#111" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -7348,7 +5671,7 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 </tr>
 </tbody>
 </table>
-<h3 id="112">11.2  文本内容编辑<a class="headerlink" href="#112" title="Permanent link">&para;</a></h3>
+<h3 id="112">11.2  文本内容编辑<a class="headerlink" href="#112" title="Permanent link"></a></h3>
 <p>图文区可以插入文字、图片、时间参数数据，下面将举例说明图文区的显示样式和数据格式：
 “\FO000\C1 上海仰邦\FE000onbon\n\FO001\C2 欢迎你”,字串中 O000 为 16点阵中文字库名，E000 为 16 点阵英文字库名，O001为24号中文字库，\C1为红色参数，\C2为绿色参数。</p>
 <p>值得注意的是内容开始时必须设置所使用的中文或英文字库以及文字颜色，文字将按照此规则显示直至参数改变。</p>
@@ -7357,148 +5680,137 @@ A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 1D 00 A4 01 01 00 00
 <p>“\FO001\C1 上海仰邦\T000star|ABCD”，将显示汉字“上海仰邦”、图片star、字符“ABCD”。图片名最长 8 个字符。下面给出测试指令，该测试指令需将屏参设为 256*96：</p>
 <p>先发送开始写文件命令：
 A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 0E 00 A1 05 01 00 00 01 50 30 30 30 49 00 00 00 E2 16 5A</p>
-<p>然后发送写文件命令，该实例分区为(192,0,64,64),显示内容为“<a href="http://www.onbonbx.com">www.onbonbx.com</a>”：</p>
+<p>然后发送写文件命令，该实例分区为(192,0,64,64),显示内容为“www.onbonbx.com”：</p>
 <p>A5 A5 A5 A5 A5 A5 A5 A5 01 00 00 80 00 00 00 00 00 00 FE 02 5B 01 00 A1 06 01 00 00 50 30 30 30 01 00 00 49 00 00 00 00 00 00 50 30 30 30 49 00 00 00 FF 00 00 01 FF FF 01 24 14 20 01 24 FF 00 00 01 2A 00 00 00 00 18 00 00 00 08 00 40 00 FF 00 00 00 00 00 00 00 02 02 01 00 00 0A 0F 00 00 00 77 77 77 2E 6F 6E 62 6F 6E 62 78 2E 63 6F 6D 52 4D 07 11 5A</p>
-<h3 id="113">11.3  时间内容编辑<a class="headerlink" href="#113" title="Permanent link">&para;</a></h3>
+<h3 id="113">11.3  时间内容编辑<a class="headerlink" href="#113" title="Permanent link"></a></h3>
 <p>通过插入时间参数的方式，客户可以编辑任意显示格式的时间，如以下字串:</p>
 <p>“\FO000\C1 今天是\FE000\DY 年\DL 月\DD 日\n\C3\DH 时\DM 分\DS 秒”</p>
-<h2 id="_1">附录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<h3 id="crc">CRC校验算法<a class="headerlink" href="#crc" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">For</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">calculation</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">CRC</span><span class="mi">-16</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">polynomial</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nl">used</span><span class="p">:</span><span class="w"></span>
-<span class="n">X</span><span class="o">^</span><span class="mi">16</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">^</span><span class="mi">15</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">X</span><span class="o">^</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">X</span><span class="o">^</span><span class="mi">15</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">).</span><span class="w"></span>
-<span class="n">For</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">polynomial</span><span class="w"> </span><span class="n">efficient</span><span class="w"> </span><span class="n">calculation</span><span class="w"> </span><span class="n">via</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">table</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">possible</span><span class="p">.</span><span class="w"> </span><span class="n">Below</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">algorithm</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="nl">C</span><span class="p">:</span><span class="w"></span>
-<span class="cp">#define CRC(crc,byte) (((crc) &gt;&gt; 8 ) ^ tabel[((crc) ^ (unsigned int) (byte)) &amp; 0XFF])</span>
-<span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">uint16</span><span class="w"> </span><span class="n">tabel</span><span class="p">[</span><span class="mi">256</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="mh">0X0000</span><span class="p">,</span><span class="w"> </span><span class="mh">0XC0C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XC181</span><span class="p">,</span><span class="w"> </span><span class="mh">0X0140</span><span class="p">,</span><span class="w"> </span><span class="mh">0XC301</span><span class="p">,</span><span class="w"> </span><span class="mh">0X03C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X0280</span><span class="p">,</span><span class="w"> </span><span class="mh">0XC241</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0XC601</span><span class="p">,</span><span class="w"> </span><span class="mh">0X06C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X0780</span><span class="p">,</span><span class="w"> </span><span class="mh">0XC741</span><span class="p">,</span><span class="w"> </span><span class="mh">0X0500</span><span class="p">,</span><span class="w"> </span><span class="mh">0XC5C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XC481</span><span class="p">,</span><span class="w"> </span><span class="mh">0X0440</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0XCC01</span><span class="p">,</span><span class="w"> </span><span class="mh">0X0CC0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X0D80</span><span class="p">,</span><span class="w"> </span><span class="mh">0XCD41</span><span class="p">,</span><span class="w"> </span><span class="mh">0X0F00</span><span class="p">,</span><span class="w"> </span><span class="mh">0XCFC1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XCE81</span><span class="p">,</span><span class="w"> </span><span class="mh">0X0E40</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X0A00</span><span class="p">,</span><span class="w"> </span><span class="mh">0XCAC1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XCB81</span><span class="p">,</span><span class="w"> </span><span class="mh">0X0B40</span><span class="p">,</span><span class="w"> </span><span class="mh">0XC901</span><span class="p">,</span><span class="w"> </span><span class="mh">0X09C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X0880</span><span class="p">,</span><span class="w"> </span><span class="mh">0XC841</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0XD801</span><span class="p">,</span><span class="w"> </span><span class="mh">0X18C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X1980</span><span class="p">,</span><span class="w"> </span><span class="mh">0XD941</span><span class="p">,</span><span class="w"> </span><span class="mh">0X1B00</span><span class="p">,</span><span class="w"> </span><span class="mh">0XDBC1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XDA81</span><span class="p">,</span><span class="w"> </span><span class="mh">0X1A40</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X1E00</span><span class="p">,</span><span class="w"> </span><span class="mh">0XDEC1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XDF81</span><span class="p">,</span><span class="w"> </span><span class="mh">0X1F40</span><span class="p">,</span><span class="w"> </span><span class="mh">0XDD01</span><span class="p">,</span><span class="w"> </span><span class="mh">0X1DC0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X1C80</span><span class="p">,</span><span class="w"> </span><span class="mh">0XDC41</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X1400</span><span class="p">,</span><span class="w"> </span><span class="mh">0XD4C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XD581</span><span class="p">,</span><span class="w"> </span><span class="mh">0X1540</span><span class="p">,</span><span class="w"> </span><span class="mh">0XD701</span><span class="p">,</span><span class="w"> </span><span class="mh">0X17C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X1680</span><span class="p">,</span><span class="w"> </span><span class="mh">0XD641</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0XD201</span><span class="p">,</span><span class="w"> </span><span class="mh">0X12C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X1380</span><span class="p">,</span><span class="w"> </span><span class="mh">0XD341</span><span class="p">,</span><span class="w"> </span><span class="mh">0X1100</span><span class="p">,</span><span class="w"> </span><span class="mh">0XD1C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XD081</span><span class="p">,</span><span class="w"> </span><span class="mh">0X1040</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0XF001</span><span class="p">,</span><span class="w"> </span><span class="mh">0X30C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X3180</span><span class="p">,</span><span class="w"> </span><span class="mh">0XF141</span><span class="p">,</span><span class="w"> </span><span class="mh">0X3300</span><span class="p">,</span><span class="w"> </span><span class="mh">0XF3C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XF281</span><span class="p">,</span><span class="w"> </span><span class="mh">0X3240</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X3600</span><span class="p">,</span><span class="w"> </span><span class="mh">0XF6C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XF781</span><span class="p">,</span><span class="w"> </span><span class="mh">0X3740</span><span class="p">,</span><span class="w"> </span><span class="mh">0XF501</span><span class="p">,</span><span class="w"> </span><span class="mh">0X35C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X3480</span><span class="p">,</span><span class="w"> </span><span class="mh">0XF441</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X3C00</span><span class="p">,</span><span class="w"> </span><span class="mh">0XFCC1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XFD81</span><span class="p">,</span><span class="w"> </span><span class="mh">0X3D40</span><span class="p">,</span><span class="w"> </span><span class="mh">0XFF01</span><span class="p">,</span><span class="w"> </span><span class="mh">0X3FC0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X3E80</span><span class="p">,</span><span class="w"> </span><span class="mh">0XFE41</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0XFA01</span><span class="p">,</span><span class="w"> </span><span class="mh">0X3AC0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X3B80</span><span class="p">,</span><span class="w"> </span><span class="mh">0XFB41</span><span class="p">,</span><span class="w"> </span><span class="mh">0X3900</span><span class="p">,</span><span class="w"> </span><span class="mh">0XF9C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XF881</span><span class="p">,</span><span class="w"> </span><span class="mh">0X3840</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X2800</span><span class="p">,</span><span class="w"> </span><span class="mh">0XE8C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XE981</span><span class="p">,</span><span class="w"> </span><span class="mh">0X2940</span><span class="p">,</span><span class="w"> </span><span class="mh">0XEB01</span><span class="p">,</span><span class="w"> </span><span class="mh">0X2BC0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X2A80</span><span class="p">,</span><span class="w"> </span><span class="mh">0XEA41</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0XEE01</span><span class="p">,</span><span class="w"> </span><span class="mh">0X2EC0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X2F80</span><span class="p">,</span><span class="w"> </span><span class="mh">0XEF41</span><span class="p">,</span><span class="w"> </span><span class="mh">0X2D00</span><span class="p">,</span><span class="w"> </span><span class="mh">0XEDC1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XEC81</span><span class="p">,</span><span class="w"> </span><span class="mh">0X2C40</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0XE401</span><span class="p">,</span><span class="w"> </span><span class="mh">0X24C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X2580</span><span class="p">,</span><span class="w"> </span><span class="mh">0XE541</span><span class="p">,</span><span class="w"> </span><span class="mh">0X2700</span><span class="p">,</span><span class="w"> </span><span class="mh">0XE7C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XE681</span><span class="p">,</span><span class="w"> </span><span class="mh">0X2640</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X2200</span><span class="p">,</span><span class="w"> </span><span class="mh">0XE2C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XE381</span><span class="p">,</span><span class="w"> </span><span class="mh">0X2340</span><span class="p">,</span><span class="w"> </span><span class="mh">0XE101</span><span class="p">,</span><span class="w"> </span><span class="mh">0X21C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X2080</span><span class="p">,</span><span class="w"> </span><span class="mh">0XE041</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0XA001</span><span class="p">,</span><span class="w"> </span><span class="mh">0X60C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X6180</span><span class="p">,</span><span class="w"> </span><span class="mh">0XA141</span><span class="p">,</span><span class="w"> </span><span class="mh">0X6300</span><span class="p">,</span><span class="w"> </span><span class="mh">0XA3C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XA281</span><span class="p">,</span><span class="w"> </span><span class="mh">0X6240</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X6600</span><span class="p">,</span><span class="w"> </span><span class="mh">0XA6C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XA781</span><span class="p">,</span><span class="w"> </span><span class="mh">0X6740</span><span class="p">,</span><span class="w"> </span><span class="mh">0XA501</span><span class="p">,</span><span class="w"> </span><span class="mh">0X65C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X6480</span><span class="p">,</span><span class="w"> </span><span class="mh">0XA441</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X6C00</span><span class="p">,</span><span class="w"> </span><span class="mh">0XACC1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XAD81</span><span class="p">,</span><span class="w"> </span><span class="mh">0X6D40</span><span class="p">,</span><span class="w"> </span><span class="mh">0XAF01</span><span class="p">,</span><span class="w"> </span><span class="mh">0X6FC0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X6E80</span><span class="p">,</span><span class="w"> </span><span class="mh">0XAE41</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0XAA01</span><span class="p">,</span><span class="w"> </span><span class="mh">0X6AC0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X6B80</span><span class="p">,</span><span class="w"> </span><span class="mh">0XAB41</span><span class="p">,</span><span class="w"> </span><span class="mh">0X6900</span><span class="p">,</span><span class="w"> </span><span class="mh">0XA9C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XA881</span><span class="p">,</span><span class="w"> </span><span class="mh">0X6840</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X7800</span><span class="p">,</span><span class="w"> </span><span class="mh">0XB8C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XB981</span><span class="p">,</span><span class="w"> </span><span class="mh">0X7940</span><span class="p">,</span><span class="w"> </span><span class="mh">0XBB01</span><span class="p">,</span><span class="w"> </span><span class="mh">0X7BC0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X7A80</span><span class="p">,</span><span class="w"> </span><span class="mh">0XBA41</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0XBE01</span><span class="p">,</span><span class="w"> </span><span class="mh">0X7EC0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X7F80</span><span class="p">,</span><span class="w"> </span><span class="mh">0XBF41</span><span class="p">,</span><span class="w"> </span><span class="mh">0X7D00</span><span class="p">,</span><span class="w"> </span><span class="mh">0XBDC1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XBC81</span><span class="p">,</span><span class="w"> </span><span class="mh">0X7C40</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0XB401</span><span class="p">,</span><span class="w"> </span><span class="mh">0X74C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X7580</span><span class="p">,</span><span class="w"> </span><span class="mh">0XB541</span><span class="p">,</span><span class="w"> </span><span class="mh">0X7700</span><span class="p">,</span><span class="w"> </span><span class="mh">0XB7C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XB681</span><span class="p">,</span><span class="w"> </span><span class="mh">0X7640</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X7200</span><span class="p">,</span><span class="w"> </span><span class="mh">0XB2C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0XB381</span><span class="p">,</span><span class="w"> </span><span class="mh">0X7340</span><span class="p">,</span><span class="w"> </span><span class="mh">0XB101</span><span class="p">,</span><span class="w"> </span><span class="mh">0X71C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X7080</span><span class="p">,</span><span class="w"> </span><span class="mh">0XB041</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X5000</span><span class="p">,</span><span class="w"> </span><span class="mh">0X90C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0X9181</span><span class="p">,</span><span class="w"> </span><span class="mh">0X5140</span><span class="p">,</span><span class="w"> </span><span class="mh">0X9301</span><span class="p">,</span><span class="w"> </span><span class="mh">0X53C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X5280</span><span class="p">,</span><span class="w"> </span><span class="mh">0X9241</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X9601</span><span class="p">,</span><span class="w"> </span><span class="mh">0X56C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X5780</span><span class="p">,</span><span class="w"> </span><span class="mh">0X9741</span><span class="p">,</span><span class="w"> </span><span class="mh">0X5500</span><span class="p">,</span><span class="w"> </span><span class="mh">0X95C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0X9481</span><span class="p">,</span><span class="w"> </span><span class="mh">0X5440</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X9C01</span><span class="p">,</span><span class="w"> </span><span class="mh">0X5CC0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X5D80</span><span class="p">,</span><span class="w"> </span><span class="mh">0X9D41</span><span class="p">,</span><span class="w"> </span><span class="mh">0X5F00</span><span class="p">,</span><span class="w"> </span><span class="mh">0X9FC1</span><span class="p">,</span><span class="w"> </span><span class="mh">0X9E81</span><span class="p">,</span><span class="w"> </span><span class="mh">0X5E40</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X5A00</span><span class="p">,</span><span class="w"> </span><span class="mh">0X9AC1</span><span class="p">,</span><span class="w"> </span><span class="mh">0X9B81</span><span class="p">,</span><span class="w"> </span><span class="mh">0X5B40</span><span class="p">,</span><span class="w"> </span><span class="mh">0X9901</span><span class="p">,</span><span class="w"> </span><span class="mh">0X59C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X5880</span><span class="p">,</span><span class="w"> </span><span class="mh">0X9841</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X8801</span><span class="p">,</span><span class="w"> </span><span class="mh">0X48C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X4980</span><span class="p">,</span><span class="w"> </span><span class="mh">0X8941</span><span class="p">,</span><span class="w"> </span><span class="mh">0X4B00</span><span class="p">,</span><span class="w"> </span><span class="mh">0X8BC1</span><span class="p">,</span><span class="w"> </span><span class="mh">0X8A81</span><span class="p">,</span><span class="w"> </span><span class="mh">0X4A40</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X4E00</span><span class="p">,</span><span class="w"> </span><span class="mh">0X8EC1</span><span class="p">,</span><span class="w"> </span><span class="mh">0X8F81</span><span class="p">,</span><span class="w"> </span><span class="mh">0X4F40</span><span class="p">,</span><span class="w"> </span><span class="mh">0X8D01</span><span class="p">,</span><span class="w"> </span><span class="mh">0X4DC0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X4C80</span><span class="p">,</span><span class="w"> </span><span class="mh">0X8C41</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X4400</span><span class="p">,</span><span class="w"> </span><span class="mh">0X84C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0X8581</span><span class="p">,</span><span class="w"> </span><span class="mh">0X4540</span><span class="p">,</span><span class="w"> </span><span class="mh">0X8701</span><span class="p">,</span><span class="w"> </span><span class="mh">0X47C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X4680</span><span class="p">,</span><span class="w"> </span><span class="mh">0X8641</span><span class="p">,</span><span class="w"></span>
-<span class="mh">0X8201</span><span class="p">,</span><span class="w"> </span><span class="mh">0X42C0</span><span class="p">,</span><span class="w"> </span><span class="mh">0X4380</span><span class="p">,</span><span class="w"> </span><span class="mh">0X8341</span><span class="p">,</span><span class="w"> </span><span class="mh">0X4100</span><span class="p">,</span><span class="w"> </span><span class="mh">0X81C1</span><span class="p">,</span><span class="w"> </span><span class="mh">0X8081</span><span class="p">,</span><span class="w"> </span><span class="mh">0X4040</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
-<span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">CalcCRC</span><span class="p">(</span><span class="n">uint8</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">uint32</span><span class="w"> </span><span class="n">size</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="n">uint32</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
-<span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">crc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="n">crc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CRC</span><span class="p">(</span><span class="n">crc</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-<span class="k">return</span><span class="w"> </span><span class="n">crc</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<h2 id="_1">附录<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
+<h3 id="crc">CRC校验算法<a class="headerlink" href="#crc" title="Permanent link"></a></h3>
+<pre><code class="language-c">For the calculation of the CRC-16 the following polynomial is used:
+X^16 + X ^15 + X^2 + 1 = (x + 1) * (X^15 + x + 1).
+For this polynomial efficient calculation via a table is possible. Below the algorithm is given in C:
+#define CRC(crc,byte) (((crc) &gt;&gt; 8 ) ^ tabel[((crc) ^ (unsigned int) (byte)) &amp; 0XFF])
+static const uint16 tabel[256] = {
+0X0000, 0XC0C1, 0XC181, 0X0140, 0XC301, 0X03C0, 0X0280, 0XC241,
+0XC601, 0X06C0, 0X0780, 0XC741, 0X0500, 0XC5C1, 0XC481, 0X0440,
+0XCC01, 0X0CC0, 0X0D80, 0XCD41, 0X0F00, 0XCFC1, 0XCE81, 0X0E40,
+0X0A00, 0XCAC1, 0XCB81, 0X0B40, 0XC901, 0X09C0, 0X0880, 0XC841,
+0XD801, 0X18C0, 0X1980, 0XD941, 0X1B00, 0XDBC1, 0XDA81, 0X1A40,
+0X1E00, 0XDEC1, 0XDF81, 0X1F40, 0XDD01, 0X1DC0, 0X1C80, 0XDC41,
+0X1400, 0XD4C1, 0XD581, 0X1540, 0XD701, 0X17C0, 0X1680, 0XD641,
+0XD201, 0X12C0, 0X1380, 0XD341, 0X1100, 0XD1C1, 0XD081, 0X1040,
+0XF001, 0X30C0, 0X3180, 0XF141, 0X3300, 0XF3C1, 0XF281, 0X3240,
+0X3600, 0XF6C1, 0XF781, 0X3740, 0XF501, 0X35C0, 0X3480, 0XF441,
+0X3C00, 0XFCC1, 0XFD81, 0X3D40, 0XFF01, 0X3FC0, 0X3E80, 0XFE41,
+0XFA01, 0X3AC0, 0X3B80, 0XFB41, 0X3900, 0XF9C1, 0XF881, 0X3840,
+0X2800, 0XE8C1, 0XE981, 0X2940, 0XEB01, 0X2BC0, 0X2A80, 0XEA41,
+0XEE01, 0X2EC0, 0X2F80, 0XEF41, 0X2D00, 0XEDC1, 0XEC81, 0X2C40,
+0XE401, 0X24C0, 0X2580, 0XE541, 0X2700, 0XE7C1, 0XE681, 0X2640,
+0X2200, 0XE2C1, 0XE381, 0X2340, 0XE101, 0X21C0, 0X2080, 0XE041,
+0XA001, 0X60C0, 0X6180, 0XA141, 0X6300, 0XA3C1, 0XA281, 0X6240,
+0X6600, 0XA6C1, 0XA781, 0X6740, 0XA501, 0X65C0, 0X6480, 0XA441,
+0X6C00, 0XACC1, 0XAD81, 0X6D40, 0XAF01, 0X6FC0, 0X6E80, 0XAE41,
+0XAA01, 0X6AC0, 0X6B80, 0XAB41, 0X6900, 0XA9C1, 0XA881, 0X6840,
+0X7800, 0XB8C1, 0XB981, 0X7940, 0XBB01, 0X7BC0, 0X7A80, 0XBA41,
+0XBE01, 0X7EC0, 0X7F80, 0XBF41, 0X7D00, 0XBDC1, 0XBC81, 0X7C40,
+0XB401, 0X74C0, 0X7580, 0XB541, 0X7700, 0XB7C1, 0XB681, 0X7640,
+0X7200, 0XB2C1, 0XB381, 0X7340, 0XB101, 0X71C0, 0X7080, 0XB041,
+0X5000, 0X90C1, 0X9181, 0X5140, 0X9301, 0X53C0, 0X5280, 0X9241,
+0X9601, 0X56C0, 0X5780, 0X9741, 0X5500, 0X95C1, 0X9481, 0X5440,
+0X9C01, 0X5CC0, 0X5D80, 0X9D41, 0X5F00, 0X9FC1, 0X9E81, 0X5E40,
+0X5A00, 0X9AC1, 0X9B81, 0X5B40, 0X9901, 0X59C0, 0X5880, 0X9841,
+0X8801, 0X48C0, 0X4980, 0X8941, 0X4B00, 0X8BC1, 0X8A81, 0X4A40,
+0X4E00, 0X8EC1, 0X8F81, 0X4F40, 0X8D01, 0X4DC0, 0X4C80, 0X8C41,
+0X4400, 0X84C1, 0X8581, 0X4540, 0X8701, 0X47C0, 0X4680, 0X8641,
+0X8201, 0X42C0, 0X4380, 0X8341, 0X4100, 0X81C1, 0X8081, 0X4040
+};
+unsigned short CalcCRC(uint8 *data, uint32 size)
+{
+uint32 i;
+unsigned short crc = 0;
+for (i = 0; i &lt; size; i++) {
+crc = CRC(crc, data[i]);
+}
+return crc;
+}
+
 </code></pre></div>
-                
-              
-              
-                
-
-
-              
-            </article>
-          </div>
+            </div>
         </div>
-        
-      </main>
-      
-        
-<footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../c/" class="md-footer__link md-footer__link--prev" aria-label="Previous: C/C++" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              C/C++
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright ? 2020 onbon. All rights reserved. </p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../../tool/wireshark/" class="md-footer__link md-footer__link--next" aria-label="Next: 网络抓包" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              网络抓包
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
             </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright ? 2020 onbon. All rights reserved. 
-          </div>
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
-      
+            <div class="modal-footer">
+            </div>
+        </div>
     </div>
-  </div>
-</footer>
-      
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
     </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
-    
-    
-      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-      
-        <script src="../../../js/my.js"></script>
-      
-    
-  </body>
+</div>
+
+    </body>
 </html>

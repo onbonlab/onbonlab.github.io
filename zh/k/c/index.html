@@ -1,1392 +1,221 @@
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="This is the doc of onbon dev.">
-      
-      
-      
-        <meta name="author" content="judy2gong">
-      
-      
-      <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
-    
-    
-      
-        <title>C/C++ - My Docs</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
-      
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
-        
-      
-    
-    
-    
-      
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
-      
-    
-    
-    
-      <link rel="stylesheet" href="../../../css/my.css">
-    
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    
-    
-      
+        <meta name="author" content="ONBON Team">
+        <link rel="canonical" href="https://doc.onbonbx.com/zh/k/c/">
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>C/C++ - ONBON Docs</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+        <link href="../../../css/extra.css" rel="stylesheet">
 
+        <script src="../../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/django.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-274394082"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-    
-    
-  </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
-  
-    
-    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#cc-sdk-" class="md-skip">
-          Skip to content
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-      
+          gtag('config', 'G-274394082');
+        </script> 
+    </head>
 
-<header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">ONBON Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            My Docs
-          </span>
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../../.." class="nav-link">主页</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">全彩播放器系列 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../y/y/" class="dropdown-item">开发指南</a>
+</li>
+                                    
+<li>
+    <a href="../../y/java/" class="dropdown-item">JAVA</a>
+</li>
+                                    
+<li>
+    <a href="../../y/c/" class="dropdown-item">C/C++</a>
+</li>
+                                    
+<li>
+    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+</li>
+                                    
+<li>
+    <a href="../../y/potocol/" class="dropdown-item">开发协议</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">单双色系列 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../dual/dual/" class="dropdown-item">开发指南</a>
+</li>
+                                    
+<li>
+    <a href="../../dual/java/" class="dropdown-item">JAVA</a>
+</li>
+                                    
+<li>
+    <a href="../../dual/c/" class="dropdown-item">C/C++</a>
+</li>
+                                    
+<li>
+    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+</li>
+                                    
+<li>
+    <a href="../../dual/potocol/" class="dropdown-item">开发协议</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">字库系列 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../k/" class="dropdown-item">开发指南</a>
+</li>
+                                    
+<li>
+    <a href="../java/" class="dropdown-item">JAVA</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">C/C++</a>
+</li>
+                                    
+<li>
+    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+</li>
+                                    
+<li>
+    <a href="../potocol/" class="dropdown-item">开发协议</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">常用工具 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../tool/wireshark/" class="dropdown-item">网络抓包</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../about/about/" class="nav-link">关于我们</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../java/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../y/csharp/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/onbonlab/onbonlab.github.io.git/edit/master/docs/zh/k/c.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              C/C++
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-      </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
         </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
     </div>
-  </div>
-</div>
+
     
-    
-      <div class="md-header__source">
-        
-<a href="https://github.com/onbonlab/onbonlab.github.io.git/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
-      </div>
-    
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
             
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
-
-    </a>
-    My Docs
-  </label>
-  
-    <div class="md-nav__source">
-      
-<a href="https://github.com/onbonlab/onbonlab.github.io.git/" title="Go to repository" class="md-source" data-md-component="source">
-  <div class="md-source__icon md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
-  </div>
-  <div class="md-source__repository">
-    GitHub
-  </div>
-</a>
+            <li class="nav-item" data-level="1"><a href="#cc-sdk-" class="nav-link">C/C++ SDK 使用说明 - 字库系列</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1" class="nav-link">1. 平台支持</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-sdk" class="nav-link">2. 获取 SDK</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3" class="nav-link">3 错误码及说明</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3_1" class="nav-link">3 显示屏初始化说明</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4-api" class="nav-link">4 API调用顺序</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#5" class="nav-link">5 函数说明</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#-" class="nav-link">- 说明</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">附录</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
     </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
+</div></div>
+                    <div class="col-md-9" role="main">
 
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
-        主页
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2">
-          全彩播放器系列
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="全彩播放器系列" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          全彩播放器系列
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../y/y/" class="md-nav__link">
-        开发指南
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../y/java/" class="md-nav__link">
-        JAVA
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          单双色系列
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="单双色系列" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          单双色系列
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../dual/dual/" class="md-nav__link">
-        开发指南
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../dual/java/" class="md-nav__link">
-        JAVA
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../dual/c/" class="md-nav__link">
-        C/C++
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4">
-          字库系列
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="字库系列" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          字库系列
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../k/" class="md-nav__link">
-        开发指南
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../java/" class="md-nav__link">
-        JAVA
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          C/C++
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        C/C++
-      </a>
-      
-        
-
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 平台支持
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-sdk" class="md-nav__link">
-    2. 获取 SDK
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3 错误码及说明
-  </a>
-  
-    <nav class="md-nav" aria-label="3 错误码及说明">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    2.1错误状态
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3_1" class="md-nav__link">
-    3 显示屏初始化说明
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-api" class="md-nav__link">
-    4 API调用顺序
-  </a>
-  
-    <nav class="md-nav" aria-label="4 API调用顺序">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
-    4.1总体次序
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5 函数说明
-  </a>
-  
-    <nav class="md-nav" aria-label="5 函数说明">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-initsdk" class="md-nav__link">
-    5.1 InitSdk函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-releasesdk" class="md-nav__link">
-    5.2 ReleaseSdk函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-createbroadcast" class="md-nav__link">
-    5.3 CreateBroadCast函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#54-createclient" class="md-nav__link">
-    5.4 CreateClient函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#55-createtcpmodbus" class="md-nav__link">
-    5.5 CreateTcpModbus函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#56-createcomclient" class="md-nav__link">
-    5.6 CreateComClient函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#57-createcommodbus" class="md-nav__link">
-    5.7 CreateComModbus函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#58-destroy" class="md-nav__link">
-    5.8 Destroy函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#59-settimeout" class="md-nav__link">
-    5.9 SetTimeOut函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#510-con_ping" class="md-nav__link">
-    5.10 CON_PING函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#511-con_reset" class="md-nav__link">
-    5.11 CON_ReSet函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#512-con_controllerstatus" class="md-nav__link">
-    5.12 CON_ControllerStatus函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#513-con_checkcurrentfont" class="md-nav__link">
-    5.13 CON_CheckCurrentFont函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#514-con_checkcurrentcustomer" class="md-nav__link">
-    5.14 CON_CheckCurrentCustomer
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#515-con_readscreen" class="md-nav__link">
-    5.15 CON_ReadScreen函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#516-con_systemclockcorrect" class="md-nav__link">
-    5.16 CON_SystemClockCorrect函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#517-con_checkcurrentfirmware" class="md-nav__link">
-    5.17 CON_CheckCurrentFirmware
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#518-con_firmwareactivate" class="md-nav__link">
-    5.18 CON_FirmwareActivate函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#519-con_setscreenid" class="md-nav__link">
-    5.19 CON_SetScreenID函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#520-con_readscreenid" class="md-nav__link">
-    5.20 CON_ReadScreenID函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#521-screen_forceonoff" class="md-nav__link">
-    5.21 SCREEN_ForceOnOff函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#522-screen_timeturnonoff" class="md-nav__link">
-    5.22 SCREEN_TimeTurnOnOff函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#523-screen_setbrigthness" class="md-nav__link">
-    5.23 SCREEN_SetBrigthness函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#524-screen_setwaittime" class="md-nav__link">
-    5.24 SCREEN_SetWaitTime函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#525-screen_lockprogram" class="md-nav__link">
-    5.25 SCREEN_LockProgram函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#526-screen_deldynamicarea" class="md-nav__link">
-    5.26 SCREEN_DelDynamicArea函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#527-screen_senddynamicarea" class="md-nav__link">
-    5.27  SCREEN_SendDynamicArea函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#528-screen_sendsounddynamic" class="md-nav__link">
-    5.28  SCREEN_SendSoundDynamic函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#529-screen_canceltimeonoff" class="md-nav__link">
-    5.29 SCREEN_CancelTimeOnOff函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#530-bx5mk_setspecialappdynamic" class="md-nav__link">
-    5.30 BX5MK_SetSpecialAppDynamic函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#531-bx5mk_sendpagedata" class="md-nav__link">
-    5.31 BX5MK_SendPageData函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#532-bx5mk_sendlatticemessage" class="md-nav__link">
-    5.32 BX5MK_SendLatticeMessage函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#533-bx5mk_delspecialappdynamic" class="md-nav__link">
-    5.33 BX5MK_DelSpecialAppDynamic函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#534-bx5mk_setipaddress" class="md-nav__link">
-    5.34 BX5MK_SetIPAddress函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#535-bx5mk_setmacaddress" class="md-nav__link">
-    5.35 BX5MK_SetMACAddress函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#536-ofs_formatting" class="md-nav__link">
-    5.36 OFS_Formatting函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#537-ofs_deletefile" class="md-nav__link">
-    5.37 OFS_DeleteFile函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#538-ofs_sendfiledata" class="md-nav__link">
-    5.38 OFS_SendFileData函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#539-ofs_sendfontdata" class="md-nav__link">
-    5.39 OFS_SendFontData函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#540-ofs_sendfirmwaredata" class="md-nav__link">
-    5.40 OFS_SendFirmwareData函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#541-ofs_sendscreendata" class="md-nav__link">
-    5.41 OFS_SendScreenData函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#542-ofs_endsenmultifiles" class="md-nav__link">
-    5.42 OFS_EndSenMultiFiles函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#543-startgprsserver" class="md-nav__link">
-    5.43  StartGprsServer函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#544closegprsserver" class="md-nav__link">
-    5.44CloseGprsServer函数
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
-    - 说明
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    附录
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../potocol/" class="md-nav__link">
-        开发协议
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5">
-          常用工具
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="常用工具" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          常用工具
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tool/wireshark/" class="md-nav__link">
-        网络抓包
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
-        关于我们
-      </a>
-    </li>
-  
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    1. 平台支持
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-sdk" class="md-nav__link">
-    2. 获取 SDK
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3 错误码及说明
-  </a>
-  
-    <nav class="md-nav" aria-label="3 错误码及说明">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    2.1错误状态
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3_1" class="md-nav__link">
-    3 显示屏初始化说明
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-api" class="md-nav__link">
-    4 API调用顺序
-  </a>
-  
-    <nav class="md-nav" aria-label="4 API调用顺序">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
-    4.1总体次序
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    5 函数说明
-  </a>
-  
-    <nav class="md-nav" aria-label="5 函数说明">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-initsdk" class="md-nav__link">
-    5.1 InitSdk函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-releasesdk" class="md-nav__link">
-    5.2 ReleaseSdk函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#53-createbroadcast" class="md-nav__link">
-    5.3 CreateBroadCast函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#54-createclient" class="md-nav__link">
-    5.4 CreateClient函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#55-createtcpmodbus" class="md-nav__link">
-    5.5 CreateTcpModbus函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#56-createcomclient" class="md-nav__link">
-    5.6 CreateComClient函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#57-createcommodbus" class="md-nav__link">
-    5.7 CreateComModbus函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#58-destroy" class="md-nav__link">
-    5.8 Destroy函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#59-settimeout" class="md-nav__link">
-    5.9 SetTimeOut函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#510-con_ping" class="md-nav__link">
-    5.10 CON_PING函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#511-con_reset" class="md-nav__link">
-    5.11 CON_ReSet函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#512-con_controllerstatus" class="md-nav__link">
-    5.12 CON_ControllerStatus函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#513-con_checkcurrentfont" class="md-nav__link">
-    5.13 CON_CheckCurrentFont函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#514-con_checkcurrentcustomer" class="md-nav__link">
-    5.14 CON_CheckCurrentCustomer
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#515-con_readscreen" class="md-nav__link">
-    5.15 CON_ReadScreen函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#516-con_systemclockcorrect" class="md-nav__link">
-    5.16 CON_SystemClockCorrect函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#517-con_checkcurrentfirmware" class="md-nav__link">
-    5.17 CON_CheckCurrentFirmware
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#518-con_firmwareactivate" class="md-nav__link">
-    5.18 CON_FirmwareActivate函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#519-con_setscreenid" class="md-nav__link">
-    5.19 CON_SetScreenID函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#520-con_readscreenid" class="md-nav__link">
-    5.20 CON_ReadScreenID函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#521-screen_forceonoff" class="md-nav__link">
-    5.21 SCREEN_ForceOnOff函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#522-screen_timeturnonoff" class="md-nav__link">
-    5.22 SCREEN_TimeTurnOnOff函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#523-screen_setbrigthness" class="md-nav__link">
-    5.23 SCREEN_SetBrigthness函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#524-screen_setwaittime" class="md-nav__link">
-    5.24 SCREEN_SetWaitTime函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#525-screen_lockprogram" class="md-nav__link">
-    5.25 SCREEN_LockProgram函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#526-screen_deldynamicarea" class="md-nav__link">
-    5.26 SCREEN_DelDynamicArea函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#527-screen_senddynamicarea" class="md-nav__link">
-    5.27  SCREEN_SendDynamicArea函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#528-screen_sendsounddynamic" class="md-nav__link">
-    5.28  SCREEN_SendSoundDynamic函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#529-screen_canceltimeonoff" class="md-nav__link">
-    5.29 SCREEN_CancelTimeOnOff函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#530-bx5mk_setspecialappdynamic" class="md-nav__link">
-    5.30 BX5MK_SetSpecialAppDynamic函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#531-bx5mk_sendpagedata" class="md-nav__link">
-    5.31 BX5MK_SendPageData函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#532-bx5mk_sendlatticemessage" class="md-nav__link">
-    5.32 BX5MK_SendLatticeMessage函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#533-bx5mk_delspecialappdynamic" class="md-nav__link">
-    5.33 BX5MK_DelSpecialAppDynamic函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#534-bx5mk_setipaddress" class="md-nav__link">
-    5.34 BX5MK_SetIPAddress函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#535-bx5mk_setmacaddress" class="md-nav__link">
-    5.35 BX5MK_SetMACAddress函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#536-ofs_formatting" class="md-nav__link">
-    5.36 OFS_Formatting函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#537-ofs_deletefile" class="md-nav__link">
-    5.37 OFS_DeleteFile函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#538-ofs_sendfiledata" class="md-nav__link">
-    5.38 OFS_SendFileData函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#539-ofs_sendfontdata" class="md-nav__link">
-    5.39 OFS_SendFontData函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#540-ofs_sendfirmwaredata" class="md-nav__link">
-    5.40 OFS_SendFirmwareData函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#541-ofs_sendscreendata" class="md-nav__link">
-    5.41 OFS_SendScreenData函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#542-ofs_endsenmultifiles" class="md-nav__link">
-    5.42 OFS_EndSenMultiFiles函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#543-startgprsserver" class="md-nav__link">
-    5.43  StartGprsServer函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#544closegprsserver" class="md-nav__link">
-    5.44CloseGprsServer函数
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#-" class="md-nav__link">
-    - 说明
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    附录
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                  <a href="https://github.com/onbonlab/onbonlab.github.io.git/edit/master/docs/zh/k/c.md" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="cc-sdk-">C/C++ SDK 使用说明 - 字库系列<a class="headerlink" href="#cc-sdk-" title="Permanent link">&para;</a></h1>
-<h2 id="1">1. 平台支持<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h1 id="cc-sdk-">C/C++ SDK 使用说明 - 字库系列<a class="headerlink" href="#cc-sdk-" title="Permanent link"></a></h1>
+<h2 id="1">1. 平台支持<a class="headerlink" href="#1" title="Permanent link"></a></h2>
 <p>本项目由纯C++编写， 因此，其可以正常运行于Windows, Linux平台。本文档主要针对动态链接库（C++）开发的相关说明，需要协议开发请使用我们提供的<a href="../potocol/">协议文档</a>进行开发。
 如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读本文档后进行软件开发。</p>
 <ul>
@@ -1395,12 +224,12 @@
 <li>阅读API调用顺序</li>
 <li>阅读函数说明</li>
 </ul>
-<h2 id="2-sdk">2. 获取 SDK<a class="headerlink" href="#2-sdk" title="Permanent link">&para;</a></h2>
+<h2 id="2-sdk">2. 获取 SDK<a class="headerlink" href="#2-sdk" title="Permanent link"></a></h2>
 <p>您可以从以下链接下载本 SDK：</p>
-<p><a href="https://github.com/onbonlab/bx.k.cplus.git">https://github.com/onbonlab/bx.k.cplus.git</a></p>
-<h2 id="3">3 错误码及说明<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>https://github.com/onbonlab/bx.k.cplus.git</p>
+<h2 id="3">3 错误码及说明<a class="headerlink" href="#3" title="Permanent link"></a></h2>
 <p>动态库中每个接口函数最后都返回函数执行结果，用户可根据函数执行结果查找判断该函数的执行情况。</p>
-<h3 id="21"><em>2.1错误状态</em><a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<h3 id="21"><em>2.1错误状态</em><a class="headerlink" href="#21" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -1537,15 +366,15 @@
 </tr>
 </tbody>
 </table>
-<h2 id="3_1">3 显示屏初始化说明<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h2>
+<h2 id="3_1">3 显示屏初始化说明<a class="headerlink" href="#3_1" title="Permanent link"></a></h2>
 <p>控制器接入动态库使用的系统前需要首先使用我司提供的 LedshowZK2017软件来进行控制卡
 地址、通讯波特率、网络 IP(如有网口)、端口地址(如有网口)、扫描方式等设置；设置好后就可以再接入本动态库的系统中按照之前设定好的相关参数来设定显示屏的其它参数、信息和命令了。</p>
-<h2 id="4-api">4 API调用顺序<a class="headerlink" href="#4-api" title="Permanent link">&para;</a></h2>
-<h3 id="41"><em>4.1总体次序</em><a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<h2 id="4-api">4 API调用顺序<a class="headerlink" href="#4-api" title="Permanent link"></a></h2>
+<h3 id="41"><em>4.1总体次序</em><a class="headerlink" href="#41" title="Permanent link"></a></h3>
 <p>在执行其他操作之前，首先执行函数InitSDK初始化动态库，然后选择通讯模式， 设置不同模式
 下的参数，连接控制器(广播模式执行函数CreateBroadCast，网络固定ip模式执行函数CreateClient，
 网络modbus模式执行函数CreateTcpModbus， 485总线模式执行函数CreateComClient， 串口modbus模式执行函数CreateComModbus)，设置网络超时时间执行函数SetTimeout。 之后可以执行图文区节目（发送节目OFS_SendFileData、删除节目OFS_DeleteFile、锁定/解锁节目SCREEN_LockProgram）、动态区节目（发送节目SCREEN_SendDynamicArea、删除节目SCREEN_DelDynamicArea）、开关（强制开关机SCREEN_ForceOnOff，定时开关机SCREEN_TimeTurnOnOff，取消定时开关机SCREEN_CancelTimeOnOff）、固件查询（查询固件信CON_CheckCurrentFirmware，激活固件CON_FirmwareActivate）、控制器状态查询（CON_ControllerStatus）、 （亮度调整SCREEN_SetBrightness，复位CON_Reset， ping CON_PING， 校时CON_SytemClockCorrect） 等操作。例如RS485模式中函数的调用：</p>
-<div class="highlight"><pre><span></span><code>​```flow
+<pre><code class="language-flow">​```flow
 st=&gt;start: InitSdk
 op=&gt;operation: CreateBroadCast CreateComModbus CreateClient  CreateTcpModbus CreateComClient 创建连接
 cond=&gt;condition:  sendprogram or senddynamic?
@@ -1561,8 +390,8 @@ op2-&gt;op4
 op3-&gt;op4
 op4-&gt;e
 ​```
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>​```flow
+</code></pre>
+<pre><code>​```flow
 st=&gt;start: Start:&gt;http://www.google.com[blank]
 e=&gt;end:&gt;http://www.google.com
 op1=&gt;operation: My Operation
@@ -1575,14 +404,14 @@ st-&gt;op1-&gt;cond
 cond(yes)-&gt;io-&gt;e
 cond(no)-&gt;sub1(right)-&gt;op1
 ​```
-</code></pre></div>
-<h2 id="5">5 函数说明<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<h3 id="51-initsdk"><em>5.1 InitSdk函数</em><a class="headerlink" href="#51-initsdk" title="Permanent link">&para;</a></h3>
+</code></pre>
+<h2 id="5">5 函数说明<a class="headerlink" href="#5" title="Permanent link"></a></h2>
+<h3 id="51-initsdk"><em>5.1 InitSdk函数</em><a class="headerlink" href="#51-initsdk" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<div class="highlight"><pre><span></span><code>public static extern void InitSdk(byte minorVer,byte majorVer);
-</code></pre></div>
+<pre><code>public static extern void InitSdk(byte minorVer,byte majorVer);
+</code></pre>
 <ul>
 <li>参数</li>
 </ul>
@@ -1608,24 +437,28 @@ cond(no)-&gt;sub1(right)-&gt;op1
 <li>说明</li>
 </ul>
 <p>初始化动态库</p>
-<h3 id="52-releasesdk"><em>5.2 ReleaseSdk函数</em><a class="headerlink" href="#52-releasesdk" title="Permanent link">&para;</a></h3>
+<h3 id="52-releasesdk"><em>5.2 ReleaseSdk函数</em><a class="headerlink" href="#52-releasesdk" title="Permanent link"></a></h3>
 <ul>
-<li>函数
-<div class="highlight"><pre><span></span><code>public static extern void ReleaseSdk();
-</code></pre></div></li>
+<li>函数</li>
+</ul>
+<pre><code>public static extern void ReleaseSdk();
+</code></pre>
+<ul>
 <li>参数</li>
 </ul>
 <p>无
 - 说明</p>
 <p>释放动态库</p>
-<h3 id="53-createbroadcast"><em>5.3 CreateBroadCast函数</em><a class="headerlink" href="#53-createbroadcast" title="Permanent link">&para;</a></h3>
+<h3 id="53-createbroadcast"><em>5.3 CreateBroadCast函数</em><a class="headerlink" href="#53-createbroadcast" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern uint CreateBroadCast(byte[] broad_ip,uint broad_port,
+<pre><code>public static extern uint CreateBroadCast(byte[] broad_ip,uint broad_port,
 bx_5k_card_type card_type,int mode);
-</code></pre></div>
-- 参数</p>
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1656,11 +489,13 @@ bx_5k_card_type card_type,int mode);
 <li>说明</li>
 </ul>
 <p>通过广播模式连接控制卡，设置广播IP、端口号、控制卡类型</p>
-<h3 id="54-createclient"><em>5.4 CreateClient函数</em><a class="headerlink" href="#54-createclient" title="Permanent link">&para;</a></h3>
+<h3 id="54-createclient"><em>5.4 CreateClient函数</em><a class="headerlink" href="#54-createclient" title="Permanent link"></a></h3>
 <ul>
-<li>函数
-<div class="highlight"><pre><span></span><code>public static extern uint CreateClient(byte[] led_ip,uint led_port,bx_5k_card_type card_type,int tmout_sec,int mode,CallBackClientClose pCloseFunc);
-</code></pre></div></li>
+<li>函数</li>
+</ul>
+<pre><code>public static extern uint CreateClient(byte[] led_ip,uint led_port,bx_5k_card_type card_type,int tmout_sec,int mode,CallBackClientClose pCloseFunc);
+</code></pre>
+<ul>
 <li>参数</li>
 </ul>
 <table>
@@ -1700,17 +535,19 @@ bx_5k_card_type card_type,int mode);
 <ul>
 <li>说明</li>
 </ul>
-<p>通过网络固定IP模式连接控制卡，设置控制卡IP、端口号、控制卡类型，回调函数：
-<div class="highlight"><pre><span></span><code>[System.Runtime.InteropServices.UnmanagedFunctionPointerAttribute(System.Runtime.InteropServices.CallingConvention.StdCall)]
+<p>通过网络固定IP模式连接控制卡，设置控制卡IP、端口号、控制卡类型，回调函数：</p>
+<pre><code>[System.Runtime.InteropServices.UnmanagedFunctionPointerAttribute(System.Runtime.InteropServices.CallingConvention.StdCall)]
 public delegate void CallBackClientClose(uint hand, int err);
-</code></pre></div></p>
-<h3 id="55-createtcpmodbus"><em>5.5 CreateTcpModbus函数</em><a class="headerlink" href="#55-createtcpmodbus" title="Permanent link">&para;</a></h3>
+</code></pre>
+<h3 id="55-createtcpmodbus"><em>5.5 CreateTcpModbus函数</em><a class="headerlink" href="#55-createtcpmodbus" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern uint CreateTcpModbus(byte[]led_ip,bx_5k_card_type card_type,CallBackClientClose pCloseFunc);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern uint CreateTcpModbus(byte[]led_ip,bx_5k_card_type card_type,CallBackClientClose pCloseFunc);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1737,17 +574,19 @@ public delegate void CallBackClientClose(uint hand, int err);
 </tr>
 </tbody>
 </table>
-<p>通过网络 modbus 模式连接控制卡，设置控制卡 IP， 选择控制卡， 回调函数：
-<div class="highlight"><pre><span></span><code>[System.Runtime.InteropServices.UnmanagedFunctionPointerAttribute(System.Runtime.InteropServices.CallingConvention.StdCall)]
+<p>通过网络 modbus 模式连接控制卡，设置控制卡 IP， 选择控制卡， 回调函数：</p>
+<pre><code>[System.Runtime.InteropServices.UnmanagedFunctionPointerAttribute(System.Runtime.InteropServices.CallingConvention.StdCall)]
 public delegate void CallBackClientClose(uint hand, int err); 
-</code></pre></div></p>
-<h3 id="56-createcomclient"><em>5.6 CreateComClient函数</em><a class="headerlink" href="#56-createcomclient" title="Permanent link">&para;</a></h3>
+</code></pre>
+<h3 id="56-createcomclient"><em>5.6 CreateComClient函数</em><a class="headerlink" href="#56-createcomclient" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern uint CreateComClient (byte com,uint baudrate,bx_5k_card_type card_type card_type,int mode,ushort ScreenID);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern uint CreateComClient (byte com,uint baudrate,bx_5k_card_type card_type card_type,int mode,ushort ScreenID);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1783,13 +622,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 </tbody>
 </table>
 <p>通过串口连接控制卡，设置控制卡串口号、波特率、控制卡型号和屏号。</p>
-<h3 id="57-createcommodbus"><em>5.7 CreateComModbus函数</em><a class="headerlink" href="#57-createcommodbus" title="Permanent link">&para;</a></h3>
+<h3 id="57-createcommodbus"><em>5.7 CreateComModbus函数</em><a class="headerlink" href="#57-createcommodbus" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern uint CreateComModbus(byte com,uint baudrate,serial_parity Parity,serial_databits DataBits ,serial_stopbits StopBits,bx_5k_card_type card_type,ushort ScreenID);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern uint CreateComModbus(byte com,uint baudrate,serial_parity Parity,serial_databits DataBits ,serial_stopbits StopBits,bx_5k_card_type card_type,ushort ScreenID);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1832,12 +673,12 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明【不支持使用】</li>
 </ul>
 <p>通过串口Modbus模式连接控制卡，设置控制卡串口号、波特率、校验模式、串口数据位、串口停止位、控制卡型号、屏号。</p>
-<h3 id="58-destroy"><em>5.8 Destroy函数</em><a class="headerlink" href="#58-destroy" title="Permanent link">&para;</a></h3>
+<h3 id="58-destroy"><em>5.8 Destroy函数</em><a class="headerlink" href="#58-destroy" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<div class="highlight"><pre><span></span><code>public static extern void Destroy(uint dwHand);
-</code></pre></div>
+<pre><code>public static extern void Destroy(uint dwHand);
+</code></pre>
 <ul>
 <li>参数</li>
 </ul>
@@ -1859,12 +700,12 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>销毁通讯</p>
-<h3 id="59-settimeout"><em>5.9 SetTimeOut函数</em><a class="headerlink" href="#59-settimeout" title="Permanent link">&para;</a></h3>
+<h3 id="59-settimeout"><em>5.9 SetTimeOut函数</em><a class="headerlink" href="#59-settimeout" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<div class="highlight"><pre><span></span><code>public static extern void SetTimeOut(uint dwHand,uint nSec);
-</code></pre></div>
+<pre><code>public static extern void SetTimeOut(uint dwHand,uint nSec);
+</code></pre>
 <ul>
 <li>参数</li>
 </ul>
@@ -1890,12 +731,12 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>连接控制卡后，通过调用该函数设置通讯超时时间</p>
-<h3 id="510-con_ping"><em>5.10 CON_PING函数</em><a class="headerlink" href="#510-con_ping" title="Permanent link">&para;</a></h3>
+<h3 id="510-con_ping"><em>5.10 CON_PING函数</em><a class="headerlink" href="#510-con_ping" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<div class="highlight"><pre><span></span><code>public static extern int CON_PING(uint dwHand);
-</code></pre></div>
+<pre><code>public static extern int CON_PING(uint dwHand);
+</code></pre>
 <ul>
 <li>参数</li>
 </ul>
@@ -1919,13 +760,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>详见错误码及说明
 - 说明</p>
 <p>若ping命令执行成功，说明与控制卡通信成功</p>
-<h3 id="511-con_reset"><em>5.11 CON_ReSet函数</em><a class="headerlink" href="#511-con_reset" title="Permanent link">&para;</a></h3>
+<h3 id="511-con_reset"><em>5.11 CON_ReSet函数</em><a class="headerlink" href="#511-con_reset" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int CON_ReSet(uint dwHand);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int CON_ReSet(uint dwHand);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1946,13 +789,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>详见错误码及说明
 - 说明</p>
 <p>复位，控制器连接接收到系统复位命令后，擦除FirmWare文件外的所有数据文件，然后复位CPU。</p>
-<h3 id="512-con_controllerstatus"><em>5.12 CON_ControllerStatus函数</em><a class="headerlink" href="#512-con_controllerstatus" title="Permanent link">&para;</a></h3>
+<h3 id="512-con_controllerstatus"><em>5.12 CON_ControllerStatus函数</em><a class="headerlink" href="#512-con_controllerstatus" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int CON_ControllerStatus(uint dwHand,byte[] pStatus,ref ushort len);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int CON_ControllerStatus(uint dwHand,byte[] pStatus,ref ushort len);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1983,13 +828,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 - 说明</p>
 <p>查询控制器当前的图文节目(个数和节目名)、动态节目(列表和个数)、开机状态、亮度值、以
 及控制卡时间。</p>
-<h3 id="513-con_checkcurrentfont"><em>5.13 CON_CheckCurrentFont函数</em><a class="headerlink" href="#513-con_checkcurrentfont" title="Permanent link">&para;</a></h3>
+<h3 id="513-con_checkcurrentfont"><em>5.13 CON_CheckCurrentFont函数</em><a class="headerlink" href="#513-con_checkcurrentfont" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int CON_CurrentCustomer(uint dwHand,byte [] fontStatus,ref ushort len);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int CON_CurrentCustomer(uint dwHand,byte [] fontStatus,ref ushort len);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2018,13 +865,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>详见错误码及说明
 - 说明</p>
 <p>查询字库信息</p>
-<h3 id="514-con_checkcurrentcustomer"><em>5.14 CON_CheckCurrentCustomer</em><a class="headerlink" href="#514-con_checkcurrentcustomer" title="Permanent link">&para;</a></h3>
+<h3 id="514-con_checkcurrentcustomer"><em>5.14 CON_CheckCurrentCustomer</em><a class="headerlink" href="#514-con_checkcurrentcustomer" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int CON_CheckCurrentCustomer(uint dwHand,byte[] CustomerStatus,ref ushort len);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int CON_CheckCurrentCustomer(uint dwHand,byte[] CustomerStatus,ref ushort len);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2054,11 +903,13 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>详见错误码及说明
 - 说明</p>
 <p>回读客户信息</p>
-<h3 id="515-con_readscreen"><em>5.15 CON_ReadScreen函数</em><a class="headerlink" href="#515-con_readscreen" title="Permanent link">&para;</a></h3>
+<h3 id="515-con_readscreen"><em>5.15 CON_ReadScreen函数</em><a class="headerlink" href="#515-con_readscreen" title="Permanent link"></a></h3>
 <ul>
-<li>函数
-<div class="highlight"><pre><span></span><code>public static extern int CON_ReadScreen(uint dwHand,byte[] ScreenStatus,ref ushort len);
-</code></pre></div></li>
+<li>函数</li>
+</ul>
+<pre><code>public static extern int CON_ReadScreen(uint dwHand,byte[] ScreenStatus,ref ushort len);
+</code></pre>
+<ul>
 <li>参数</li>
 </ul>
 <table>
@@ -2092,13 +943,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>参数回读</p>
-<h3 id="516-con_systemclockcorrect"><em>5.16 CON_SystemClockCorrect函数</em><a class="headerlink" href="#516-con_systemclockcorrect" title="Permanent link">&para;</a></h3>
+<h3 id="516-con_systemclockcorrect"><em>5.16 CON_SystemClockCorrect函数</em><a class="headerlink" href="#516-con_systemclockcorrect" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int CON_SystemClockCorrect(uint dwHand);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int CON_SystemClockCorrect(uint dwHand);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2122,13 +975,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>校正系统时间</p>
-<h3 id="517-con_checkcurrentfirmware"><em>5.17 CON_CheckCurrentFirmware</em><a class="headerlink" href="#517-con_checkcurrentfirmware" title="Permanent link">&para;</a></h3>
+<h3 id="517-con_checkcurrentfirmware"><em>5.17 CON_CheckCurrentFirmware</em><a class="headerlink" href="#517-con_checkcurrentfirmware" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int CON_CheckCurrentFirmware(uint dwHand,byte [] FirmwareVersion,byte[] FirmwareDateTime);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int CON_CheckCurrentFirmware(uint dwHand,byte [] FirmwareVersion,byte[] FirmwareDateTime);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2157,13 +1012,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>详见错误码及说明
 - 说明</p>
 <p>查询固件版本号</p>
-<h3 id="518-con_firmwareactivate"><em>5.18 CON_FirmwareActivate函数</em><a class="headerlink" href="#518-con_firmwareactivate" title="Permanent link">&para;</a></h3>
+<h3 id="518-con_firmwareactivate"><em>5.18 CON_FirmwareActivate函数</em><a class="headerlink" href="#518-con_firmwareactivate" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int CON_FirmwareActivate(uint dwHand,byte [] FirmwareName);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int CON_FirmwareActivate(uint dwHand,byte [] FirmwareName);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2188,13 +1045,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>详见错误码及说明
 - 说明</p>
 <p>激活固件</p>
-<h3 id="519-con_setscreenid"><em>5.19 CON_SetScreenID函数</em><a class="headerlink" href="#519-con_setscreenid" title="Permanent link">&para;</a></h3>
+<h3 id="519-con_setscreenid"><em>5.19 CON_SetScreenID函数</em><a class="headerlink" href="#519-con_setscreenid" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int CON_SetScreenID(uint dwHand, ushort newScreenID);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int CON_SetScreenID(uint dwHand, ushort newScreenID);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2220,13 +1079,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>详见错误码及说明
 - 说明</p>
 <p>设置控制卡屏号</p>
-<h3 id="520-con_readscreenid"><em>5.20 CON_ReadScreenID函数</em><a class="headerlink" href="#520-con_readscreenid" title="Permanent link">&para;</a></h3>
+<h3 id="520-con_readscreenid"><em>5.20 CON_ReadScreenID函数</em><a class="headerlink" href="#520-con_readscreenid" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int CON_ReadScreenID(uint dwHand,ref ushort pScreenID);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int CON_ReadScreenID(uint dwHand,ref ushort pScreenID);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2252,13 +1113,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>详见错误码及说明
 - 说明</p>
 <p>读取控制卡屏号</p>
-<h3 id="521-screen_forceonoff"><em>5.21 SCREEN_ForceOnOff函数</em><a class="headerlink" href="#521-screen_forceonoff" title="Permanent link">&para;</a></h3>
+<h3 id="521-screen_forceonoff"><em>5.21 SCREEN_ForceOnOff函数</em><a class="headerlink" href="#521-screen_forceonoff" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_ForceOnOff(uint dwHand,byte OnOffFlag);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int SCREEN_ForceOnOff(uint dwHand,byte OnOffFlag);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2284,13 +1147,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>详见错误码及说明
 - 说明</p>
 <p>强制开关机</p>
-<h3 id="522-screen_timeturnonoff"><em>5.22 SCREEN_TimeTurnOnOff函数</em><a class="headerlink" href="#522-screen_timeturnonoff" title="Permanent link">&para;</a></h3>
+<h3 id="522-screen_timeturnonoff"><em>5.22 SCREEN_TimeTurnOnOff函数</em><a class="headerlink" href="#522-screen_timeturnonoff" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_TimeTurnOnOff(uint dwHand,byte[] pTimer,int nGroup);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int SCREEN_TimeTurnOnOff(uint dwHand,byte[] pTimer,int nGroup);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2321,13 +1186,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>设置定时开关机</p>
-<h3 id="523-screen_setbrigthness"><em>5.23 SCREEN_SetBrigthness函数</em><a class="headerlink" href="#523-screen_setbrigthness" title="Permanent link">&para;</a></h3>
+<h3 id="523-screen_setbrigthness"><em>5.23 SCREEN_SetBrigthness函数</em><a class="headerlink" href="#523-screen_setbrigthness" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_SetBrightness(uint dwHand,byte BrigthnessType,byte CurrentBrigthness,byte [] BrigthnessValue);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int SCREEN_SetBrightness(uint dwHand,byte BrigthnessType,byte CurrentBrigthness,byte [] BrigthnessValue);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2361,13 +1228,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>详见错误码及说明
 - 说明</p>
 <p>调整屏幕亮度值</p>
-<h3 id="524-screen_setwaittime"><em>5.24 SCREEN_SetWaitTime函数</em><a class="headerlink" href="#524-screen_setwaittime" title="Permanent link">&para;</a></h3>
+<h3 id="524-screen_setwaittime"><em>5.24 SCREEN_SetWaitTime函数</em><a class="headerlink" href="#524-screen_setwaittime" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_SetWaitTime(uint dwHand,byte WaitTime);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int SCREEN_SetWaitTime(uint dwHand,byte WaitTime);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2394,13 +1263,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>设置等待时间</p>
-<h3 id="525-screen_lockprogram"><em>5.25 SCREEN_LockProgram函数</em><a class="headerlink" href="#525-screen_lockprogram" title="Permanent link">&para;</a></h3>
+<h3 id="525-screen_lockprogram"><em>5.25 SCREEN_LockProgram函数</em><a class="headerlink" href="#525-screen_lockprogram" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_LockProgram(uint dwHand,byte LockFlag,byte StoreMode,byte[] ProgramFileName);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int SCREEN_LockProgram(uint dwHand,byte LockFlag,byte StoreMode,byte[] ProgramFileName);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2433,13 +1304,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>详见错误码及说明
 - 说明</p>
 <p>该函数是锁定或解锁当前图文节目，若为是锁定节目则函数参数 LockFlag=1；解锁 LockFlag=0</p>
-<h3 id="526-screen_deldynamicarea"><em>5.26 SCREEN_DelDynamicArea函数</em><a class="headerlink" href="#526-screen_deldynamicarea" title="Permanent link">&para;</a></h3>
+<h3 id="526-screen_deldynamicarea"><em>5.26 SCREEN_DelDynamicArea函数</em><a class="headerlink" href="#526-screen_deldynamicarea" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int DelDynamicArea(uint dwHand,byte DeleteAreaId);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int DelDynamicArea(uint dwHand,byte DeleteAreaId);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2467,13 +1340,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>删除动态区</p>
-<h3 id="527-screen_senddynamicarea"><em>5.27  SCREEN_SendDynamicArea函数</em><a class="headerlink" href="#527-screen_senddynamicarea" title="Permanent link">&para;</a></h3>
+<h3 id="527-screen_senddynamicarea"><em>5.27  SCREEN_SendDynamicArea函数</em><a class="headerlink" href="#527-screen_senddynamicarea" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_SendDynamicArea(uint dwHand,bx_5k_area_header header,ushort TextLen,byte[] AreaText);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int SCREEN_SendDynamicArea(uint dwHand,bx_5k_area_header header,ushort TextLen,byte[] AreaText);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2509,13 +1384,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>发送动态区，该函数向指定的动态区域发送动态区节目，参考“区域数据格式设置”设置相应的参数，添加节目内容，计算内容长度。节目断电后不会保存。</p>
-<h3 id="528-screen_sendsounddynamic"><em>5.28  SCREEN_SendSoundDynamic函数</em><a class="headerlink" href="#528-screen_sendsounddynamic" title="Permanent link">&para;</a></h3>
+<h3 id="528-screen_sendsounddynamic"><em>5.28  SCREEN_SendSoundDynamic函数</em><a class="headerlink" href="#528-screen_sendsounddynamic" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_SendSoundDynamic(uint dwHand, bx_5k_area_header header, ushort TextLen, byte[] AreaText, byte SoundMode, byte SoundPerson, byte SoundVolume, byte SoundSpeed, int sound_len, byte[] sounddata);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int SCREEN_SendSoundDynamic(uint dwHand, bx_5k_area_header header, ushort TextLen, byte[] AreaText, byte SoundMode, byte SoundPerson, byte SoundVolume, byte SoundSpeed, int sound_len, byte[] sounddata);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2575,13 +1452,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>发送语音动态区</p>
-<h3 id="529-screen_canceltimeonoff"><em>5.29 SCREEN_CancelTimeOnOff函数</em><a class="headerlink" href="#529-screen_canceltimeonoff" title="Permanent link">&para;</a></h3>
+<h3 id="529-screen_canceltimeonoff"><em>5.29 SCREEN_CancelTimeOnOff函数</em><a class="headerlink" href="#529-screen_canceltimeonoff" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_CancelTimeOnOff(uint dwHand);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int SCREEN_CancelTimeOnOff(uint dwHand);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2604,13 +1483,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>取消定时开关机</p>
-<h3 id="530-bx5mk_setspecialappdynamic"><em>5.30 BX5MK_SetSpecialAppDynamic函数</em><a class="headerlink" href="#530-bx5mk_setspecialappdynamic" title="Permanent link">&para;</a></h3>
+<h3 id="530-bx5mk_setspecialappdynamic"><em>5.30 BX5MK_SetSpecialAppDynamic函数</em><a class="headerlink" href="#530-bx5mk_setspecialappdynamic" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int BX5MK_SetSpecialAppDynamic(uint dwHand, ushort AreaX, ushort AreaY, ushort AreaW, ushort AreaH,byte DataType, byte Pagetotal, byte RunState, ushort Timeout, byte SingleLine, byte Lines_sizes, byte NewLine, ushort StayTime);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int BX5MK_SetSpecialAppDynamic(uint dwHand, ushort AreaX, ushort AreaY, ushort AreaW, ushort AreaH,byte DataType, byte Pagetotal, byte RunState, ushort Timeout, byte SingleLine, byte Lines_sizes, byte NewLine, ushort StayTime);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2680,13 +1561,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>详见错误码及说明
 - 说明 
 设置特殊动态区（点阵）</p>
-<h3 id="531-bx5mk_sendpagedata"><em>5.31 BX5MK_SendPageData函数</em><a class="headerlink" href="#531-bx5mk_sendpagedata" title="Permanent link">&para;</a></h3>
+<h3 id="531-bx5mk_sendpagedata"><em>5.31 BX5MK_SendPageData函数</em><a class="headerlink" href="#531-bx5mk_sendpagedata" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int BX5MK_SendPageData(uint dwHand, byte PageNum, ushort PageDataLen, byte[] PageData);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int BX5MK_SendPageData(uint dwHand, byte PageNum, ushort PageDataLen, byte[] PageData);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2722,13 +1605,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明
 发送分页数据</li>
 </ul>
-<h3 id="532-bx5mk_sendlatticemessage"><em>5.32 BX5MK_SendLatticeMessage函数</em><a class="headerlink" href="#532-bx5mk_sendlatticemessage" title="Permanent link">&para;</a></h3>
+<h3 id="532-bx5mk_sendlatticemessage"><em>5.32 BX5MK_SendLatticeMessage函数</em><a class="headerlink" href="#532-bx5mk_sendlatticemessage" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int BX5MK_SendLatticeMessage(uint dwHand,byte BlockFlag,ushort BlockAddr,byte[] BlockData,ushort BlockDataLen);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int BX5MK_SendLatticeMessage(uint dwHand,byte BlockFlag,ushort BlockAddr,byte[] BlockData,ushort BlockDataLen);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2768,13 +1653,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明
 发送点阵信息</li>
 </ul>
-<h3 id="533-bx5mk_delspecialappdynamic"><em>5.33 BX5MK_DelSpecialAppDynamic函数</em><a class="headerlink" href="#533-bx5mk_delspecialappdynamic" title="Permanent link">&para;</a></h3>
+<h3 id="533-bx5mk_delspecialappdynamic"><em>5.33 BX5MK_DelSpecialAppDynamic函数</em><a class="headerlink" href="#533-bx5mk_delspecialappdynamic" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int BX5MK_DelSpecialAppDynamic(uint dwHand);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int BX5MK_DelSpecialAppDynamic(uint dwHand);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2797,13 +1684,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>删除特殊动态区</p>
-<h3 id="534-bx5mk_setipaddress"><em>5.34 BX5MK_SetIPAddress函数</em><a class="headerlink" href="#534-bx5mk_setipaddress" title="Permanent link">&para;</a></h3>
+<h3 id="534-bx5mk_setipaddress"><em>5.34 BX5MK_SetIPAddress函数</em><a class="headerlink" href="#534-bx5mk_setipaddress" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int BX5MK_SetIPAddress(uint dwHand, byte ConnnectMode, byte[] ip, byte[] SubnetMask, byte[] Gateway, ushort port,byte ServerMode, byte[] ServerIPAddress, ushort ServerPort, byte[] ServerAccessPassword, ushort HeartBeatInterval, byte[] NetID);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int BX5MK_SetIPAddress(uint dwHand, byte ConnnectMode, byte[] ip, byte[] SubnetMask, byte[] Gateway, ushort port,byte ServerMode, byte[] ServerIPAddress, ushort ServerPort, byte[] ServerAccessPassword, ushort HeartBeatInterval, byte[] NetID);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2870,13 +1759,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明
 设置IP地址</li>
 </ul>
-<h3 id="535-bx5mk_setmacaddress"><em>5.35 BX5MK_SetMACAddress函数</em><a class="headerlink" href="#535-bx5mk_setmacaddress" title="Permanent link">&para;</a></h3>
+<h3 id="535-bx5mk_setmacaddress"><em>5.35 BX5MK_SetMACAddress函数</em><a class="headerlink" href="#535-bx5mk_setmacaddress" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int BX5MK_SetMACAddress(uint dwHand,byte[] MAC);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int BX5MK_SetMACAddress(uint dwHand,byte[] MAC);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2904,13 +1795,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明
 设置MAC地址</li>
 </ul>
-<h3 id="536-ofs_formatting"><em>5.36 OFS_Formatting函数</em><a class="headerlink" href="#536-ofs_formatting" title="Permanent link">&para;</a></h3>
+<h3 id="536-ofs_formatting"><em>5.36 OFS_Formatting函数</em><a class="headerlink" href="#536-ofs_formatting" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int OFS_Formatting(uint dwHand);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int OFS_Formatting(uint dwHand);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2933,13 +1826,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>该函数格式化控制卡数据，一般不要轻易格式化。</p>
-<h3 id="537-ofs_deletefile"><em>5.37 OFS_DeleteFile函数</em><a class="headerlink" href="#537-ofs_deletefile" title="Permanent link">&para;</a></h3>
+<h3 id="537-ofs_deletefile"><em>5.37 OFS_DeleteFile函数</em><a class="headerlink" href="#537-ofs_deletefile" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int OFS_DeleteFile(uint dwHand,ushort FileNumber,byte[] pFileNameList);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int OFS_DeleteFile(uint dwHand,ushort FileNumber,byte[] pFileNameList);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -2970,13 +1865,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>该函数用来删除图文区节目，若删除当前显示的节目，函数的参数FileName=1，pFileNameList的值为要删除的图文节目名，若删除所有节目，则函数的参数FileName=0，pFileNameList=null</p>
-<h3 id="538-ofs_sendfiledata"><em>5.38 OFS_SendFileData函数</em><a class="headerlink" href="#538-ofs_sendfiledata" title="Permanent link">&para;</a></h3>
+<h3 id="538-ofs_sendfiledata"><em>5.38 OFS_SendFileData函数</em><a class="headerlink" href="#538-ofs_sendfiledata" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int OFS_SendFileData(uint dwHand, byte overwrite, byte[] pFileName, ushort DisplayType, byte PlayTimes,byte[] ProgramLife, byte ProgramWeek, byte ProgramTime, byte[] Period, byte AreaNum, byte[] AreaDataList, int AreaDataListLen);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int OFS_SendFileData(uint dwHand, byte overwrite, byte[] pFileName, ushort DisplayType, byte PlayTimes,byte[] ProgramLife, byte ProgramWeek, byte ProgramTime, byte[] Period, byte AreaNum, byte[] AreaDataList, int AreaDataListLen);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -3043,13 +1940,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <li>说明</li>
 </ul>
 <p>通过制定的通讯模式连接到控制卡，向指定的图文区域发送图文节目，该节目断电后会自动保存。</p>
-<h3 id="539-ofs_sendfontdata"><em>5.39 OFS_SendFontData函数</em><a class="headerlink" href="#539-ofs_sendfontdata" title="Permanent link">&para;</a></h3>
+<h3 id="539-ofs_sendfontdata"><em>5.39 OFS_SendFontData函数</em><a class="headerlink" href="#539-ofs_sendfontdata" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int OFS_SendFontData(uint dwHand, byte overwrite, byte[] pFileName, byte FontWidth, byte FontHeight,byte[] LibData, int LibData_len, byte FontEncode, CloseFunc pCloseFunc);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int OFS_SendFontData(uint dwHand, byte overwrite, byte[] pFileName, byte FontWidth, byte FontHeight,byte[] LibData, int LibData_len, byte FontEncode, CloseFunc pCloseFunc);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -3104,13 +2003,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>说明</li>
 </ul>
-<h3 id="540-ofs_sendfirmwaredata"><em>5.40 OFS_SendFirmwareData函数</em><a class="headerlink" href="#540-ofs_sendfirmwaredata" title="Permanent link">&para;</a></h3>
+<h3 id="540-ofs_sendfirmwaredata"><em>5.40 OFS_SendFirmwareData函数</em><a class="headerlink" href="#540-ofs_sendfirmwaredata" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int OFS_SendFirmwareData(uint dwHand,byte overwrite,byte[] pFileName,byte[] pFirmwareData,int FirmwareDataLen,CloseFunc pCloseFunc);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int OFS_SendFirmwareData(uint dwHand,byte overwrite,byte[] pFileName,byte[] pFirmwareData,int FirmwareDataLen,CloseFunc pCloseFunc);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -3152,13 +2053,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>说明</li>
 </ul>
-<h3 id="541-ofs_sendscreendata"><em>5.41 OFS_SendScreenData函数</em><a class="headerlink" href="#541-ofs_sendscreendata" title="Permanent link">&para;</a></h3>
+<h3 id="541-ofs_sendscreendata"><em>5.41 OFS_SendScreenData函数</em><a class="headerlink" href="#541-ofs_sendscreendata" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int OFS_SendScreenData(uint dwHand,byte overwrite,byte[] pFIleName,ushort Address,byte Baudrate,ushort ScreenWidth,ushort ScreenHeigth,byte color,byte MirrorMode,byte OE,byte DA,byte RowOrder,byte FrePar,byte OEAngle,byte CommTimeout);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int OFS_SendScreenData(uint dwHand,byte overwrite,byte[] pFIleName,ushort Address,byte Baudrate,ushort ScreenWidth,ushort ScreenHeigth,byte color,byte MirrorMode,byte OE,byte DA,byte RowOrder,byte FrePar,byte OEAngle,byte CommTimeout);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -3234,13 +2137,15 @@ public delegate void CallBackClientClose(uint hand, int err);
  详见错误码及说明</li>
 <li>说明</li>
 </ul>
-<h3 id="542-ofs_endsenmultifiles"><em>5.42 OFS_EndSenMultiFiles函数</em><a class="headerlink" href="#542-ofs_endsenmultifiles" title="Permanent link">&para;</a></h3>
+<h3 id="542-ofs_endsenmultifiles"><em>5.42 OFS_EndSenMultiFiles函数</em><a class="headerlink" href="#542-ofs_endsenmultifiles" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int OFS_EndSendMultiFiles(uint dwHand);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int OFS_EndSendMultiFiles(uint dwHand);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -3262,13 +2167,15 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>说明</li>
 </ul>
-<h3 id="543-startgprsserver"><em>5.43  StartGprsServer函数</em><a class="headerlink" href="#543-startgprsserver" title="Permanent link">&para;</a></h3>
+<h3 id="543-startgprsserver"><em>5.43  StartGprsServer函数</em><a class="headerlink" href="#543-startgprsserver" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int (uint port,CallBack pCallBackCon,ClaaBackLedClose pCallBackClose);
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int (uint port,CallBack pCallBackCon,ClaaBackLedClose pCallBackClose);
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -3297,53 +2204,58 @@ public delegate void CallBackClientClose(uint hand, int err);
 </table>
 <p>详见错误码及说明
 - 说明</p>
-<h3 id="544closegprsserver"><em>5.44CloseGprsServer函数</em><a class="headerlink" href="#544closegprsserver" title="Permanent link">&para;</a></h3>
+<h3 id="544closegprsserver"><em>5.44CloseGprsServer函数</em><a class="headerlink" href="#544closegprsserver" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int CloseGprsServer();
-</code></pre></div>
-- 参数</p>
+<pre><code>public static extern int CloseGprsServer();
+</code></pre>
+<ul>
+<li>参数</li>
+</ul>
 <p>无
 - 返回值</p>
 <p>详见错误码及说明</p>
-<h2 id="-">- 说明<a class="headerlink" href="#-" title="Permanent link">&para;</a></h2>
-<h2 id="_1">附录<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="-">- 说明<a class="headerlink" href="#-" title="Permanent link"></a></h2>
+<h2 id="_1">附录<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <ul>
 <li>错误码</li>
 </ul>
-<div class="highlight"><pre><span></span><code>        public class bx5k_err
-        {
-            public const int ERR_NO = 0; //No Error 
-            public const int ERR_OUTOFGROUP = 1; //Command Group Error 
-            public const int ERR_NOCMD = 2; //Command Not Found 
-            public const int ERR_BUSY = 3; //The Controller is busy now 
-            public const int ERR_MEMORYVOLUME = 4; //Out of the Memory Volume 
-            public const int ERR_CHECKSUM = 5; //CRC16 Checksum Error 
-            public const int ERR_FILENOTEXIST = 6; //File Not Exist 
-            public const int ERR_FLASH = 7;//Flash Access Error 
-            public const int ERR_FILE_DOWNLOAD = 8; //File Download Error 
-            public const int ERR_FILE_NAME = 9; //Filename Error 
-            public const int ERR_FILE_TYPE = 10;//File type Error 
-            public const int ERR_FILE_CRC16 = 11;//File CRC16 Error 
-            public const int ERR_FONT_NOT_EXIST = 12;//Font Library Not Exist 
-            public const int ERR_FIRMWARE_TYPE = 13;//Firmware Type Error (Check the controller type) 
-            public const int ERR_DATE_TIME_FORMAT = 14;//Date Time format error 
-            public const int ERR_FILE_EXIST = 15;//File Exist for File overwrite 
-            public const int ERR_FILE_BLOCK_NUM = 16;//File block number error 
-            public const int ERR_COMMUNICATE = 100;//通信失败
-            public const int ERR_PROTOCOL = 101;//协议数据不正确
-            public const int ERR_TIMEOUT = 102;//通信超时
-            public const int ERR_NETCLOSE = 103;//通信断开
-            public const int ERR_INVALID_HAND = 104;//无效句柄
-            public const int ERR_PARAMETER = 105;//参数错误
-            public const int ERR_SHOULDREPEAT = 106;//需要重复上次数据包
-            public const int ERR_FILE = 107;//无效文件
-        }
-</code></pre></div>
+<p>```</p>
+<pre><code>      public class bx5k_err
+      {
+          public const int ERR_NO = 0; //No Error 
+          public const int ERR_OUTOFGROUP = 1; //Command Group Error 
+          public const int ERR_NOCMD = 2; //Command Not Found 
+          public const int ERR_BUSY = 3; //The Controller is busy now 
+          public const int ERR_MEMORYVOLUME = 4; //Out of the Memory Volume 
+          public const int ERR_CHECKSUM = 5; //CRC16 Checksum Error 
+          public const int ERR_FILENOTEXIST = 6; //File Not Exist 
+          public const int ERR_FLASH = 7;//Flash Access Error 
+          public const int ERR_FILE_DOWNLOAD = 8; //File Download Error 
+          public const int ERR_FILE_NAME = 9; //Filename Error 
+          public const int ERR_FILE_TYPE = 10;//File type Error 
+          public const int ERR_FILE_CRC16 = 11;//File CRC16 Error 
+          public const int ERR_FONT_NOT_EXIST = 12;//Font Library Not Exist 
+          public const int ERR_FIRMWARE_TYPE = 13;//Firmware Type Error (Check the controller type) 
+          public const int ERR_DATE_TIME_FORMAT = 14;//Date Time format error 
+          public const int ERR_FILE_EXIST = 15;//File Exist for File overwrite 
+          public const int ERR_FILE_BLOCK_NUM = 16;//File block number error 
+          public const int ERR_COMMUNICATE = 100;//通信失败
+          public const int ERR_PROTOCOL = 101;//协议数据不正确
+          public const int ERR_TIMEOUT = 102;//通信超时
+          public const int ERR_NETCLOSE = 103;//通信断开
+          public const int ERR_INVALID_HAND = 104;//无效句柄
+          public const int ERR_PARAMETER = 105;//参数错误
+          public const int ERR_SHOULDREPEAT = 106;//需要重复上次数据包
+          public const int ERR_FILE = 107;//无效文件
+      }
+</code></pre>
+<p>```</p>
 <ul>
-<li>控制器类型
-<div class="highlight"><pre><span></span><code>public enum bx_5k_card_type :  byte
+<li>控制器类型</li>
+</ul>
+<pre><code>public enum bx_5k_card_type :  byte
 {
     BX_Any = 0XFE, 
     BX_5K1 = 0X51,
@@ -3354,10 +2266,11 @@ public delegate void CallBackClientClose(uint hand, int err);
     BX_6K2 = 0X62,
     BX_6K3 = 0X63,
 }
-</code></pre></div></li>
+</code></pre>
+<ul>
 <li>串口数据位</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public enum serial_databits : byte
+<pre><code>public enum serial_databits : byte
 {
     COM_4BITS = 4, //4位
     COM_5BITS = 5, //5位
@@ -3365,9 +2278,11 @@ public delegate void CallBackClientClose(uint hand, int err);
     COM_7BITS = 7, //7位
     COM_8BITS = 8, //8位
 }
-</code></pre></div>
-- 串口检验模式</p>
-<p><div class="highlight"><pre><span></span><code>public enum serial_parity : byte
+</code></pre>
+<ul>
+<li>串口检验模式</li>
+</ul>
+<pre><code>public enum serial_parity : byte
 {
     COM_NOPARITY = 0, //无校验
     COM_ODDPARITY = 1, //奇校验
@@ -3375,17 +2290,21 @@ public delegate void CallBackClientClose(uint hand, int err);
     COM_MARKPARITTY = 3,//标记校验
     COM_SPACEPARITY = 4,//空格校验
 }
-</code></pre></div>
-- 串口停止位</p>
-<p><div class="highlight"><pre><span></span><code>public enum serial_stopbits : byte
+</code></pre>
+<ul>
+<li>串口停止位</li>
+</ul>
+<pre><code>public enum serial_stopbits : byte
 {
     COM_ONESTOPBIT = 0, //1为
     COM_ONE5STOPBITS = 1 , //1.5位
     COM_TWOSTOPBITS = 2,//2位
 }
-</code></pre></div>
-- 结构体定义数据</p>
-<p><div class="highlight"><pre><span></span><code>public struct bx_5k_area_header
+</code></pre>
+<ul>
+<li>结构体定义数据</li>
+</ul>
+<pre><code>public struct bx_5k_area_header
 {
     public byte AreaType;
     public short AreaX;
@@ -3407,9 +2326,11 @@ public delegate void CallBackClientClose(uint hand, int err);
     public byte StayTime;
     public int DataLen;
 }
-</code></pre></div>
-- 查询控制器状态</p>
-<p><div class="highlight"><pre><span></span><code>private void button35_Click(object sender, EventArgs e)
+</code></pre>
+<ul>
+<li>查询控制器状态</li>
+</ul>
+<pre><code>private void button35_Click(object sender, EventArgs e)
 {
     listBox1.Items.Clear();
     byte[] pStatus = new byte[1024];
@@ -3470,8 +2391,10 @@ public delegate void CallBackClientClose(uint hand, int err);
         }
     }
 }
-</code></pre></div>
-- 区域数据格式设置</p>
+</code></pre>
+<ul>
+<li>区域数据格式设置</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -3607,94 +2530,82 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>地址： 苏州市吴中区塔韵路178号501</p>
 <p>电话： 0512-66589212</p>
 <p><strong>二次开发支持</strong></p>
-<p>邮箱：<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#100;&#101;&#118;&#64;&#111;&#110;&#98;&#111;&#110;&#98;&#120;&#46;&#99;&#111;&#109;">&#100;&#101;&#118;&#64;&#111;&#110;&#98;&#111;&#110;&#98;&#120;&#46;&#99;&#111;&#109;</a></p>
-                
-              
-              
-                
-
-
-              
-            </article>
-          </div>
+<p>邮箱：dev@onbonbx.com</p></div>
+            </div>
         </div>
-        
-      </main>
-      
-        
-<footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../java/" class="md-footer__link md-footer__link--prev" aria-label="Previous: JAVA" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              JAVA
+
+        <footer class="col-md-12">
+            <hr>
+                <p>Copyright ? 2020 onbon. All rights reserved. </p>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js" defer></script>
+        <script src="../../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../potocol/" class="md-footer__link md-footer__link--next" aria-label="Next: 开发协议" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              开发协议
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
             </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright ? 2020 onbon. All rights reserved. 
-          </div>
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
-      
+            <div class="modal-footer">
+            </div>
+        </div>
     </div>
-  </div>
-</footer>
-      
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
     </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
-    
-    
-      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-      
-        <script src="../../../js/my.js"></script>
-      
-    
-  </body>
+</div>
+
+    </body>
 </html>
