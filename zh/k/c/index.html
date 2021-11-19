@@ -269,7 +269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../y/java.md" class="md-nav__link">
+      <a href="../../y/java/" class="md-nav__link">
         JAVA
       </a>
     </li>
@@ -345,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../dual/c.md" class="md-nav__link">
+      <a href="../../dual/c/" class="md-nav__link">
         C/C++
       </a>
     </li>
@@ -1388,11 +1388,13 @@
                 <h1 id="cc-sdk-">C/C++ SDK 使用说明 - 字库系列<a class="headerlink" href="#cc-sdk-" title="Permanent link">&para;</a></h1>
 <h2 id="1">1. 平台支持<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <p>本项目由纯C++编写， 因此，其可以正常运行于Windows, Linux平台。本文档主要针对动态链接库（C++）开发的相关说明，需要协议开发请使用我们提供的<a href="../potocol/">协议文档</a>进行开发。
-如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读本文档后进行软件开发。
-- 获取SDK
-- 阅读错误码及说明
-- 阅读API调用顺序
-- 阅读函数说明</p>
+如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读本文档后进行软件开发。</p>
+<ul>
+<li>获取SDK</li>
+<li>阅读错误码及说明</li>
+<li>阅读API调用顺序</li>
+<li>阅读函数说明</li>
+</ul>
 <h2 id="2-sdk">2. 获取 SDK<a class="headerlink" href="#2-sdk" title="Permanent link">&para;</a></h2>
 <p>您可以从以下链接下载本 SDK：</p>
 <p><a href="https://github.com/onbonlab/bx.k.cplus.git">https://github.com/onbonlab/bx.k.cplus.git</a></p>
@@ -1543,14 +1545,36 @@
 <p>在执行其他操作之前，首先执行函数InitSDK初始化动态库，然后选择通讯模式， 设置不同模式
 下的参数，连接控制器(广播模式执行函数CreateBroadCast，网络固定ip模式执行函数CreateClient，
 网络modbus模式执行函数CreateTcpModbus， 485总线模式执行函数CreateComClient， 串口modbus模式执行函数CreateComModbus)，设置网络超时时间执行函数SetTimeout。 之后可以执行图文区节目（发送节目OFS_SendFileData、删除节目OFS_DeleteFile、锁定/解锁节目SCREEN_LockProgram）、动态区节目（发送节目SCREEN_SendDynamicArea、删除节目SCREEN_DelDynamicArea）、开关（强制开关机SCREEN_ForceOnOff，定时开关机SCREEN_TimeTurnOnOff，取消定时开关机SCREEN_CancelTimeOnOff）、固件查询（查询固件信CON_CheckCurrentFirmware，激活固件CON_FirmwareActivate）、控制器状态查询（CON_ControllerStatus）、 （亮度调整SCREEN_SetBrightness，复位CON_Reset， ping CON_PING， 校时CON_SytemClockCorrect） 等操作。例如RS485模式中函数的调用：</p>
-<div class="highlight"><pre><span></span><code>graph TD
-A{InitSdk}--&gt;B[CreateBroadCast CreateComModbus CreateClient  CreateTcpModbus CreateComClient 创建连接]
-B--&gt;C[OFS_SendFileData 发送数据]
-B--&gt;D[SendDynamicArea发送动态区]
-C--&gt;F[SendProgram发送节目]
-D--&gt;E[Destroy销毁通讯]
-F--&gt;E[Destroy销毁通讯]
-E--&gt;G[ReleaseSdk]
+<div class="highlight"><pre><span></span><code>​```flow
+st=&gt;start: InitSdk
+op=&gt;operation: CreateBroadCast CreateComModbus CreateClient  CreateTcpModbus CreateComClient 创建连接
+cond=&gt;condition:  sendprogram or senddynamic?
+op1=&gt;operation: OFS_SendFileData 发送数据
+op2=&gt;operation: SendDynamicArea发送动态区
+op3=&gt;operation: SendProgram发送节目
+op4=&gt;operation: Destroy销毁通讯
+e=&gt;end: ReleaseSdk
+st-&gt;op-&gt;cond
+cond(yes)-&gt;op1-&gt;op3
+cond(no)-&gt;op2
+op2-&gt;op4
+op3-&gt;op4
+op4-&gt;e
+​```
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>​```flow
+st=&gt;start: Start:&gt;http://www.google.com[blank]
+e=&gt;end:&gt;http://www.google.com
+op1=&gt;operation: My Operation
+sub1=&gt;subroutine: My Subroutine
+cond=&gt;condition: Yes
+or No?:&gt;http://www.google.com
+io=&gt;inputoutput: catch something...
+
+st-&gt;op1-&gt;cond
+cond(yes)-&gt;io-&gt;e
+cond(no)-&gt;sub1(right)-&gt;op1
+​```
 </code></pre></div>
 <h2 id="5">5 函数说明<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
 <h3 id="51-initsdk"><em>5.1 InitSdk函数</em><a class="headerlink" href="#51-initsdk" title="Permanent link">&para;</a></h3>
@@ -1802,20 +1826,21 @@ public delegate void CallBackClientClose(uint hand, int err);
 <td>ScreenID</td>
 <td>屏号</td>
 </tr>
-<tr>
-<td>- 说明【不支持使用】</td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<ul>
+<li>说明【不支持使用】</li>
+</ul>
 <p>通过串口Modbus模式连接控制卡，设置控制卡串口号、波特率、校验模式、串口数据位、串口停止位、控制卡型号、屏号。</p>
 <h3 id="58-destroy"><em>5.8 Destroy函数</em><a class="headerlink" href="#58-destroy" title="Permanent link">&para;</a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern void Destroy(uint dwHand);
+<div class="highlight"><pre><span></span><code>public static extern void Destroy(uint dwHand);
 </code></pre></div>
-- 参数</p>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1828,20 +1853,21 @@ public delegate void CallBackClientClose(uint hand, int err);
 <td>dwHand</td>
 <td>连接控制卡函数的返回值</td>
 </tr>
-<tr>
-<td>- 说明</td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<ul>
+<li>说明</li>
+</ul>
 <p>销毁通讯</p>
 <h3 id="59-settimeout"><em>5.9 SetTimeOut函数</em><a class="headerlink" href="#59-settimeout" title="Permanent link">&para;</a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern void SetTimeOut(uint dwHand,uint nSec);
+<div class="highlight"><pre><span></span><code>public static extern void SetTimeOut(uint dwHand,uint nSec);
 </code></pre></div>
-- 参数</p>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1858,20 +1884,21 @@ public delegate void CallBackClientClose(uint hand, int err);
 <td>nSec</td>
 <td>设计超时时间，单位为s</td>
 </tr>
-<tr>
-<td>- 说明</td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<ul>
+<li>说明</li>
+</ul>
 <p>连接控制卡后，通过调用该函数设置通讯超时时间</p>
 <h3 id="510-con_ping"><em>5.10 CON_PING函数</em><a class="headerlink" href="#510-con_ping" title="Permanent link">&para;</a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<p><div class="highlight"><pre><span></span><code>public static extern int CON_PING(uint dwHand);
+<div class="highlight"><pre><span></span><code>public static extern int CON_PING(uint dwHand);
 </code></pre></div>
-- 参数</p>
+<ul>
+<li>参数</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1884,12 +1911,11 @@ public delegate void CallBackClientClose(uint hand, int err);
 <td>dwHand</td>
 <td>连接控制卡函数的返回值</td>
 </tr>
-<tr>
-<td>- 返回值</td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<ul>
+<li>返回值</li>
+</ul>
 <p>详见错误码及说明
 - 说明</p>
 <p>若ping命令执行成功，说明与控制卡通信成功</p>
@@ -1912,12 +1938,11 @@ public delegate void CallBackClientClose(uint hand, int err);
 <td>dwHand</td>
 <td>连接控制卡函数的返回值</td>
 </tr>
-<tr>
-<td>- 返回值</td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<ul>
+<li>返回值</li>
+</ul>
 <p>详见错误码及说明
 - 说明</p>
 <p>复位，控制器连接接收到系统复位命令后，擦除FirmWare文件外的所有数据文件，然后复位CPU。</p>

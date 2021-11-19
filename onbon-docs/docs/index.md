@@ -8,7 +8,7 @@ BX 异步LED控制器，主要包括全彩系列，单双色系列与字库系�
 
 
 
-| <img src="\zh\img\y1a.png" /> | <img src="\zh\img\6e1.png" /> | <img src="\zh\img\6k1.png" /> |
+| <img src="zh/img/y1a.png" /> | <img src="zh/img/6e1.png" /> | <img src="zh/img/6k1.png" /> |
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | [全彩播放器系列](zh/y/y.md)   | [单双色系列](zh/dual/dual.md) | [字库系列](zh/k/k.md)         |
 | BX-Y 系列                     | BX-5M/5E/BX-XW</br>BX-6M/6E等 | BX-5K/5MK</br>BX-6K等         |
