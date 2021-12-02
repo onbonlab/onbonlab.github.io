@@ -3,8 +3,7 @@
 # C/C++ SDK 使用说明 - 字库系列
 
 ## 1. 平台支持
-本项目由纯C++编写， 因此，其可以正常运行于Windows, Linux平台。本文档主要针对动态链接库（C++）开发的相关说明，需要协议开发请使用我们提供的[协议文档](../k/potocol.md)进行开发。
-如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读本文档后进行软件开发。
+本项目由纯C++编写， 因此，其可以正常运行于Windows, Linux平台。本文档主要针对动态链接库（C++）开发的相关说明，需要协议开发请使用我们提供的[协议文档](../k/potocol.md)进行开发。如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读本文档后进行软件开发。
 
 
 
@@ -17,11 +16,11 @@
 
 您可以从以下链接下载本 SDK：
 
-https://github.com/onbonlab/bx.k.cplus.git
+[Download SDK](https://github.com/onbonlab/bx.k.cplus.git)
 
-## 3 错误码及说明
+## 3. 错误码及说明
 动态库中每个接口函数最后都返回函数执行结果，用户可根据函数执行结果查找判断该函数的执行情况。
-### *2.1错误状态*
+### *3.1错误状态*
 
 错误名称  | 代码 | 说明
 ---|--- |---
@@ -52,12 +51,12 @@ ERR_SHOULDREPEAT | 106 | 需要重复上次的错误包
 ERR_FILE | 107 | 无效文件
 
 
-## 3 显示屏初始化说明
+## 4. 显示屏初始化说明
 
 控制器接入动态库使用的系统前需要首先使用我司提供的 LedshowZK2017软件来进行控制卡
 地址、通讯波特率、网络 IP(如有网口)、端口地址(如有网口)、扫描方式等设置；设置好后就可以再接入本动态库的系统中按照之前设定好的相关参数来设定显示屏的其它参数、信息和命令了。
-## 4 API调用顺序
-### *4.1总体次序*
+## 5. API调用顺序
+### *5.1总体次序*
 在执行其他操作之前，首先执行函数InitSDK初始化动态库，然后选择通讯模式， 设置不同模式
 下的参数，连接控制器(广播模式执行函数CreateBroadCast，网络固定ip模式执行函数CreateClient，
 网络modbus模式执行函数CreateTcpModbus， 485总线模式执行函数CreateComClient， 串口modbus模式执行函数CreateComModbus)，设置网络超时时间执行函数SetTimeout。 之后可以执行图文区节目（发送节目OFS_SendFileData、删除节目OFS_DeleteFile、锁定/解锁节目SCREEN_LockProgram）、动态区节目（发送节目SCREEN_SendDynamicArea、删除节目SCREEN_DelDynamicArea）、开关（强制开关机SCREEN_ForceOnOff，定时开关机SCREEN_TimeTurnOnOff，取消定时开关机SCREEN_CancelTimeOnOff）、固件查询（查询固件信CON_CheckCurrentFirmware，激活固件CON_FirmwareActivate）、控制器状态查询（CON_ControllerStatus）、 （亮度调整SCREEN_SetBrightness，复位CON_Reset， ping CON_PING， 校时CON_SytemClockCorrect） 等操作。例如RS485模式中函数的调用：
@@ -81,27 +80,11 @@ op4->e
 ​```
 ```
 
-```
-​```flow
-st=>start: Start:>http://www.google.com[blank]
-e=>end:>http://www.google.com
-op1=>operation: My Operation
-sub1=>subroutine: My Subroutine
-cond=>condition: Yes
-or No?:>http://www.google.com
-io=>inputoutput: catch something...
-
-st->op1->cond
-cond(yes)->io->e
-cond(no)->sub1(right)->op1
-​```
-```
 
 
+## 6. 函数说明
 
-## 5 函数说明
-
-### *5.1 InitSdk函数* 
+### 6.1 InitSdk函数* 
 - 函数
 
 ```
@@ -120,7 +103,7 @@ majorVer | 固定值为2，不能改变，无意义
 - 说明
 
 初始化动态库
-### *5.2 ReleaseSdk函数*
+### *6.2 ReleaseSdk函数*
 - 函数
 ```
 public static extern void ReleaseSdk();
@@ -131,7 +114,7 @@ public static extern void ReleaseSdk();
 - 说明
 
 释放动态库
-### *5.3 CreateBroadCast函数*
+### *6.3 CreateBroadCast函数*
 - 函数
 
 ```
@@ -155,7 +138,7 @@ mode | 显⽰模式：0普通模式 ； 1动态模式（动态区优先节⽬显
 - 说明
 
 通过广播模式连接控制卡，设置广播IP、端口号、控制卡类型
-### *5.4 CreateClient函数* ###
+### *6.4 CreateClient函数* ###
 - 函数
 ```
 public static extern uint CreateClient(byte[] led_ip,uint led_port,bx_5k_card_type card_type,int tmout_sec,int mode,CallBackClientClose pCloseFunc);
@@ -179,7 +162,7 @@ pCloseFunc | 回调函数，参数值为null
 [System.Runtime.InteropServices.UnmanagedFunctionPointerAttribute(System.Runtime.InteropServices.CallingConvention.StdCall)]
 public delegate void CallBackClientClose(uint hand, int err);
 ```
-### *5.5 CreateTcpModbus函数* ###
+### *6.5 CreateTcpModbus函数* ###
 - 函数
 
 ```
@@ -1019,7 +1002,10 @@ public static extern int CloseGprsServer();
 详见错误码及说明
 
 - 说明
-- 
+
+  
+  
+  
 
 ## 附录
 
@@ -1229,7 +1215,7 @@ DataLen |  |  | 数据长度（包括换行，颜色等转义参数）
 
 邮编：200233
 
-网址[：](http://www.onbonbx.com/)
+网址：[ONBON](http://www.onbonbx.com/)
 
 **仰邦（江苏）光电实业有限公司（昆山光电实业基地）**
 
@@ -1241,7 +1227,7 @@ DataLen |  |  | 数据长度（包括换行，颜色等转义参数）
 
 邮编： 215300
 
-**苏州仰邦科技股份有限公司（分部）
+**苏州仰邦科技股份有限公司（分部）**
 
 地址： 苏州市吴中区塔韵路178号501
 
@@ -1252,6 +1238,14 @@ DataLen |  |  | 数据长度（包括换行，颜色等转义参数）
 邮箱：dev@onbonbx.com
 
 
+
+```html
+<script src="../../js/raphael-min.js"></script>
+<script src="../../js/underscore-min.js"></script>
+<script src="../../js/sequence-diagram-min.js"></script>
+<script src="../../js/uml-converter.js"></script>
+<script src="../../js/sequence-loader.js"></script>
+```
 
 
 

@@ -8,7 +8,7 @@
         <meta name="author" content="ONBON Team">
         <link rel="canonical" href="https://doc.onbonbx.com/zh/k/csharp/">
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>C# SDK 使用说明 - 字库系列 - ONBON Docs</title>
+        <title>C# - ONBON Docs</title>
         <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
@@ -89,7 +89,7 @@
 </li>
                                     
 <li>
-    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+    <a href="../../dual/csharp/" class="dropdown-item">C#</a>
 </li>
                                     
 <li>
@@ -97,7 +97,7 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">字库系列 <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
@@ -114,7 +114,7 @@
 </li>
                                     
 <li>
-    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+    <a href="./" class="dropdown-item active">C#</a>
 </li>
                                     
 <li>
@@ -142,6 +142,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../c/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../potocol/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="https://github.com/onbonlab/onbonlab.github.io.git/edit/master/docs/zh/k/csharp.md" class="nav-link"><i class="fa fa-github"></i> Edit on GitHub</a>
                             </li>
@@ -185,6 +195,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#5" class="nav-link">5. 获取动态库接口使用说明</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -194,8 +208,7 @@
 
 <h1 id="c-sdk-">C# SDK 使用说明 - 字库系列<a class="headerlink" href="#c-sdk-" title="Permanent link"></a></h1>
 <h2 id="1">1. 平台支持<a class="headerlink" href="#1" title="Permanent link"></a></h2>
-<p>本项目由C++编写接口，C#封装一层C++接口， 因此，其可以正常运行于Windows平台。本文档主要针对动态链接库（C#）开发的相关说明，需要协议开发请使用我们提供的<a href="../potocol/">协议文档</a>进行开发。
-如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读本文档后进行软件开发。</p>
+<p>本项目由C++编写接口，C#封装了C++接口， 因此，其可以正常运行于Windows平台。本文档主要针对动态链接库（C#）开发的相关说明，需要协议开发请使用我们提供的<a href="../potocol/">协议文档</a>进行开发。如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读本文档后进行软件开发。</p>
 <ul>
 <li>获取SDK</li>
 <li>阅读错误码及说明</li>
@@ -204,7 +217,7 @@
 </ul>
 <h2 id="2-sdk">2. 获取 SDK<a class="headerlink" href="#2-sdk" title="Permanent link"></a></h2>
 <p>您可以从以下链接下载本 SDK：</p>
-<p>https://github.com/onbonlab/bx.k.java.git</p>
+<p><a href="https://github.com/onbonlab/bx.k.csharp.git">Download SDK</a></p>
 <h2 id="3">3 错误码及说明<a class="headerlink" href="#3" title="Permanent link"></a></h2>
 <p>动态库中每个接口函数最后都返回函数执行结果，用户可根据函数执行结果查找判断该函数的执行情况。</p>
 <h3 id="21"><em>2.1错误状态</em><a class="headerlink" href="#21" title="Permanent link"></a></h3>
@@ -352,7 +365,7 @@
 <p>在执行其他操作之前，首先执行函数InitSDK初始化动态库，然后选择通讯模式， 设置不同模式
 下的参数，连接控制器(广播模式执行函数CreateBroadCast，网络固定ip模式执行函数CreateClient，
 网络modbus模式执行函数CreateTcpModbus， 485总线模式执行函数CreateComClient， 串口modbus模式执行函数CreateComModbus)，设置网络超时时间执行函数SetTimeout。 之后可以执行图文区节目（发送节目OFS_SendFileData、删除节目OFS_DeleteFile、锁定/解锁节目SCREEN_LockProgram）、动态区节目（发送节目SCREEN_SendDynamicArea、删除节目SCREEN_DelDynamicArea）、开关（强制开关机SCREEN_ForceOnOff，定时开关机SCREEN_TimeTurnOnOff，取消定时开关机SCREEN_CancelTimeOnOff）、固件查询（查询固件信CON_CheckCurrentFirmware，激活固件CON_FirmwareActivate）、控制器状态查询（CON_ControllerStatus）、 （亮度调整SCREEN_SetBrightness，复位CON_Reset， ping CON_PING， 校时CON_SytemClockCorrect） 等操作。例如RS485模式中函数的调用：</p>
-<pre><code class="language-flow">​```flow
+<pre class="uml-flowchart"><code>​```flow
 st=&gt;start: InitSdk
 op=&gt;operation: CreateBroadCast CreateComModbus CreateClient  CreateTcpModbus CreateComClient 创建连接
 cond=&gt;condition:  sendprogram or senddynamic?
@@ -367,22 +380,10 @@ cond(no)-&gt;op2
 op2-&gt;op4
 op3-&gt;op4
 op4-&gt;e
-​```
-</code></pre>
-<pre><code>​```flow
-st=&gt;start: Start:&gt;http://www.google.com[blank]
-e=&gt;end:&gt;http://www.google.com
-op1=&gt;operation: My Operation
-sub1=&gt;subroutine: My Subroutine
-cond=&gt;condition: Yes
-or No?:&gt;http://www.google.com
-io=&gt;inputoutput: catch something...
-
-st-&gt;op1-&gt;cond
-cond(yes)-&gt;io-&gt;e
-cond(no)-&gt;sub1(right)-&gt;op1
-​```
-</code></pre></div>
+​```</code></pre>
+<h2 id="5">5. 获取动态库接口使用说明<a class="headerlink" href="#5" title="Permanent link"></a></h2>
+<p>您可以从以下链接阅读字库系列C#动态库接口使用说明：</p>
+<p><a href="http://onbondocs.gitee.io/k.cpp.docs">K C#接口说明</a></p></div>
             </div>
         </div>
 
@@ -396,6 +397,13 @@ cond(no)-&gt;sub1(right)-&gt;op1
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../../js/base.js" defer></script>
+        <script src="../../../js/raphael-min.js" defer></script>
+        <script src="../../../js/underscore-min.js" defer></script>
+        <script src="../../../js/sequence-diagram-min.js" defer></script>
+        <script src="../../../js/flowchart-min.js" defer></script>
+        <script src="../../../js/uml-converter.js" defer></script>
+        <script src="../../../js/flow-loader.js" defer></script>
+        <script src="../../../js/sequence-loader.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

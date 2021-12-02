@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-11-03 11:00:59
- * @LastEditTime: 2021-11-12 14:58:57
- * @LastEditors: your name
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: \undefinedf:\onbon\onbon_doc4c\docs\zh\k\k.md
--->
 # 开发指南 - 字库系列 
 
 ## 1. 你选择的控制器型号正确吗？

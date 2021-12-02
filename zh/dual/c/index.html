@@ -89,7 +89,7 @@
 </li>
                                     
 <li>
-    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+    <a href="../csharp/" class="dropdown-item">C#</a>
 </li>
                                     
 <li>
@@ -114,7 +114,7 @@
 </li>
                                     
 <li>
-    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+    <a href="../../k/csharp/" class="dropdown-item">C#</a>
 </li>
                                     
 <li>
@@ -148,7 +148,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../y/csharp/" class="nav-link">
+                                <a rel="next" href="../csharp/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -175,6 +175,26 @@
             
             <li class="nav-item" data-level="1"><a href="#cc-sdk-" class="nav-link">C/C++ SDK 使用说明 - 单双色系列</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#1" class="nav-link">1. 平台支持</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#2-sdk" class="nav-link">2. 获取 SDK</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#3" class="nav-link">3. 错误码及说明</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#4" class="nav-link">4. 显示屏初始化说明</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#5-api" class="nav-link">5. API调用顺序</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -182,7 +202,185 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="cc-sdk-">C/C++ SDK 使用说明 - 单双色系列<a class="headerlink" href="#cc-sdk-" title="Permanent link"></a></h1></div>
+<h1 id="cc-sdk-">C/C++ SDK 使用说明 - 单双色系列<a class="headerlink" href="#cc-sdk-" title="Permanent link"></a></h1>
+<h2 id="1">1. 平台支持<a class="headerlink" href="#1" title="Permanent link"></a></h2>
+<p>本项目由纯C++编写， 因此，其可以正常运行于Windows, Linux平台。本文档主要针对动态链接库（C++）开发的相关说明，需要协议开发请使用我们提供的<a href="../potocol/">协议文档</a>进行开发。如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读本文档后进行软件开发。</p>
+<ul>
+<li>获取SDK</li>
+<li>阅读错误码及说明</li>
+<li>阅读API调用顺序</li>
+<li>阅读函数说明</li>
+</ul>
+<h2 id="2-sdk">2. 获取 SDK<a class="headerlink" href="#2-sdk" title="Permanent link"></a></h2>
+<p>您可以从以下链接下载本 SDK：</p>
+<p><a href="https://github.com/onbonlab/bx.dual.cplus.git">Download SDK</a></p>
+<h2 id="3">3. 错误码及说明<a class="headerlink" href="#3" title="Permanent link"></a></h2>
+<p>动态库中每个接口函数最后都返回函数执行结果，用户可根据函数执行结果查找判断该函数的执行情况。</p>
+<h3 id="31"><em>3.1错误状态</em><a class="headerlink" href="#31" title="Permanent link"></a></h3>
+<table>
+<thead>
+<tr>
+<th>错误名称</th>
+<th>代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ERR_NO</td>
+<td>0</td>
+<td>没有错误</td>
+</tr>
+<tr>
+<td>ERR_OUTOFGROUP</td>
+<td>1</td>
+<td>Command Group Error</td>
+</tr>
+<tr>
+<td>ERR_NOCMD</td>
+<td>2</td>
+<td>Command Not Found</td>
+</tr>
+<tr>
+<td>ERR_BUSY</td>
+<td>3</td>
+<td>The Contorller is busy now</td>
+</tr>
+<tr>
+<td>ERR_MEMORYVOLUME</td>
+<td>4</td>
+<td>Out of the Memory Volume</td>
+</tr>
+<tr>
+<td>ERR_CCHECKSUM</td>
+<td>5</td>
+<td>CRC16 Checksum Error</td>
+</tr>
+<tr>
+<td>ERR_FILENOTEXIST</td>
+<td>6</td>
+<td>File Not Exist</td>
+</tr>
+<tr>
+<td>ERR_FLASH</td>
+<td>7</td>
+<td>Flash Access Error</td>
+</tr>
+<tr>
+<td>ERR_FILE_DOWNLOAD</td>
+<td>8</td>
+<td>File Download Error</td>
+</tr>
+<tr>
+<td>ERR_FILE_NAME</td>
+<td>9</td>
+<td>File Name Error</td>
+</tr>
+<tr>
+<td>ERR_FILE_TYPE</td>
+<td>10</td>
+<td>File Type Error</td>
+</tr>
+<tr>
+<td>ERR_FILE_CRC16</td>
+<td>11</td>
+<td>File CRC16 Error</td>
+</tr>
+<tr>
+<td>ERR_FONT_NOT_EXIST</td>
+<td>12</td>
+<td>Font Library Not Exist</td>
+</tr>
+<tr>
+<td>ERR_FIRMWARE_TYPE</td>
+<td>13</td>
+<td>Firmware Type Error (Check the controller type)</td>
+</tr>
+<tr>
+<td>ERR_DATE_TIME_FORMAT</td>
+<td>14</td>
+<td>Date Time format error</td>
+</tr>
+<tr>
+<td>ERR_FILE_EXIST</td>
+<td>15</td>
+<td>File Exist for File overwrite</td>
+</tr>
+<tr>
+<td>ERR_FILE_BLOCK_NUM</td>
+<td>16</td>
+<td>File block number error</td>
+</tr>
+<tr>
+<td>ERR_COMMUNICATE</td>
+<td>100</td>
+<td>通信失败</td>
+</tr>
+<tr>
+<td>ERR_PROTOCOL</td>
+<td>101</td>
+<td>协议数据不正确</td>
+</tr>
+<tr>
+<td>ERR_TIMEOUT</td>
+<td>102</td>
+<td>通信超时</td>
+</tr>
+<tr>
+<td>ERR_NETCLOSE</td>
+<td>103</td>
+<td>通讯断开</td>
+</tr>
+<tr>
+<td>ERR_INVALID_HAND</td>
+<td>104</td>
+<td>无效句柄</td>
+</tr>
+<tr>
+<td>ERR_PARAMETER</td>
+<td>105</td>
+<td>参数错误</td>
+</tr>
+<tr>
+<td>ERR_SHOULDREPEAT</td>
+<td>106</td>
+<td>需要重复上次的错误包</td>
+</tr>
+<tr>
+<td>ERR_FILE</td>
+<td>107</td>
+<td>无效文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4">4. 显示屏初始化说明<a class="headerlink" href="#4" title="Permanent link"></a></h2>
+<p>控制器接入动态库使用的系统前需要首先使用我司提供的 LedshowTW软件来进行控制卡
+地址、通讯波特率、网络 IP(如有网口)、端口地址(如有网口)、扫描方式等设置；设置好后就可以再接入本动态库的系统中按照之前设定好的相关参数来设定显示屏的其它参数、信息和命令了。</p>
+<h2 id="5-api">5. API调用顺序<a class="headerlink" href="#5-api" title="Permanent link"></a></h2>
+<h3 id="51"><em>5.1总体次序</em><a class="headerlink" href="#51" title="Permanent link"></a></h3>
+<p>API调用流程：</p>
+<pre class="uml-flowchart"><code>st=&gt;start: bxDual InitSdk
+cond=&gt;condition: 更新节目或者更新动态区
+op=&gt;operation: bxDual_program_setScreenParams_G56
+op1=&gt;operation: bxDual_program_addProgram
+op2=&gt;operation: bxDual_program_AddArea
+op3=&gt;operation: bxDual_program_picturesAreaAddTxt
+添加字符串内容
+op4=&gt;operation: bxDual_program_pictureAreaAddPic
+添加图片内容
+op5=&gt;operation: program_timeAreaAddContent
+添加时间内容
+op6=&gt;operation: bxDual_program_timeAreaAddAnalogClock
+添加表盘内容
+op7=&gt;operation: bxDual_program_IntegrateProgramFile
+op8=&gt;operation: bxDual_cmd_ofsStartFileTransf
+op9=&gt;operation: bxDual_cmd_ofsEndFileTransf
+op10=&gt;operation: bxDual_program_deleteProgram
+op11=&gt;operation: bxDual dynamicArea AddAreaWithTxt 5G 
+e=&gt;end: bxDual_releaseSdk
+
+st-&gt;cond(yes)-&gt;op-&gt;op1-&gt;op2-&gt;op3-&gt;op7-&gt;op8-&gt;op9-&gt;op10-&gt;e
+cond(no)-&gt;op11-&gt;e</code></pre></div>
             </div>
         </div>
 
@@ -196,6 +394,13 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../../js/base.js" defer></script>
+        <script src="../../../js/raphael-min.js" defer></script>
+        <script src="../../../js/underscore-min.js" defer></script>
+        <script src="../../../js/sequence-diagram-min.js" defer></script>
+        <script src="../../../js/flowchart-min.js" defer></script>
+        <script src="../../../js/uml-converter.js" defer></script>
+        <script src="../../../js/flow-loader.js" defer></script>
+        <script src="../../../js/sequence-loader.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

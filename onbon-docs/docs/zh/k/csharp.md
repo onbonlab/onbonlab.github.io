@@ -2,10 +2,7 @@
 
 ## 1. 平台支持
 
-本项目由C++编写接口，C#封装一层C++接口， 因此，其可以正常运行于Windows平台。本文档主要针对动态链接库（C#）开发的相关说明，需要协议开发请使用我们提供的[协议文档](../k/potocol.md)进行开发。
-如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读本文档后进行软件开发。
-
-
+本项目由C++编写接口，C#封装了C++接口， 因此，其可以正常运行于Windows平台。本文档主要针对动态链接库（C#）开发的相关说明，需要协议开发请使用我们提供的[协议文档](../k/potocol.md)进行开发。如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读本文档后进行软件开发。
 
 - 获取SDK
 - 阅读错误码及说明
@@ -16,7 +13,7 @@
 
 您可以从以下链接下载本 SDK：
 
-https://github.com/onbonlab/bx.k.java.git
+[Download SDK](https://github.com/onbonlab/bx.k.csharp.git)
 
 ## 3 错误码及说明
 
@@ -85,19 +82,11 @@ op4->e
 ​```
 ```
 
-```
-​```flow
-st=>start: Start:>http://www.google.com[blank]
-e=>end:>http://www.google.com
-op1=>operation: My Operation
-sub1=>subroutine: My Subroutine
-cond=>condition: Yes
-or No?:>http://www.google.com
-io=>inputoutput: catch something...
 
-st->op1->cond
-cond(yes)->io->e
-cond(no)->sub1(right)->op1
-​```
-```
+
+## 5. 获取动态库接口使用说明
+
+您可以从以下链接阅读字库系列C#动态库接口使用说明：
+
+[K C#接口说明](http://onbondocs.gitee.io/k.cpp.docs)
 

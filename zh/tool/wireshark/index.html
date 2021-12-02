@@ -89,7 +89,7 @@
 </li>
                                     
 <li>
-    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+    <a href="../../dual/csharp/" class="dropdown-item">C#</a>
 </li>
                                     
 <li>
@@ -114,7 +114,7 @@
 </li>
                                     
 <li>
-    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+    <a href="../../k/csharp/" class="dropdown-item">C#</a>
 </li>
                                     
 <li>
@@ -202,8 +202,8 @@
 <p><img alt="" src="../../img/wireshark1.png" /></p>
 <p><strong>步骤2:</strong></p>
 <p>设置相应的过滤的条件，对于单双色与字库系列控制器来说，一般采用 TCP 通讯，且控制器的端口为 5005。因此，可以使用以下过滤条件对网络的数据包进行过滤。</p>
-<pre><code>tcp.port==5005
-</code></pre>
+<div class="highlight"><pre><span></span><code>tcp.port==5005
+</code></pre></div>
 <p>如下图所示：</p>
 <p><img alt="" src="../../img/wireshark2.png" /></p>
 <p><strong>步骤3:</strong></p>
@@ -214,8 +214,8 @@
 <p>tcpdump是一个用于截取网络分组，并输出分组内容的工具。凭借强大的功能和灵活的截取策略，使其成为类UNIX系统下用于网络分析和问题排查的首选工具</p>
 <p>tcpdump 支持针对网络层、协议、主机、网络或端口的过滤，并提供and、or、not等逻辑语句来帮助你去掉无用的信息。</p>
 <p>通常我们可以使用以下命令对特定的网卡进行抓取，并将其保存成 .pcap 文件。而保存成 .pcap 文件可以让我们非常方便的使用 wireshark 对抓取的数据进行分析。</p>
-<pre><code>tcpdump -i eth0 -w dump.pcap
-</code></pre>
+<div class="highlight"><pre><span></span><code>tcpdump -i eth0 -w dump.pcap
+</code></pre></div>
 <p>其中:</p>
 <p>-i  - 是指定要抓取的网卡
 -w - 指定结果保存的位置</p>
@@ -233,6 +233,13 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../../js/base.js" defer></script>
+        <script src="../../../js/raphael-min.js" defer></script>
+        <script src="../../../js/underscore-min.js" defer></script>
+        <script src="../../../js/sequence-diagram-min.js" defer></script>
+        <script src="../../../js/flowchart-min.js" defer></script>
+        <script src="../../../js/uml-converter.js" defer></script>
+        <script src="../../../js/flow-loader.js" defer></script>
+        <script src="../../../js/sequence-loader.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

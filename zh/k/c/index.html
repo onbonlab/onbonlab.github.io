@@ -89,7 +89,7 @@
 </li>
                                     
 <li>
-    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+    <a href="../../dual/csharp/" class="dropdown-item">C#</a>
 </li>
                                     
 <li>
@@ -114,7 +114,7 @@
 </li>
                                     
 <li>
-    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+    <a href="../csharp/" class="dropdown-item">C#</a>
 </li>
                                     
 <li>
@@ -148,7 +148,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../y/csharp/" class="nav-link">
+                                <a rel="next" href="../csharp/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -183,23 +183,19 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#3" class="nav-link">3 错误码及说明</a>
+            <li class="nav-item" data-level="2"><a href="#3" class="nav-link">3. 错误码及说明</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#3_1" class="nav-link">3 显示屏初始化说明</a>
+            <li class="nav-item" data-level="2"><a href="#4" class="nav-link">4. 显示屏初始化说明</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#4-api" class="nav-link">4 API调用顺序</a>
+            <li class="nav-item" data-level="2"><a href="#5-api" class="nav-link">5. API调用顺序</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#5" class="nav-link">5 函数说明</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#-" class="nav-link">- 说明</a>
+            <li class="nav-item" data-level="2"><a href="#6" class="nav-link">6. 函数说明</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -216,8 +212,7 @@
 
 <h1 id="cc-sdk-">C/C++ SDK 使用说明 - 字库系列<a class="headerlink" href="#cc-sdk-" title="Permanent link"></a></h1>
 <h2 id="1">1. 平台支持<a class="headerlink" href="#1" title="Permanent link"></a></h2>
-<p>本项目由纯C++编写， 因此，其可以正常运行于Windows, Linux平台。本文档主要针对动态链接库（C++）开发的相关说明，需要协议开发请使用我们提供的<a href="../potocol/">协议文档</a>进行开发。
-如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读本文档后进行软件开发。</p>
+<p>本项目由纯C++编写， 因此，其可以正常运行于Windows, Linux平台。本文档主要针对动态链接库（C++）开发的相关说明，需要协议开发请使用我们提供的<a href="../potocol/">协议文档</a>进行开发。如果你想尽快开发出一个能简单控制的软件，建议按以下流程阅读本文档后进行软件开发。</p>
 <ul>
 <li>获取SDK</li>
 <li>阅读错误码及说明</li>
@@ -226,10 +221,10 @@
 </ul>
 <h2 id="2-sdk">2. 获取 SDK<a class="headerlink" href="#2-sdk" title="Permanent link"></a></h2>
 <p>您可以从以下链接下载本 SDK：</p>
-<p>https://github.com/onbonlab/bx.k.cplus.git</p>
-<h2 id="3">3 错误码及说明<a class="headerlink" href="#3" title="Permanent link"></a></h2>
+<p><a href="https://github.com/onbonlab/bx.k.cplus.git">Download SDK</a></p>
+<h2 id="3">3. 错误码及说明<a class="headerlink" href="#3" title="Permanent link"></a></h2>
 <p>动态库中每个接口函数最后都返回函数执行结果，用户可根据函数执行结果查找判断该函数的执行情况。</p>
-<h3 id="21"><em>2.1错误状态</em><a class="headerlink" href="#21" title="Permanent link"></a></h3>
+<h3 id="31"><em>3.1错误状态</em><a class="headerlink" href="#31" title="Permanent link"></a></h3>
 <table>
 <thead>
 <tr>
@@ -366,15 +361,15 @@
 </tr>
 </tbody>
 </table>
-<h2 id="3_1">3 显示屏初始化说明<a class="headerlink" href="#3_1" title="Permanent link"></a></h2>
+<h2 id="4">4. 显示屏初始化说明<a class="headerlink" href="#4" title="Permanent link"></a></h2>
 <p>控制器接入动态库使用的系统前需要首先使用我司提供的 LedshowZK2017软件来进行控制卡
 地址、通讯波特率、网络 IP(如有网口)、端口地址(如有网口)、扫描方式等设置；设置好后就可以再接入本动态库的系统中按照之前设定好的相关参数来设定显示屏的其它参数、信息和命令了。</p>
-<h2 id="4-api">4 API调用顺序<a class="headerlink" href="#4-api" title="Permanent link"></a></h2>
-<h3 id="41"><em>4.1总体次序</em><a class="headerlink" href="#41" title="Permanent link"></a></h3>
+<h2 id="5-api">5. API调用顺序<a class="headerlink" href="#5-api" title="Permanent link"></a></h2>
+<h3 id="51"><em>5.1总体次序</em><a class="headerlink" href="#51" title="Permanent link"></a></h3>
 <p>在执行其他操作之前，首先执行函数InitSDK初始化动态库，然后选择通讯模式， 设置不同模式
 下的参数，连接控制器(广播模式执行函数CreateBroadCast，网络固定ip模式执行函数CreateClient，
 网络modbus模式执行函数CreateTcpModbus， 485总线模式执行函数CreateComClient， 串口modbus模式执行函数CreateComModbus)，设置网络超时时间执行函数SetTimeout。 之后可以执行图文区节目（发送节目OFS_SendFileData、删除节目OFS_DeleteFile、锁定/解锁节目SCREEN_LockProgram）、动态区节目（发送节目SCREEN_SendDynamicArea、删除节目SCREEN_DelDynamicArea）、开关（强制开关机SCREEN_ForceOnOff，定时开关机SCREEN_TimeTurnOnOff，取消定时开关机SCREEN_CancelTimeOnOff）、固件查询（查询固件信CON_CheckCurrentFirmware，激活固件CON_FirmwareActivate）、控制器状态查询（CON_ControllerStatus）、 （亮度调整SCREEN_SetBrightness，复位CON_Reset， ping CON_PING， 校时CON_SytemClockCorrect） 等操作。例如RS485模式中函数的调用：</p>
-<pre><code class="language-flow">​```flow
+<pre class="uml-flowchart"><code>​```flow
 st=&gt;start: InitSdk
 op=&gt;operation: CreateBroadCast CreateComModbus CreateClient  CreateTcpModbus CreateComClient 创建连接
 cond=&gt;condition:  sendprogram or senddynamic?
@@ -389,29 +384,14 @@ cond(no)-&gt;op2
 op2-&gt;op4
 op3-&gt;op4
 op4-&gt;e
-​```
-</code></pre>
-<pre><code>​```flow
-st=&gt;start: Start:&gt;http://www.google.com[blank]
-e=&gt;end:&gt;http://www.google.com
-op1=&gt;operation: My Operation
-sub1=&gt;subroutine: My Subroutine
-cond=&gt;condition: Yes
-or No?:&gt;http://www.google.com
-io=&gt;inputoutput: catch something...
-
-st-&gt;op1-&gt;cond
-cond(yes)-&gt;io-&gt;e
-cond(no)-&gt;sub1(right)-&gt;op1
-​```
-</code></pre>
-<h2 id="5">5 函数说明<a class="headerlink" href="#5" title="Permanent link"></a></h2>
-<h3 id="51-initsdk"><em>5.1 InitSdk函数</em><a class="headerlink" href="#51-initsdk" title="Permanent link"></a></h3>
+​```</code></pre>
+<h2 id="6">6. 函数说明<a class="headerlink" href="#6" title="Permanent link"></a></h2>
+<h3 id="61-initsdk">6.1 InitSdk函数*<a class="headerlink" href="#61-initsdk" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern void InitSdk(byte minorVer,byte majorVer);
-</code></pre>
+<div class="highlight"><pre><span></span><code>public static extern void InitSdk(byte minorVer,byte majorVer);
+</code></pre></div>
 <ul>
 <li>参数</li>
 </ul>
@@ -437,28 +417,24 @@ cond(no)-&gt;sub1(right)-&gt;op1
 <li>说明</li>
 </ul>
 <p>初始化动态库</p>
-<h3 id="52-releasesdk"><em>5.2 ReleaseSdk函数</em><a class="headerlink" href="#52-releasesdk" title="Permanent link"></a></h3>
+<h3 id="62-releasesdk"><em>6.2 ReleaseSdk函数</em><a class="headerlink" href="#62-releasesdk" title="Permanent link"></a></h3>
 <ul>
-<li>函数</li>
-</ul>
-<pre><code>public static extern void ReleaseSdk();
-</code></pre>
-<ul>
+<li>函数
+<div class="highlight"><pre><span></span><code>public static extern void ReleaseSdk();
+</code></pre></div></li>
 <li>参数</li>
 </ul>
 <p>无
 - 说明</p>
 <p>释放动态库</p>
-<h3 id="53-createbroadcast"><em>5.3 CreateBroadCast函数</em><a class="headerlink" href="#53-createbroadcast" title="Permanent link"></a></h3>
+<h3 id="63-createbroadcast"><em>6.3 CreateBroadCast函数</em><a class="headerlink" href="#63-createbroadcast" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern uint CreateBroadCast(byte[] broad_ip,uint broad_port,
+<p><div class="highlight"><pre><span></span><code>public static extern uint CreateBroadCast(byte[] broad_ip,uint broad_port,
 bx_5k_card_type card_type,int mode);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -489,13 +465,11 @@ bx_5k_card_type card_type,int mode);
 <li>说明</li>
 </ul>
 <p>通过广播模式连接控制卡，设置广播IP、端口号、控制卡类型</p>
-<h3 id="54-createclient"><em>5.4 CreateClient函数</em><a class="headerlink" href="#54-createclient" title="Permanent link"></a></h3>
+<h3 id="64-createclient"><em>6.4 CreateClient函数</em><a class="headerlink" href="#64-createclient" title="Permanent link"></a></h3>
 <ul>
-<li>函数</li>
-</ul>
-<pre><code>public static extern uint CreateClient(byte[] led_ip,uint led_port,bx_5k_card_type card_type,int tmout_sec,int mode,CallBackClientClose pCloseFunc);
-</code></pre>
-<ul>
+<li>函数
+<div class="highlight"><pre><span></span><code>public static extern uint CreateClient(byte[] led_ip,uint led_port,bx_5k_card_type card_type,int tmout_sec,int mode,CallBackClientClose pCloseFunc);
+</code></pre></div></li>
 <li>参数</li>
 </ul>
 <table>
@@ -535,19 +509,17 @@ bx_5k_card_type card_type,int mode);
 <ul>
 <li>说明</li>
 </ul>
-<p>通过网络固定IP模式连接控制卡，设置控制卡IP、端口号、控制卡类型，回调函数：</p>
-<pre><code>[System.Runtime.InteropServices.UnmanagedFunctionPointerAttribute(System.Runtime.InteropServices.CallingConvention.StdCall)]
+<p>通过网络固定IP模式连接控制卡，设置控制卡IP、端口号、控制卡类型，回调函数：
+<div class="highlight"><pre><span></span><code>[System.Runtime.InteropServices.UnmanagedFunctionPointerAttribute(System.Runtime.InteropServices.CallingConvention.StdCall)]
 public delegate void CallBackClientClose(uint hand, int err);
-</code></pre>
-<h3 id="55-createtcpmodbus"><em>5.5 CreateTcpModbus函数</em><a class="headerlink" href="#55-createtcpmodbus" title="Permanent link"></a></h3>
+</code></pre></div></p>
+<h3 id="65-createtcpmodbus"><em>6.5 CreateTcpModbus函数</em><a class="headerlink" href="#65-createtcpmodbus" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern uint CreateTcpModbus(byte[]led_ip,bx_5k_card_type card_type,CallBackClientClose pCloseFunc);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern uint CreateTcpModbus(byte[]led_ip,bx_5k_card_type card_type,CallBackClientClose pCloseFunc);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -574,19 +546,17 @@ public delegate void CallBackClientClose(uint hand, int err);
 </tr>
 </tbody>
 </table>
-<p>通过网络 modbus 模式连接控制卡，设置控制卡 IP， 选择控制卡， 回调函数：</p>
-<pre><code>[System.Runtime.InteropServices.UnmanagedFunctionPointerAttribute(System.Runtime.InteropServices.CallingConvention.StdCall)]
+<p>通过网络 modbus 模式连接控制卡，设置控制卡 IP， 选择控制卡， 回调函数：
+<div class="highlight"><pre><span></span><code>[System.Runtime.InteropServices.UnmanagedFunctionPointerAttribute(System.Runtime.InteropServices.CallingConvention.StdCall)]
 public delegate void CallBackClientClose(uint hand, int err); 
-</code></pre>
+</code></pre></div></p>
 <h3 id="56-createcomclient"><em>5.6 CreateComClient函数</em><a class="headerlink" href="#56-createcomclient" title="Permanent link"></a></h3>
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern uint CreateComClient (byte com,uint baudrate,bx_5k_card_type card_type card_type,int mode,ushort ScreenID);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern uint CreateComClient (byte com,uint baudrate,bx_5k_card_type card_type card_type,int mode,ushort ScreenID);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -626,11 +596,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern uint CreateComModbus(byte com,uint baudrate,serial_parity Parity,serial_databits DataBits ,serial_stopbits StopBits,bx_5k_card_type card_type,ushort ScreenID);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern uint CreateComModbus(byte com,uint baudrate,serial_parity Parity,serial_databits DataBits ,serial_stopbits StopBits,bx_5k_card_type card_type,ushort ScreenID);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -677,8 +645,8 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern void Destroy(uint dwHand);
-</code></pre>
+<div class="highlight"><pre><span></span><code>public static extern void Destroy(uint dwHand);
+</code></pre></div>
 <ul>
 <li>参数</li>
 </ul>
@@ -704,8 +672,8 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern void SetTimeOut(uint dwHand,uint nSec);
-</code></pre>
+<div class="highlight"><pre><span></span><code>public static extern void SetTimeOut(uint dwHand,uint nSec);
+</code></pre></div>
 <ul>
 <li>参数</li>
 </ul>
@@ -735,8 +703,8 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int CON_PING(uint dwHand);
-</code></pre>
+<div class="highlight"><pre><span></span><code>public static extern int CON_PING(uint dwHand);
+</code></pre></div>
 <ul>
 <li>参数</li>
 </ul>
@@ -764,11 +732,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int CON_ReSet(uint dwHand);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int CON_ReSet(uint dwHand);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -793,11 +759,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int CON_ControllerStatus(uint dwHand,byte[] pStatus,ref ushort len);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int CON_ControllerStatus(uint dwHand,byte[] pStatus,ref ushort len);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -832,11 +796,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int CON_CurrentCustomer(uint dwHand,byte [] fontStatus,ref ushort len);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int CON_CurrentCustomer(uint dwHand,byte [] fontStatus,ref ushort len);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -869,11 +831,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int CON_CheckCurrentCustomer(uint dwHand,byte[] CustomerStatus,ref ushort len);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int CON_CheckCurrentCustomer(uint dwHand,byte[] CustomerStatus,ref ushort len);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -905,11 +865,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>回读客户信息</p>
 <h3 id="515-con_readscreen"><em>5.15 CON_ReadScreen函数</em><a class="headerlink" href="#515-con_readscreen" title="Permanent link"></a></h3>
 <ul>
-<li>函数</li>
-</ul>
-<pre><code>public static extern int CON_ReadScreen(uint dwHand,byte[] ScreenStatus,ref ushort len);
-</code></pre>
-<ul>
+<li>函数
+<div class="highlight"><pre><span></span><code>public static extern int CON_ReadScreen(uint dwHand,byte[] ScreenStatus,ref ushort len);
+</code></pre></div></li>
 <li>参数</li>
 </ul>
 <table>
@@ -947,11 +905,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int CON_SystemClockCorrect(uint dwHand);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int CON_SystemClockCorrect(uint dwHand);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -979,11 +935,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int CON_CheckCurrentFirmware(uint dwHand,byte [] FirmwareVersion,byte[] FirmwareDateTime);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int CON_CheckCurrentFirmware(uint dwHand,byte [] FirmwareVersion,byte[] FirmwareDateTime);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1016,11 +970,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int CON_FirmwareActivate(uint dwHand,byte [] FirmwareName);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int CON_FirmwareActivate(uint dwHand,byte [] FirmwareName);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1049,11 +1001,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int CON_SetScreenID(uint dwHand, ushort newScreenID);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int CON_SetScreenID(uint dwHand, ushort newScreenID);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1083,11 +1033,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int CON_ReadScreenID(uint dwHand,ref ushort pScreenID);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int CON_ReadScreenID(uint dwHand,ref ushort pScreenID);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1117,11 +1065,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int SCREEN_ForceOnOff(uint dwHand,byte OnOffFlag);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_ForceOnOff(uint dwHand,byte OnOffFlag);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1151,11 +1097,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int SCREEN_TimeTurnOnOff(uint dwHand,byte[] pTimer,int nGroup);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_TimeTurnOnOff(uint dwHand,byte[] pTimer,int nGroup);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1190,11 +1134,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int SCREEN_SetBrightness(uint dwHand,byte BrigthnessType,byte CurrentBrigthness,byte [] BrigthnessValue);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_SetBrightness(uint dwHand,byte BrigthnessType,byte CurrentBrigthness,byte [] BrigthnessValue);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1232,11 +1174,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int SCREEN_SetWaitTime(uint dwHand,byte WaitTime);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_SetWaitTime(uint dwHand,byte WaitTime);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1267,11 +1207,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int SCREEN_LockProgram(uint dwHand,byte LockFlag,byte StoreMode,byte[] ProgramFileName);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_LockProgram(uint dwHand,byte LockFlag,byte StoreMode,byte[] ProgramFileName);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1308,11 +1246,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int DelDynamicArea(uint dwHand,byte DeleteAreaId);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int DelDynamicArea(uint dwHand,byte DeleteAreaId);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1344,11 +1280,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int SCREEN_SendDynamicArea(uint dwHand,bx_5k_area_header header,ushort TextLen,byte[] AreaText);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_SendDynamicArea(uint dwHand,bx_5k_area_header header,ushort TextLen,byte[] AreaText);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1388,11 +1322,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int SCREEN_SendSoundDynamic(uint dwHand, bx_5k_area_header header, ushort TextLen, byte[] AreaText, byte SoundMode, byte SoundPerson, byte SoundVolume, byte SoundSpeed, int sound_len, byte[] sounddata);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_SendSoundDynamic(uint dwHand, bx_5k_area_header header, ushort TextLen, byte[] AreaText, byte SoundMode, byte SoundPerson, byte SoundVolume, byte SoundSpeed, int sound_len, byte[] sounddata);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1456,11 +1388,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int SCREEN_CancelTimeOnOff(uint dwHand);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int SCREEN_CancelTimeOnOff(uint dwHand);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1487,11 +1417,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int BX5MK_SetSpecialAppDynamic(uint dwHand, ushort AreaX, ushort AreaY, ushort AreaW, ushort AreaH,byte DataType, byte Pagetotal, byte RunState, ushort Timeout, byte SingleLine, byte Lines_sizes, byte NewLine, ushort StayTime);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int BX5MK_SetSpecialAppDynamic(uint dwHand, ushort AreaX, ushort AreaY, ushort AreaW, ushort AreaH,byte DataType, byte Pagetotal, byte RunState, ushort Timeout, byte SingleLine, byte Lines_sizes, byte NewLine, ushort StayTime);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1565,11 +1493,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int BX5MK_SendPageData(uint dwHand, byte PageNum, ushort PageDataLen, byte[] PageData);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int BX5MK_SendPageData(uint dwHand, byte PageNum, ushort PageDataLen, byte[] PageData);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1609,11 +1535,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int BX5MK_SendLatticeMessage(uint dwHand,byte BlockFlag,ushort BlockAddr,byte[] BlockData,ushort BlockDataLen);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int BX5MK_SendLatticeMessage(uint dwHand,byte BlockFlag,ushort BlockAddr,byte[] BlockData,ushort BlockDataLen);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1657,11 +1581,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int BX5MK_DelSpecialAppDynamic(uint dwHand);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int BX5MK_DelSpecialAppDynamic(uint dwHand);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1688,11 +1610,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int BX5MK_SetIPAddress(uint dwHand, byte ConnnectMode, byte[] ip, byte[] SubnetMask, byte[] Gateway, ushort port,byte ServerMode, byte[] ServerIPAddress, ushort ServerPort, byte[] ServerAccessPassword, ushort HeartBeatInterval, byte[] NetID);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int BX5MK_SetIPAddress(uint dwHand, byte ConnnectMode, byte[] ip, byte[] SubnetMask, byte[] Gateway, ushort port,byte ServerMode, byte[] ServerIPAddress, ushort ServerPort, byte[] ServerAccessPassword, ushort HeartBeatInterval, byte[] NetID);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1763,11 +1683,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int BX5MK_SetMACAddress(uint dwHand,byte[] MAC);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int BX5MK_SetMACAddress(uint dwHand,byte[] MAC);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1799,11 +1717,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int OFS_Formatting(uint dwHand);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int OFS_Formatting(uint dwHand);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1830,11 +1746,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int OFS_DeleteFile(uint dwHand,ushort FileNumber,byte[] pFileNameList);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int OFS_DeleteFile(uint dwHand,ushort FileNumber,byte[] pFileNameList);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1869,11 +1783,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int OFS_SendFileData(uint dwHand, byte overwrite, byte[] pFileName, ushort DisplayType, byte PlayTimes,byte[] ProgramLife, byte ProgramWeek, byte ProgramTime, byte[] Period, byte AreaNum, byte[] AreaDataList, int AreaDataListLen);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int OFS_SendFileData(uint dwHand, byte overwrite, byte[] pFileName, ushort DisplayType, byte PlayTimes,byte[] ProgramLife, byte ProgramWeek, byte ProgramTime, byte[] Period, byte AreaNum, byte[] AreaDataList, int AreaDataListLen);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -1944,11 +1856,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int OFS_SendFontData(uint dwHand, byte overwrite, byte[] pFileName, byte FontWidth, byte FontHeight,byte[] LibData, int LibData_len, byte FontEncode, CloseFunc pCloseFunc);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int OFS_SendFontData(uint dwHand, byte overwrite, byte[] pFileName, byte FontWidth, byte FontHeight,byte[] LibData, int LibData_len, byte FontEncode, CloseFunc pCloseFunc);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -2007,11 +1917,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int OFS_SendFirmwareData(uint dwHand,byte overwrite,byte[] pFileName,byte[] pFirmwareData,int FirmwareDataLen,CloseFunc pCloseFunc);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int OFS_SendFirmwareData(uint dwHand,byte overwrite,byte[] pFileName,byte[] pFirmwareData,int FirmwareDataLen,CloseFunc pCloseFunc);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -2057,11 +1965,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int OFS_SendScreenData(uint dwHand,byte overwrite,byte[] pFIleName,ushort Address,byte Baudrate,ushort ScreenWidth,ushort ScreenHeigth,byte color,byte MirrorMode,byte OE,byte DA,byte RowOrder,byte FrePar,byte OEAngle,byte CommTimeout);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int OFS_SendScreenData(uint dwHand,byte overwrite,byte[] pFIleName,ushort Address,byte Baudrate,ushort ScreenWidth,ushort ScreenHeigth,byte color,byte MirrorMode,byte OE,byte DA,byte RowOrder,byte FrePar,byte OEAngle,byte CommTimeout);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -2141,11 +2047,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int OFS_EndSendMultiFiles(uint dwHand);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int OFS_EndSendMultiFiles(uint dwHand);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -2171,11 +2075,9 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int (uint port,CallBack pCallBackCon,ClaaBackLedClose pCallBackClose);
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int (uint port,CallBack pCallBackCon,ClaaBackLedClose pCallBackClose);
+</code></pre></div>
+- 参数</p>
 <table>
 <thead>
 <tr>
@@ -2208,54 +2110,51 @@ public delegate void CallBackClientClose(uint hand, int err);
 <ul>
 <li>函数</li>
 </ul>
-<pre><code>public static extern int CloseGprsServer();
-</code></pre>
-<ul>
-<li>参数</li>
-</ul>
+<p><div class="highlight"><pre><span></span><code>public static extern int CloseGprsServer();
+</code></pre></div>
+- 参数</p>
 <p>无
 - 返回值</p>
 <p>详见错误码及说明</p>
-<h2 id="-">- 说明<a class="headerlink" href="#-" title="Permanent link"></a></h2>
+<ul>
+<li>说明</li>
+</ul>
 <h2 id="_1">附录<a class="headerlink" href="#_1" title="Permanent link"></a></h2>
 <ul>
 <li>错误码</li>
 </ul>
-<p>```</p>
-<pre><code>      public class bx5k_err
-      {
-          public const int ERR_NO = 0; //No Error 
-          public const int ERR_OUTOFGROUP = 1; //Command Group Error 
-          public const int ERR_NOCMD = 2; //Command Not Found 
-          public const int ERR_BUSY = 3; //The Controller is busy now 
-          public const int ERR_MEMORYVOLUME = 4; //Out of the Memory Volume 
-          public const int ERR_CHECKSUM = 5; //CRC16 Checksum Error 
-          public const int ERR_FILENOTEXIST = 6; //File Not Exist 
-          public const int ERR_FLASH = 7;//Flash Access Error 
-          public const int ERR_FILE_DOWNLOAD = 8; //File Download Error 
-          public const int ERR_FILE_NAME = 9; //Filename Error 
-          public const int ERR_FILE_TYPE = 10;//File type Error 
-          public const int ERR_FILE_CRC16 = 11;//File CRC16 Error 
-          public const int ERR_FONT_NOT_EXIST = 12;//Font Library Not Exist 
-          public const int ERR_FIRMWARE_TYPE = 13;//Firmware Type Error (Check the controller type) 
-          public const int ERR_DATE_TIME_FORMAT = 14;//Date Time format error 
-          public const int ERR_FILE_EXIST = 15;//File Exist for File overwrite 
-          public const int ERR_FILE_BLOCK_NUM = 16;//File block number error 
-          public const int ERR_COMMUNICATE = 100;//通信失败
-          public const int ERR_PROTOCOL = 101;//协议数据不正确
-          public const int ERR_TIMEOUT = 102;//通信超时
-          public const int ERR_NETCLOSE = 103;//通信断开
-          public const int ERR_INVALID_HAND = 104;//无效句柄
-          public const int ERR_PARAMETER = 105;//参数错误
-          public const int ERR_SHOULDREPEAT = 106;//需要重复上次数据包
-          public const int ERR_FILE = 107;//无效文件
-      }
-</code></pre>
-<p>```</p>
+<div class="highlight"><pre><span></span><code>        public class bx5k_err
+        {
+            public const int ERR_NO = 0; //No Error 
+            public const int ERR_OUTOFGROUP = 1; //Command Group Error 
+            public const int ERR_NOCMD = 2; //Command Not Found 
+            public const int ERR_BUSY = 3; //The Controller is busy now 
+            public const int ERR_MEMORYVOLUME = 4; //Out of the Memory Volume 
+            public const int ERR_CHECKSUM = 5; //CRC16 Checksum Error 
+            public const int ERR_FILENOTEXIST = 6; //File Not Exist 
+            public const int ERR_FLASH = 7;//Flash Access Error 
+            public const int ERR_FILE_DOWNLOAD = 8; //File Download Error 
+            public const int ERR_FILE_NAME = 9; //Filename Error 
+            public const int ERR_FILE_TYPE = 10;//File type Error 
+            public const int ERR_FILE_CRC16 = 11;//File CRC16 Error 
+            public const int ERR_FONT_NOT_EXIST = 12;//Font Library Not Exist 
+            public const int ERR_FIRMWARE_TYPE = 13;//Firmware Type Error (Check the controller type) 
+            public const int ERR_DATE_TIME_FORMAT = 14;//Date Time format error 
+            public const int ERR_FILE_EXIST = 15;//File Exist for File overwrite 
+            public const int ERR_FILE_BLOCK_NUM = 16;//File block number error 
+            public const int ERR_COMMUNICATE = 100;//通信失败
+            public const int ERR_PROTOCOL = 101;//协议数据不正确
+            public const int ERR_TIMEOUT = 102;//通信超时
+            public const int ERR_NETCLOSE = 103;//通信断开
+            public const int ERR_INVALID_HAND = 104;//无效句柄
+            public const int ERR_PARAMETER = 105;//参数错误
+            public const int ERR_SHOULDREPEAT = 106;//需要重复上次数据包
+            public const int ERR_FILE = 107;//无效文件
+        }
+</code></pre></div>
 <ul>
-<li>控制器类型</li>
-</ul>
-<pre><code>public enum bx_5k_card_type :  byte
+<li>控制器类型
+<div class="highlight"><pre><span></span><code>public enum bx_5k_card_type :  byte
 {
     BX_Any = 0XFE, 
     BX_5K1 = 0X51,
@@ -2266,11 +2165,10 @@ public delegate void CallBackClientClose(uint hand, int err);
     BX_6K2 = 0X62,
     BX_6K3 = 0X63,
 }
-</code></pre>
-<ul>
+</code></pre></div></li>
 <li>串口数据位</li>
 </ul>
-<pre><code>public enum serial_databits : byte
+<p><div class="highlight"><pre><span></span><code>public enum serial_databits : byte
 {
     COM_4BITS = 4, //4位
     COM_5BITS = 5, //5位
@@ -2278,11 +2176,9 @@ public delegate void CallBackClientClose(uint hand, int err);
     COM_7BITS = 7, //7位
     COM_8BITS = 8, //8位
 }
-</code></pre>
-<ul>
-<li>串口检验模式</li>
-</ul>
-<pre><code>public enum serial_parity : byte
+</code></pre></div>
+- 串口检验模式</p>
+<p><div class="highlight"><pre><span></span><code>public enum serial_parity : byte
 {
     COM_NOPARITY = 0, //无校验
     COM_ODDPARITY = 1, //奇校验
@@ -2290,21 +2186,17 @@ public delegate void CallBackClientClose(uint hand, int err);
     COM_MARKPARITTY = 3,//标记校验
     COM_SPACEPARITY = 4,//空格校验
 }
-</code></pre>
-<ul>
-<li>串口停止位</li>
-</ul>
-<pre><code>public enum serial_stopbits : byte
+</code></pre></div>
+- 串口停止位</p>
+<p><div class="highlight"><pre><span></span><code>public enum serial_stopbits : byte
 {
     COM_ONESTOPBIT = 0, //1为
     COM_ONE5STOPBITS = 1 , //1.5位
     COM_TWOSTOPBITS = 2,//2位
 }
-</code></pre>
-<ul>
-<li>结构体定义数据</li>
-</ul>
-<pre><code>public struct bx_5k_area_header
+</code></pre></div>
+- 结构体定义数据</p>
+<p><div class="highlight"><pre><span></span><code>public struct bx_5k_area_header
 {
     public byte AreaType;
     public short AreaX;
@@ -2326,11 +2218,9 @@ public delegate void CallBackClientClose(uint hand, int err);
     public byte StayTime;
     public int DataLen;
 }
-</code></pre>
-<ul>
-<li>查询控制器状态</li>
-</ul>
-<pre><code>private void button35_Click(object sender, EventArgs e)
+</code></pre></div>
+- 查询控制器状态</p>
+<p><div class="highlight"><pre><span></span><code>private void button35_Click(object sender, EventArgs e)
 {
     listBox1.Items.Clear();
     byte[] pStatus = new byte[1024];
@@ -2391,10 +2281,8 @@ public delegate void CallBackClientClose(uint hand, int err);
         }
     }
 }
-</code></pre>
-<ul>
-<li>区域数据格式设置</li>
-</ul>
+</code></pre></div>
+- 区域数据格式设置</p>
 <table>
 <thead>
 <tr>
@@ -2520,17 +2408,23 @@ public delegate void CallBackClientClose(uint hand, int err);
 <p>电话：021-64554198 021-64554199</p>
 <p>传真：021-64955166</p>
 <p>邮编：200233</p>
-<p>网址<a href="http://www.onbonbx.com/">：</a></p>
+<p>网址：<a href="http://www.onbonbx.com/">ONBON</a></p>
 <p><strong>仰邦（江苏）光电实业有限公司（昆山光电实业基地）</strong></p>
 <p>地址：江苏省昆山市开发区富春江路1299号</p>
 <p>电话：0512-36912677 0512-36912688 0512-36912699</p>
 <p>传真： 0251-36912670</p>
 <p>邮编： 215300</p>
-<p>**苏州仰邦科技股份有限公司（分部）</p>
+<p><strong>苏州仰邦科技股份有限公司（分部）</strong></p>
 <p>地址： 苏州市吴中区塔韵路178号501</p>
 <p>电话： 0512-66589212</p>
 <p><strong>二次开发支持</strong></p>
-<p>邮箱：dev@onbonbx.com</p></div>
+<p>邮箱：dev@onbonbx.com</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../js/raphael-min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../js/underscore-min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../js/sequence-diagram-min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../js/uml-converter.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../../js/sequence-loader.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div></div>
             </div>
         </div>
 
@@ -2544,6 +2438,13 @@ public delegate void CallBackClientClose(uint hand, int err);
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../../js/base.js" defer></script>
+        <script src="../../../js/raphael-min.js" defer></script>
+        <script src="../../../js/underscore-min.js" defer></script>
+        <script src="../../../js/sequence-diagram-min.js" defer></script>
+        <script src="../../../js/flowchart-min.js" defer></script>
+        <script src="../../../js/uml-converter.js" defer></script>
+        <script src="../../../js/flow-loader.js" defer></script>
+        <script src="../../../js/sequence-loader.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">

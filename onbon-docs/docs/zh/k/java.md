@@ -8,14 +8,13 @@
 
 您可以从以下链接下载本 SDK：
 
-https://github.com/onbonlab/bx.k.java.git
+[Downlaod SDK](https://github.com/onbonlab/bx.k.java.git)
 
 ## 3. 已支持功能
 此项目目前已支持的功能：
 
 * 动态区（包含语音）
 * 开机与关机
-* 清除屏幕
 * 校时
 
 ## 4. 待实现功能

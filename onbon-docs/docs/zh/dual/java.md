@@ -19,7 +19,59 @@ https://github.com/onbonlab/bx.dual.android.serial.git
 
 ## 3. 使用说明
 
-对于五代和六代控制器，我们提供了不同的 JAR 包，而其接口定义遵循了相同的命名规则，五代控制器的接口通常命名为 Bx5Gxxxx, 而相对应的六代控制器通常命名为 Bx6Gxxx。而以下接口说明中，为了简便只提到了五代SDK的接口，而六代SDK的接口，可根据命名规则自行推断或查看SDK中附带的相应的 JAVADOC 文档。
+对于五代和六代控制器，我们提供了不同的 JAR 包，而其接口定义遵循了相同的命名规则，五代控制器的接口通常命名为 Bx5Gxxxx, 而相对应的六代控制器通常命名为 Bx6Gxxx。而以下接口说明中，为了简便只提到了五代SDK的接口，而六代SDK的接口，可根据命名规则自行推断或查看SDK中附带的相应的 JAVADOC 文档。API调用流程：
+
+```flow
+st=>start: Bx6GEnv.initial();
+初始化                 
+op=>operation: Bx6GScreen screen = new Bx6GScreen("screen",new Bx6E());
+创建screen对象，用于与控制卡交互
+op1=>operation: screen.connect(ip,port);
+创建连接
+cond=>condition: 更新节目或者更新动态区
+op2=>operation: ProgramBxFile pf = new ProgramBxFile(0,screen.getProfile());
+创建节目
+op3=>operation: TextCaptionBxArea area2 = new TextCaptionBxArea(0,0,64,96,screen.getProfile());
+创建图文区
+op4=>operation: TextBxPage page2 = new TextBxPage("仰邦科技欢迎您！");
+创建数据页
+op5=>operation: area2.addPage(page2);
+数据页添加到图文区
+op6=>operation: pf.addArea(area1);
+图文区添加到节目
+op7=>operation: screen.writeProgram(pf);
+更新节目
+op8=>operation: DynamicBxAreaRule rule = new DynamicBxAreaRule();
+创建动态区规则
+op9=>operation: DynamicBxArea area = new DynamicBxArea(0,0,160,16,screen.getProfile());
+创建动态区
+op10=>operation: TextBxPage page = new TextBxPage( "雨天路滑，小心驾驶" );
+创建数据页
+op11=>operation: area.addPage(page);
+数据页添加到动态区
+op12=>operation: screen.writeDynamic(area);
+更新动态区
+e=>end: screen.disconnect();
+断开连接
+
+st->op
+op->op1->cond
+cond(yes)->op2
+op2->op3
+op3->op4
+op4->op5
+op5->op6
+op6->op7
+op7->e
+cond(no)->op8
+op8->op9
+op9->op10
+op10->op11
+op11->op12
+op12->e
+```
+
+
 
 ### 3.1 SDK初始化
 

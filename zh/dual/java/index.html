@@ -89,7 +89,7 @@
 </li>
                                     
 <li>
-    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+    <a href="../csharp/" class="dropdown-item">C#</a>
 </li>
                                     
 <li>
@@ -114,7 +114,7 @@
 </li>
                                     
 <li>
-    <a href="../../y/csharp/" class="dropdown-item">C#</a>
+    <a href="../../k/csharp/" class="dropdown-item">C#</a>
 </li>
                                     
 <li>
@@ -217,129 +217,176 @@
 <p>c. android 串口通讯 sdk 与 demo:</p>
 <p>https://github.com/onbonlab/bx.dual.android.serial.git</p>
 <h2 id="3">3. 使用说明<a class="headerlink" href="#3" title="Permanent link"></a></h2>
-<p>对于五代和六代控制器，我们提供了不同的 JAR 包，而其接口定义遵循了相同的命名规则，五代控制器的接口通常命名为 Bx5Gxxxx, 而相对应的六代控制器通常命名为 Bx6Gxxx。而以下接口说明中，为了简便只提到了五代SDK的接口，而六代SDK的接口，可根据命名规则自行推断或查看SDK中附带的相应的 JAVADOC 文档。</p>
+<p>对于五代和六代控制器，我们提供了不同的 JAR 包，而其接口定义遵循了相同的命名规则，五代控制器的接口通常命名为 Bx5Gxxxx, 而相对应的六代控制器通常命名为 Bx6Gxxx。而以下接口说明中，为了简便只提到了五代SDK的接口，而六代SDK的接口，可根据命名规则自行推断或查看SDK中附带的相应的 JAVADOC 文档。API调用流程：</p>
+<pre class="uml-flowchart"><code>st=&gt;start: Bx6GEnv.initial();
+初始化                 
+op=&gt;operation: Bx6GScreen screen = new Bx6GScreen("screen",new Bx6E());
+创建screen对象，用于与控制卡交互
+op1=&gt;operation: screen.connect(ip,port);
+创建连接
+cond=&gt;condition: 更新节目或者更新动态区
+op2=&gt;operation: ProgramBxFile pf = new ProgramBxFile(0,screen.getProfile());
+创建节目
+op3=&gt;operation: TextCaptionBxArea area2 = new TextCaptionBxArea(0,0,64,96,screen.getProfile());
+创建图文区
+op4=&gt;operation: TextBxPage page2 = new TextBxPage("仰邦科技欢迎您！");
+创建数据页
+op5=&gt;operation: area2.addPage(page2);
+数据页添加到图文区
+op6=&gt;operation: pf.addArea(area1);
+图文区添加到节目
+op7=&gt;operation: screen.writeProgram(pf);
+更新节目
+op8=&gt;operation: DynamicBxAreaRule rule = new DynamicBxAreaRule();
+创建动态区规则
+op9=&gt;operation: DynamicBxArea area = new DynamicBxArea(0,0,160,16,screen.getProfile());
+创建动态区
+op10=&gt;operation: TextBxPage page = new TextBxPage( "雨天路滑，小心驾驶" );
+创建数据页
+op11=&gt;operation: area.addPage(page);
+数据页添加到动态区
+op12=&gt;operation: screen.writeDynamic(area);
+更新动态区
+e=&gt;end: screen.disconnect();
+断开连接
+
+st-&gt;op
+op-&gt;op1-&gt;cond
+cond(yes)-&gt;op2
+op2-&gt;op3
+op3-&gt;op4
+op4-&gt;op5
+op5-&gt;op6
+op6-&gt;op7
+op7-&gt;e
+cond(no)-&gt;op8
+op8-&gt;op9
+op9-&gt;op10
+op10-&gt;op11
+op11-&gt;op12
+op12-&gt;e</code></pre>
 <h3 id="31-sdk">3.1 SDK初始化<a class="headerlink" href="#31-sdk" title="Permanent link"></a></h3>
 <p>在使用 SDK 之前，必需先对整个 SDK 进行初始化。而初始化操作，在整个应用中只能进行一次（<strong>注: 非常重要</strong>)。如果反复调用 initial() 接口，会导致系统的 cpu load 变高。其调用方法如下：</p>
 <p><strong>五代控制器</strong></p>
-<pre><code class="language-java">// 五代控制器
-// 初始化SDK
-// 初始化有3种方法，如下
-Bx5GEnv.initial();
-// log.properties是日志配置文件
-Bx5GEnv.initial(&quot;log.properties&quot;); 
-// 30000为通讯超时时间，单位是毫秒
-Bx6GEnv.initial(&quot;log.properties&quot;,30000);
-</code></pre>
-<p><strong>六代控制器</strong></p>
-<pre><code class="language-java">// 六代控制卡
-// 初始化SDK
-// 初始化有3种方法，如下
-Bx6GEnv.initial();
-// log.properties是日志配置文件
-Bx6GEnv.initial(&quot;log.properties&quot;);
-// 30000为通讯超时时间，单位是毫秒
-Bx6GEnv.initial(&quot;log.properties&quot;,30000);
-</code></pre>
+<p><div class="highlight"><pre><span></span><code><span class="c1">// 五代控制器</span>
+<span class="c1">// 初始化SDK</span>
+<span class="c1">// 初始化有3种方法，如下</span>
+<span class="n">Bx5GEnv</span><span class="p">.</span><span class="na">initial</span><span class="p">();</span>
+<span class="c1">// log.properties是日志配置文件</span>
+<span class="n">Bx5GEnv</span><span class="p">.</span><span class="na">initial</span><span class="p">(</span><span class="s">&quot;log.properties&quot;</span><span class="p">);</span> 
+<span class="c1">// 30000为通讯超时时间，单位是毫秒</span>
+<span class="n">Bx6GEnv</span><span class="p">.</span><span class="na">initial</span><span class="p">(</span><span class="s">&quot;log.properties&quot;</span><span class="p">,</span><span class="mi">30000</span><span class="p">);</span>
+</code></pre></div>
+<strong>六代控制器</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 六代控制卡</span>
+<span class="c1">// 初始化SDK</span>
+<span class="c1">// 初始化有3种方法，如下</span>
+<span class="n">Bx6GEnv</span><span class="p">.</span><span class="na">initial</span><span class="p">();</span>
+<span class="c1">// log.properties是日志配置文件</span>
+<span class="n">Bx6GEnv</span><span class="p">.</span><span class="na">initial</span><span class="p">(</span><span class="s">&quot;log.properties&quot;</span><span class="p">);</span>
+<span class="c1">// 30000为通讯超时时间，单位是毫秒</span>
+<span class="n">Bx6GEnv</span><span class="p">.</span><span class="na">initial</span><span class="p">(</span><span class="s">&quot;log.properties&quot;</span><span class="p">,</span><span class="mi">30000</span><span class="p">);</span>
+</code></pre></div>
 <h3 id="32-screen">3.2 Screen类<a class="headerlink" href="#32-screen" title="Permanent link"></a></h3>
 <p>要SDK中与控制器的所有交互都需要通过Bx5GScreen类或其子类来进行，其子类包括：
 Bx5GScreenClient（client模式使用），Bx5GScreenRS（串口模式使用），Bx5GScreenServer（server模式使用）。创建screen对象的通常代码如下：</p>
-<p><strong>五代控制器</strong></p>
-<pre><code class="language-java">// 五代控制器
-// 创建screen对象，用于对控制器进行访问，客户端模式
-Bx5GScreenClient screen = new Bx5GScreenClient(&quot;MyScreen&quot;);
-// 创建screen对象，用于对控制器进行访问，串口模式
-Bx5GScreenRS screen = new Bx5GScreenRS(&quot;MyScreen&quot;);
-</code></pre>
-<p><strong>六代控制器</strong></p>
-<pre><code class="language-java">// 六代控制器创建screen对象方法，以BX-6M系列为例
-// Bx6M 为控制卡型号，只有型号对应才能通讯正常，否则会出现逾时未回应
-// 如果使用的控制器型号在SDK中没有定义，则用Bx6M替代
-// 创建screen对象，用于对控制器进行访问，客户端模式
-Bx6GScreenClient screen = new Bx6GScreenClient(&quot;MyScreen&quot;,new Bx6M());
-// 创建screen对象，用于对控制器进行访问，串口模式
-Bx6GScreenRS screen = new Bx6GScreenRS(&quot;MyScreen&quot;,new Bx6M());
-</code></pre>
-<p>注意：</p>
+<p><strong>五代控制器</strong>
+<div class="highlight"><pre><span></span><code><span class="c1">// 五代控制器</span>
+<span class="c1">// 创建screen对象，用于对控制器进行访问，客户端模式</span>
+<span class="n">Bx5GScreenClient</span> <span class="n">screen</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bx5GScreenClient</span><span class="p">(</span><span class="s">&quot;MyScreen&quot;</span><span class="p">);</span>
+<span class="c1">// 创建screen对象，用于对控制器进行访问，串口模式</span>
+<span class="n">Bx5GScreenRS</span> <span class="n">screen</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bx5GScreenRS</span><span class="p">(</span><span class="s">&quot;MyScreen&quot;</span><span class="p">);</span>
+</code></pre></div>
+<strong>六代控制器</strong></p>
+<p><div class="highlight"><pre><span></span><code><span class="c1">// 六代控制器创建screen对象方法，以BX-6M系列为例</span>
+<span class="c1">// Bx6M 为控制卡型号，只有型号对应才能通讯正常，否则会出现逾时未回应</span>
+<span class="c1">// 如果使用的控制器型号在SDK中没有定义，则用Bx6M替代</span>
+<span class="c1">// 创建screen对象，用于对控制器进行访问，客户端模式</span>
+<span class="n">Bx6GScreenClient</span> <span class="n">screen</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bx6GScreenClient</span><span class="p">(</span><span class="s">&quot;MyScreen&quot;</span><span class="p">,</span><span class="k">new</span> <span class="n">Bx6M</span><span class="p">());</span>
+<span class="c1">// 创建screen对象，用于对控制器进行访问，串口模式</span>
+<span class="n">Bx6GScreenRS</span> <span class="n">screen</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bx6GScreenRS</span><span class="p">(</span><span class="s">&quot;MyScreen&quot;</span><span class="p">,</span><span class="k">new</span> <span class="n">Bx6M</span><span class="p">());</span>
+</code></pre></div>
+注意：</p>
 <p>在六代 SDK 中创建Screen对象时，需要传入相应的控制器型号，例如：new Bx6Q(), new Bx6M() 等，如果 SDK 中未定义可使用 new Bx6M()。</p>
 <h3 id="33">3.3 屏幕连接<a class="headerlink" href="#33" title="Permanent link"></a></h3>
-<p>在对控制器交互之前，需要先与控制器建立连接，代码如下：</p>
-<pre><code class="language-java">// 连接控制器
-// 其中，192.168.100.199为控制器的实际IP地址，请根据实际情况填写
-// 端口号默认为5005
-// 五代控制器和六代控制器屏幕连接方法一样
-screen.connect(&quot;192.168.100.199&quot;,5005);
-</code></pre>
-<p>与控制器交互完成后，需断开与控制器之间的连接，其代码如下：</p>
-<pre><code class="language-java">// 断开与控制器之间的连接
-screen.disconnect();
-</code></pre>
-<p><strong>注1：connect 与 disconnect 必需成对出现，通讯结束时一定要记得断开连接</strong></p>
+<p>在对控制器交互之前，需要先与控制器建立连接，代码如下：
+<div class="highlight"><pre><span></span><code><span class="c1">// 连接控制器</span>
+<span class="c1">// 其中，192.168.100.199为控制器的实际IP地址，请根据实际情况填写</span>
+<span class="c1">// 端口号默认为5005</span>
+<span class="c1">// 五代控制器和六代控制器屏幕连接方法一样</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">connect</span><span class="p">(</span><span class="s">&quot;192.168.100.199&quot;</span><span class="p">,</span><span class="mi">5005</span><span class="p">);</span>
+</code></pre></div>
+与控制器交互完成后，需断开与控制器之间的连接，其代码如下：
+<div class="highlight"><pre><span></span><code><span class="c1">// 断开与控制器之间的连接</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">disconnect</span><span class="p">();</span>
+</code></pre></div>
+<strong>注1：connect 与 disconnect 必需成对出现，通讯结束时一定要记得断开连接</strong></p>
 <p><strong>注2：如果不知道控制器IP地址，请先使用LedshowTW软件设置IP地址，软件下载地址：https://www.onbonbx.com/download/165.html</strong></p>
 <h3 id="34">3.4 屏幕控制<a class="headerlink" href="#34" title="Permanent link"></a></h3>
 <p>SDK 还提供了一些接口，用于对 屏幕进行一些常用操作。</p>
 <h4 id="341">3.4.1 开关机<a class="headerlink" href="#341" title="Permanent link"></a></h4>
-<pre><code class="language-java">// 关机
-screen.turnOff();
-// 开机
-screen.turnOn();
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">// 关机</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">turnOff</span><span class="p">();</span>
+<span class="c1">// 开机</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">turnOn</span><span class="p">();</span>
+</code></pre></div>
 <h4 id="342">3.4.2 校正时钟<a class="headerlink" href="#342" title="Permanent link"></a></h4>
 <p>控制器上的时钟不准确时，可以通过此命令对其进行校正。</p>
-<pre><code class="language-java">// 校时
-screen.syncTime();
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">// 校时</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">syncTime</span><span class="p">();</span>
+</code></pre></div>
 <h4 id="343">3.4.3 锁定屏幕<a class="headerlink" href="#343" title="Permanent link"></a></h4>
-<pre><code class="language-java">// 锁定屏幕当前画面
-screen.lock();
-// 解除锁定屏幕当前画面
-screen.unlock();
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">// 锁定屏幕当前画面</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
+<span class="c1">// 解除锁定屏幕当前画面</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span>
+</code></pre></div>
 <p>屏幕锁定后，画面将被锁定不动。</p>
 <h4 id="344">3.4.4 锁定节目<a class="headerlink" href="#344" title="Permanent link"></a></h4>
 <p>节目锁定后，控制器将仅播放当前锁定的节目，不再轮播其它节目。</p>
-<pre><code class="language-java">// 锁定指定节目
-screen.lockProgram(programId, lockDuration);
-// 解除节目锁定
-screen.unlockProgram(programId);
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">// 锁定指定节目</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">lockProgram</span><span class="p">(</span><span class="n">programId</span><span class="p">,</span> <span class="n">lockDuration</span><span class="p">);</span>
+<span class="c1">// 解除节目锁定</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">unlockProgram</span><span class="p">(</span><span class="n">programId</span><span class="p">);</span>
+</code></pre></div>
 <p>其中，</p>
 <p>programId - 节目的 id</p>
 <p>lockDuration - 锁定的时间长度，如果为0，则一直锁定</p>
 <h4 id="345">3.4.5 查询固件版本<a class="headerlink" href="#345" title="Permanent link"></a></h4>
-<pre><code class="language-java">// 查询控制器当前固件版本
-screen.checkFirmware();
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">// 查询控制器当前固件版本</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">checkFirmware</span><span class="p">();</span>
+</code></pre></div>
 <h4 id="346">3.4.6 获取控制器状态<a class="headerlink" href="#346" title="Permanent link"></a></h4>
 <p>控制器状态中，包含连接在控制器上的传感器的值。如下所示：</p>
-<pre><code class="language-java">// 通过以下接口回读控制器状态
-Bx5GScreen.Result&lt;ReturnControllersStatus&gt; result = screen.checkControllerStatus();
-if(result.isOK()){
-    ReturnControllerStatus status = result.reply;
-    // 取得亮度值
-    status.getBrightness();
-    // 取得温度传感器温度值
-    status.getTemperature1();
-    // status还有很多接口，根据实际应用进行调用
-    ...
-}
-else{
-    ErrorType error = result.getError();
-    System.out.println(error);
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">// 通过以下接口回读控制器状态</span>
+<span class="n">Bx5GScreen</span><span class="p">.</span><span class="na">Result</span><span class="o">&lt;</span><span class="n">ReturnControllersStatus</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="n">screen</span><span class="p">.</span><span class="na">checkControllerStatus</span><span class="p">();</span>
+<span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="na">isOK</span><span class="p">()){</span>
+    <span class="n">ReturnControllerStatus</span> <span class="n">status</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="na">reply</span><span class="p">;</span>
+    <span class="c1">// 取得亮度值</span>
+    <span class="n">status</span><span class="p">.</span><span class="na">getBrightness</span><span class="p">();</span>
+    <span class="c1">// 取得温度传感器温度值</span>
+    <span class="n">status</span><span class="p">.</span><span class="na">getTemperature1</span><span class="p">();</span>
+    <span class="c1">// status还有很多接口，根据实际应用进行调用</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="p">{</span>
+    <span class="n">ErrorType</span> <span class="n">error</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="na">getError</span><span class="p">();</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">error</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="35">3.5 节目与区域<a class="headerlink" href="#35" title="Permanent link"></a></h3>
 <p>节目主要用于组合屏幕上现实的内容，它由多个区域组成。控制器同一时间只能播放一个节目，它是控制器显示内容可以单独更新的最小单位（除动态区外）。
 以下，我们将按步骤创建一个节目，并将其发送到控制器进行显示。</p>
 <p>注：此处以五代控制器为例</p>
 <p><strong>步骤1：</strong></p>
 <p>创建节目文件，如下所示：</p>
-<pre><code class="language-java">// 创建节目文件
-// 第二个参数为显示屏属性，具体可以参照Bx5GScreenProfile类
-Bx5GScreenProfile profile = screen.getProfile();
-ProgramBxFile p0 = new ProgramBxFile(programId, profile);
-// 关于节目类的其他接口可以参考ProgramBxFile类
-</code></pre>
-<p>其中，programId 为节目的 id，每个节目文件都有一个唯一的id。更新节目时，id 相同的节目会被覆盖。而锁定节目时，也可以使用此 id 来锁定相应的节目。</p>
+<p><div class="highlight"><pre><span></span><code><span class="c1">// 创建节目文件</span>
+<span class="c1">// 第二个参数为显示屏属性，具体可以参照Bx5GScreenProfile类</span>
+<span class="n">Bx5GScreenProfile</span> <span class="n">profile</span> <span class="o">=</span> <span class="n">screen</span><span class="p">.</span><span class="na">getProfile</span><span class="p">();</span>
+<span class="n">ProgramBxFile</span> <span class="n">p0</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ProgramBxFile</span><span class="p">(</span><span class="n">programId</span><span class="p">,</span> <span class="n">profile</span><span class="p">);</span>
+<span class="c1">// 关于节目类的其他接口可以参考ProgramBxFile类</span>
+</code></pre></div>
+其中，programId 为节目的 id，每个节目文件都有一个唯一的id。更新节目时，id 相同的节目会被覆盖。而锁定节目时，也可以使用此 id 来锁定相应的节目。</p>
 <p><strong>步骤2：</strong></p>
 <p>创建相关区域，并将相关区域添加到节目文件中。</p>
 <p>控制器支持的区域有很多种，例如：图文区、时间区、表盘区和传感器区等。其中，最常用的是图文区。图文区可以用于显示文本和图片。文字或图片可以按顺序依次添加到图文区中，而每页数据均可以设置特技方式，停留时间等属性。而创建一个图文区的步骤大致如下：</p>
@@ -355,18 +402,18 @@ ProgramBxFile p0 = new ProgramBxFile(programId, profile);
 </li>
 </ul>
 <p>下例代码，创建一个文本区，并向这个区域中添加一个文本页</p>
-<pre><code class="language-java">// 创建一个图文区
-// 参数为X、Y、width、heigth
-// 注意区域左边和宽度高度，不要越界
-TextCaptionBxArea area = new TextCaptionBxArea(0,0,160,64);
-// 创建一个数据页，并希望显示“仰邦科技”这几个字
-TextBxPage page = new TextBxPage(&quot;仰邦科技&quot;);
-// 将page添加到area中
-area.addPage(page);
-// 将图文区添加到节目中
-p0.addArea(area);
-</code></pre>
-<p><strong><em>注意：创建 TextBxPage() 时，不允许为空或空格，否则可能出现屏幕显示异常。</em></strong></p>
+<p><div class="highlight"><pre><span></span><code><span class="c1">// 创建一个图文区</span>
+<span class="c1">// 参数为X、Y、width、heigth</span>
+<span class="c1">// 注意区域左边和宽度高度，不要越界</span>
+<span class="n">TextCaptionBxArea</span> <span class="n">area</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextCaptionBxArea</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="mi">64</span><span class="p">);</span>
+<span class="c1">// 创建一个数据页，并希望显示“仰邦科技”这几个字</span>
+<span class="n">TextBxPage</span> <span class="n">page</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextBxPage</span><span class="p">(</span><span class="s">&quot;仰邦科技&quot;</span><span class="p">);</span>
+<span class="c1">// 将page添加到area中</span>
+<span class="n">area</span><span class="p">.</span><span class="na">addPage</span><span class="p">(</span><span class="n">page</span><span class="p">);</span>
+<span class="c1">// 将图文区添加到节目中</span>
+<span class="n">p0</span><span class="p">.</span><span class="na">addArea</span><span class="p">(</span><span class="n">area</span><span class="p">);</span>
+</code></pre></div>
+<strong><em>注意：创建 TextBxPage() 时，不允许为空或空格，否则可能出现屏幕显示异常。</em></strong></p>
 <p>时间区也是比较常用的区域，而时间区的创建过程大致如下：</p>
 <ul>
 <li>
@@ -380,31 +427,31 @@ p0.addArea(area);
 </li>
 </ul>
 <p>具体代码如下：</p>
-<pre><code class="language-java">// 下面代码创建了一个时间区
-// 注意：只需输入时间区的起始坐标，区域的宽度和高度SDK会根据字体和显示方式自动计算
-DateTimeBxArea dtArea = new DateTimeBxArea(0,0,screen.getProfile());
-// 设置字体
-dtArea.setFont(new Font(&quot;宋体&quot;,Font.PLAIN,12));
-// 设置显示颜色
-dtArea.setForeground(Color.yellow);
-// 多行显示还是单行显示
-dtArea.setMultiline(true);
-// 年月日显示格式
-// 如果不需要显示，设置为null
-dtArea.setDateStyle(DateStyle.YYY_MM_DD_1);
-dtArea.setTimeStyle(TimeStyle.HH_MM_SS_1);
-dtArea.setWeekStyle(null);
-// 将时间区添加到节目中
-p0.addArea(dtArea);
-// 关于DateTimeBxArea类的更多接口，请参考JAVADOC中相关类的说明
-</code></pre>
-<p><strong>步骤3：</strong></p>
+<p><div class="highlight"><pre><span></span><code><span class="c1">// 下面代码创建了一个时间区</span>
+<span class="c1">// 注意：只需输入时间区的起始坐标，区域的宽度和高度SDK会根据字体和显示方式自动计算</span>
+<span class="n">DateTimeBxArea</span> <span class="n">dtArea</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DateTimeBxArea</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">screen</span><span class="p">.</span><span class="na">getProfile</span><span class="p">());</span>
+<span class="c1">// 设置字体</span>
+<span class="n">dtArea</span><span class="p">.</span><span class="na">setFont</span><span class="p">(</span><span class="k">new</span> <span class="n">Font</span><span class="p">(</span><span class="s">&quot;宋体&quot;</span><span class="p">,</span><span class="n">Font</span><span class="p">.</span><span class="na">PLAIN</span><span class="p">,</span><span class="mi">12</span><span class="p">));</span>
+<span class="c1">// 设置显示颜色</span>
+<span class="n">dtArea</span><span class="p">.</span><span class="na">setForeground</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">yellow</span><span class="p">);</span>
+<span class="c1">// 多行显示还是单行显示</span>
+<span class="n">dtArea</span><span class="p">.</span><span class="na">setMultiline</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="c1">// 年月日显示格式</span>
+<span class="c1">// 如果不需要显示，设置为null</span>
+<span class="n">dtArea</span><span class="p">.</span><span class="na">setDateStyle</span><span class="p">(</span><span class="n">DateStyle</span><span class="p">.</span><span class="na">YYY_MM_DD_1</span><span class="p">);</span>
+<span class="n">dtArea</span><span class="p">.</span><span class="na">setTimeStyle</span><span class="p">(</span><span class="n">TimeStyle</span><span class="p">.</span><span class="na">HH_MM_SS_1</span><span class="p">);</span>
+<span class="n">dtArea</span><span class="p">.</span><span class="na">setWeekStyle</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="c1">// 将时间区添加到节目中</span>
+<span class="n">p0</span><span class="p">.</span><span class="na">addArea</span><span class="p">(</span><span class="n">dtArea</span><span class="p">);</span>
+<span class="c1">// 关于DateTimeBxArea类的更多接口，请参考JAVADOC中相关类的说明</span>
+</code></pre></div>
+<strong>步骤3：</strong></p>
 <p>发送更新节目</p>
 <p>节目文件创建好后，即可将节目发送到控制器以进行显示。其代码如下所示：</p>
-<pre><code class="language-java">// 以下为更新节目命令
-screen.WriteProgram(p0);
-// 更新节目还有很多命令，请参考JAVADOC
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">// 以下为更新节目命令</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">WriteProgram</span><span class="p">(</span><span class="n">p0</span><span class="p">);</span>
+<span class="c1">// 更新节目还有很多命令，请参考JAVADOC</span>
+</code></pre></div>
 <h3 id="36">3.6 动态区<a class="headerlink" href="#36" title="Permanent link"></a></h3>
 <p>动态区是一种比较特殊的区域（<a href="/zh/dual/dual/#11">关于动态区</a>），其有以下几个主要特点：</p>
 <ul>
@@ -422,50 +469,50 @@ screen.WriteProgram(p0);
 </ul>
 <p>以下代码创建了一个动态区，将将其更新到控制器上显示。</p>
 <p>五代控制器</p>
-<pre><code class="language-java">// 五代控制器动态区（BX-5E系列）
-// BX-5E系列控制卡最高支持4个动态区，当屏幕上需要同时显示多个动态区时，动态区ID不可以相同
-// DynamicBxRule(id,runMode,immediatePlay,timeout);
-// runMode 运行模式
-// 0:循环显示
-// 1:显示完成后静止显示最后一页数据
-// 2:循环显示，超过设定时间后数据仍未更新时不显示
-// 3:循环显示，超过设定时间后数据仍未更新时显示Logo信息
-// 4:循环显示，显示完最后一页后不再显示
-// immediatePlay
-// 0:与异步节目一起播放
-// 1:异步节目停止播放，仅播放动态区
-// 2:当播放完节目编号最高的异步节目后播放该动态区
-DynamicBxAreaRule rule = new DynamicBxRule(0,(byte)0,(byte)1,0);
-TextCaptionBxArea darea = new TextCaptionBxArea(0,0,160,64,screen.getProfile());
-TextBxPage dapge = new TextBxPage(&quot;动态区123abc&quot;);
-darea.addPage(dpage);
-screen.writeDynamic(rule,darea);
-</code></pre>
-<p>六代控制器</p>
-<pre><code class="language-java">// 六代控制器动态区
-DynamicBxAreaRule rule = new DynamicBxAreaRule();
+<p><div class="highlight"><pre><span></span><code><span class="c1">// 五代控制器动态区（BX-5E系列）</span>
+<span class="c1">// BX-5E系列控制卡最高支持4个动态区，当屏幕上需要同时显示多个动态区时，动态区ID不可以相同</span>
+<span class="c1">// DynamicBxRule(id,runMode,immediatePlay,timeout);</span>
+<span class="c1">// runMode 运行模式</span>
+<span class="c1">// 0:循环显示</span>
+<span class="c1">// 1:显示完成后静止显示最后一页数据</span>
+<span class="c1">// 2:循环显示，超过设定时间后数据仍未更新时不显示</span>
+<span class="c1">// 3:循环显示，超过设定时间后数据仍未更新时显示Logo信息</span>
+<span class="c1">// 4:循环显示，显示完最后一页后不再显示</span>
+<span class="c1">// immediatePlay</span>
+<span class="c1">// 0:与异步节目一起播放</span>
+<span class="c1">// 1:异步节目停止播放，仅播放动态区</span>
+<span class="c1">// 2:当播放完节目编号最高的异步节目后播放该动态区</span>
+<span class="n">DynamicBxAreaRule</span> <span class="n">rule</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DynamicBxRule</span><span class="p">(</span><span class="mi">0</span><span class="p">,(</span><span class="kt">byte</span><span class="p">)</span><span class="mi">0</span><span class="p">,(</span><span class="kt">byte</span><span class="p">)</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">TextCaptionBxArea</span> <span class="n">darea</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextCaptionBxArea</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="mi">64</span><span class="p">,</span><span class="n">screen</span><span class="p">.</span><span class="na">getProfile</span><span class="p">());</span>
+<span class="n">TextBxPage</span> <span class="n">dapge</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextBxPage</span><span class="p">(</span><span class="s">&quot;动态区123abc&quot;</span><span class="p">);</span>
+<span class="n">darea</span><span class="p">.</span><span class="na">addPage</span><span class="p">(</span><span class="n">dpage</span><span class="p">);</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">writeDynamic</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span><span class="n">darea</span><span class="p">);</span>
+</code></pre></div>
+六代控制器</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 六代控制器动态区</span>
+<span class="n">DynamicBxAreaRule</span> <span class="n">rule</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DynamicBxAreaRule</span><span class="p">();</span>
 
-// 设定动态区ID，此处ID为0，多个动态区ID不能相同
-rule.setId(0);
+<span class="c1">// 设定动态区ID，此处ID为0，多个动态区ID不能相同</span>
+<span class="n">rule</span><span class="p">.</span><span class="na">setId</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 
-// 设定异步节目停止播放，仅播放动态区
-// 0:动态区与异步节目一起播放
-// 1:异步节目停止播放，仅播放动态区
-// 2:当播放完节目编号最高的异步节目后播放该动态区
-rule.setImmediatePlay((byte)1);
+<span class="c1">// 设定异步节目停止播放，仅播放动态区</span>
+<span class="c1">// 0:动态区与异步节目一起播放</span>
+<span class="c1">// 1:异步节目停止播放，仅播放动态区</span>
+<span class="c1">// 2:当播放完节目编号最高的异步节目后播放该动态区</span>
+<span class="n">rule</span><span class="p">.</span><span class="na">setImmediatePlay</span><span class="p">((</span><span class="kt">byte</span><span class="p">)</span><span class="mi">1</span><span class="p">);</span>
 
-// 设定动态区循环播放
-// 0:循环播放
-// 1:显示完成后静置显示最后一页数据
-// 2:循环显示，超过设定时间后仍未更新时不再显示
-// 3:循环显示，超过设定时间后仍未更新时显示Logo信息
-// 4:显示完成最后一页后就不再显示
-rule.setRunMode((byte)0);
-DynamicBxArea area = new DynamicBxArea(0,0,160,32,screen.getProfile());
-TextBxPage page = new TextBxPage(&quot;动态区abc&quot;);
-area.addPage(page);
-screen.writeDynamic(rule,area);
-</code></pre>
+<span class="c1">// 设定动态区循环播放</span>
+<span class="c1">// 0:循环播放</span>
+<span class="c1">// 1:显示完成后静置显示最后一页数据</span>
+<span class="c1">// 2:循环显示，超过设定时间后仍未更新时不再显示</span>
+<span class="c1">// 3:循环显示，超过设定时间后仍未更新时显示Logo信息</span>
+<span class="c1">// 4:显示完成最后一页后就不再显示</span>
+<span class="n">rule</span><span class="p">.</span><span class="na">setRunMode</span><span class="p">((</span><span class="kt">byte</span><span class="p">)</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">DynamicBxArea</span> <span class="n">area</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DynamicBxArea</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">160</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="n">screen</span><span class="p">.</span><span class="na">getProfile</span><span class="p">());</span>
+<span class="n">TextBxPage</span> <span class="n">page</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextBxPage</span><span class="p">(</span><span class="s">&quot;动态区abc&quot;</span><span class="p">);</span>
+<span class="n">area</span><span class="p">.</span><span class="na">addPage</span><span class="p">(</span><span class="n">page</span><span class="p">);</span>
+<span class="n">screen</span><span class="p">.</span><span class="na">writeDynamic</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span><span class="n">area</span><span class="p">);</span>
+</code></pre></div>
 <p><strong>注意：对于单双色控制器，区域之间不能出现重叠。</strong></p>
 <h2 id="4-server">4. Server模式<a class="headerlink" href="#4-server" title="Permanent link"></a></h2>
 <p>Server模式通常应用于广域网或者 GPRS/3G/4G 无线通讯的场合。在SDK中，Bx5GServer/Bx6GServer 对 server进行封装。它实现了控制器与 server 之间的链接维护，心跳解析，上下线提醒等功能。您可以像client模式一样，对广域网上的屏幕进行控制。</p>
@@ -478,42 +525,42 @@ screen.writeDynamic(rule,area);
 <li>获取在线屏幕</li>
 <li>通过相应的 screen 对象对控制器进行相应的操作</li>
 </ul>
-<pre><code class="language-java">// 初始化 SDK
-Bx5GEnv.initial(); 
-// 建立并启动服务器
-// 此端口号为server进行监听的端口号
-// 其必需与控制器参数中设置的 server port 一致
-Bx5GServer server = new Bx5GServer(&quot;Hello Screen&quot;, 8036);
-// 添加监听
-server.addListener(new ConnectionListener());
-// 启动服务器
-server.start();
+<div class="highlight"><pre><span></span><code><span class="c1">// 初始化 SDK</span>
+<span class="n">Bx5GEnv</span><span class="p">.</span><span class="na">initial</span><span class="p">();</span> 
+<span class="c1">// 建立并启动服务器</span>
+<span class="c1">// 此端口号为server进行监听的端口号</span>
+<span class="c1">// 其必需与控制器参数中设置的 server port 一致</span>
+<span class="n">Bx5GServer</span> <span class="n">server</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bx5GServer</span><span class="p">(</span><span class="s">&quot;Hello Screen&quot;</span><span class="p">,</span> <span class="mi">8036</span><span class="p">);</span>
+<span class="c1">// 添加监听</span>
+<span class="n">server</span><span class="p">.</span><span class="na">addListener</span><span class="p">(</span><span class="k">new</span> <span class="n">ConnectionListener</span><span class="p">());</span>
+<span class="c1">// 启动服务器</span>
+<span class="n">server</span><span class="p">.</span><span class="na">start</span><span class="p">();</span>
 
-// 
-while(true) {
-    //
-    // 获取在线的控制器列表
-    ArrayList&lt;Bx5GScreen&gt; screens = (ArrayList&lt;Bx5GScreen&gt;) server.getOnlineScreens();
-    // 对相应的控制器进行操作
-    ......
-}
+<span class="c1">// </span>
+<span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//</span>
+    <span class="c1">// 获取在线的控制器列表</span>
+    <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Bx5GScreen</span><span class="o">&gt;</span> <span class="n">screens</span> <span class="o">=</span> <span class="p">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Bx5GScreen</span><span class="o">&gt;</span><span class="p">)</span> <span class="n">server</span><span class="p">.</span><span class="na">getOnlineScreens</span><span class="p">();</span>
+    <span class="c1">// 对相应的控制器进行操作</span>
+    <span class="p">......</span>
+<span class="p">}</span>
 
-// 监听
-public class ConnectionListener implements Bx5GServerListener {
-    @Override
-    public void connected(String socketId, String controllerAddr, Bx5GScreen screen) {
-        // 控制器上线后，会触发此事件
-        Result&lt;ReturnPingStatus&gt; result1 = screen.ping();
-        Result&lt;ReturnControllerStatus&gt; result2 = screen.checkControllerStatus();
-        ......
-    }
-    @Override
-    public void disconnected(String socketId, String controllerAddr, Bx5GScreen screen) {
-        // 控制器下线后，会触发此事件
-        ......
-    }
-}
-</code></pre>
+<span class="c1">// 监听</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConnectionListener</span> <span class="kd">implements</span> <span class="n">Bx5GServerListener</span> <span class="p">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">connected</span><span class="p">(</span><span class="n">String</span> <span class="n">socketId</span><span class="p">,</span> <span class="n">String</span> <span class="n">controllerAddr</span><span class="p">,</span> <span class="n">Bx5GScreen</span> <span class="n">screen</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 控制器上线后，会触发此事件</span>
+        <span class="n">Result</span><span class="o">&lt;</span><span class="n">ReturnPingStatus</span><span class="o">&gt;</span> <span class="n">result1</span> <span class="o">=</span> <span class="n">screen</span><span class="p">.</span><span class="na">ping</span><span class="p">();</span>
+        <span class="n">Result</span><span class="o">&lt;</span><span class="n">ReturnControllerStatus</span><span class="o">&gt;</span> <span class="n">result2</span> <span class="o">=</span> <span class="n">screen</span><span class="p">.</span><span class="na">checkControllerStatus</span><span class="p">();</span>
+        <span class="p">......</span>
+    <span class="p">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">disconnected</span><span class="p">(</span><span class="n">String</span> <span class="n">socketId</span><span class="p">,</span> <span class="n">String</span> <span class="n">controllerAddr</span><span class="p">,</span> <span class="n">Bx5GScreen</span> <span class="n">screen</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 控制器下线后，会触发此事件</span>
+        <span class="p">......</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="42-demo">4.2 Demo说明<a class="headerlink" href="#42-demo" title="Permanent link"></a></h3>
 <p>您可以从以下链接获取相应的 demo：</p>
 <p>https://github.com/onbonlab/bx.dual.java.server.git</p>
@@ -533,129 +580,129 @@ public class ConnectionListener implements Bx5GServerListener {
 <li>Bx5GTestbench: 五代控制器的测试平台</li>
 </ul>
 <p>调用方式如下：</p>
-<pre><code class="language-java">//
-// 获取 testbench 实例
-Bx5GTestbench g5tb = Bx5GTestbench.getInstance();
+<div class="highlight"><pre><span></span><code><span class="c1">//</span>
+<span class="c1">// 获取 testbench 实例</span>
+<span class="n">Bx5GTestbench</span> <span class="n">g5tb</span> <span class="o">=</span> <span class="n">Bx5GTestbench</span><span class="p">.</span><span class="na">getInstance</span><span class="p">();</span>
 
-//
-// run
-g5tb.run(8001);
-</code></pre>
+<span class="c1">//</span>
+<span class="c1">// run</span>
+<span class="n">g5tb</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="mi">8001</span><span class="p">);</span>
+</code></pre></div>
 <h2 id="5-android">5. Android平台<a class="headerlink" href="#5-android" title="Permanent link"></a></h2>
 <h3 id="51">5.1 使用说明<a class="headerlink" href="#51" title="Permanent link"></a></h3>
 <p><strong>步骤1:</strong>  导入 sdk</p>
 <p>将所有库文件拷贝至 libs 文件夹，并引入工程，如下所示：</p>
 <p>在 module 的 build.gradle 中添加如下代码：</p>
-<pre><code class="language-gradle">implementation files('libs/bx05-0.5.0-SNAPSHOT.jar')
-implementation files('libs/bx05.message-0.5.0-SNAPSHOT.jar')
-implementation files('libs/bx06-0.6.0-SNAPSHOT.jar')
-implementation files('libs/bx06.message-0.6.0-SNAPSHOT.jar')
-implementation files('libs/log4j-1.2.14.jar')
-implementation files('libs/simple-xml-2.7.1.jar')
-implementation files('libs/uia-comm-0.3.3.jar')
-implementation files('libs/uia-utils-0.2.0.jar')
-implementation files('libs/uia-message-0.6.0.jar')
+<div class="highlight"><pre><span></span><code>implementation files(&#39;libs/bx05-0.5.0-SNAPSHOT.jar&#39;)
+implementation files(&#39;libs/bx05.message-0.5.0-SNAPSHOT.jar&#39;)
+implementation files(&#39;libs/bx06-0.6.0-SNAPSHOT.jar&#39;)
+implementation files(&#39;libs/bx06.message-0.6.0-SNAPSHOT.jar&#39;)
+implementation files(&#39;libs/log4j-1.2.14.jar&#39;)
+implementation files(&#39;libs/simple-xml-2.7.1.jar&#39;)
+implementation files(&#39;libs/uia-comm-0.3.3.jar&#39;)
+implementation files(&#39;libs/uia-utils-0.2.0.jar&#39;)
+implementation files(&#39;libs/uia-message-0.6.0.jar&#39;)
 
-implementation(name: 'java.awt4a-0.1-release', ext: 'aar')
-</code></pre>
+implementation(name: &#39;java.awt4a-0.1-release&#39;, ext: &#39;aar&#39;)
+</code></pre></div>
 <p>在 project 的 build.gradle 中添加如下代码：</p>
-<pre><code class="language-gradle">allprojects {
+<div class="highlight"><pre><span></span><code>allprojects {
     repositories {
         google()
         jcenter()
 
         flatDir {
-            dirs 'libs'
+            dirs &#39;libs&#39;
         }
     }
 }
-</code></pre>
+</code></pre></div>
 <p><strong>步骤2:</strong> sdk 初始化</p>
 <p>SDK 初始化在整个 APP 中只能调用一次，因此，我们将其放在 application 的 onCreate() 接口调用。如下所示：</p>
-<pre><code class="language-java">public class MyApp extends Application {
+<div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="p">{</span>
 
-    private static final String TAG=&quot;MyApp&quot;;
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">TAG</span><span class="o">=</span><span class="s">&quot;MyApp&quot;</span><span class="p">;</span>
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">super</span><span class="p">.</span><span class="na">onCreate</span><span class="p">();</span>
 
-        try {
-            // java.awt for android 初始化
-            AwtEnv.link(this);
-            // 是否启动抗锯齿
-            AwtEnv.configPaintAntiAliasFlag(false);
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="c1">// java.awt for android 初始化</span>
+            <span class="n">AwtEnv</span><span class="p">.</span><span class="na">link</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+            <span class="c1">// 是否启动抗锯齿</span>
+            <span class="n">AwtEnv</span><span class="p">.</span><span class="na">configPaintAntiAliasFlag</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
 
-            // 初始化五代
-            Bx5GEnv.initial();
+            <span class="c1">// 初始化五代</span>
+            <span class="n">Bx5GEnv</span><span class="p">.</span><span class="na">initial</span><span class="p">();</span>
 
-            // 建立 BX6G API 運行環境。
-            Bx6GEnv.initial();
-            Log.d(TAG, &quot;sdk 6 version:&quot; + Bx6GEnv.VER_INFO);
-        }
-        catch (Exception ex) {
-            Log.d(TAG, &quot;sdk init error&quot;);
-        }
-    }
-}
-</code></pre>
+            <span class="c1">// 建立 BX6G API 運行環境。</span>
+            <span class="n">Bx6GEnv</span><span class="p">.</span><span class="na">initial</span><span class="p">();</span>
+            <span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="s">&quot;sdk 6 version:&quot;</span> <span class="o">+</span> <span class="n">Bx6GEnv</span><span class="p">.</span><span class="na">VER_INFO</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">catch</span> <span class="p">(</span><span class="n">Exception</span> <span class="n">ex</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">Log</span><span class="p">.</span><span class="na">d</span><span class="p">(</span><span class="n">TAG</span><span class="p">,</span> <span class="s">&quot;sdk init error&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <p><strong>步骤3：</strong> 在 manifest.xml 中添加相关权限</p>
 <p>对于网络通讯，必需先在 manifest 文件中申请相关网络访问的权限，否则会出现通讯失败。</p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    package=&quot;com.onbonbx.demo&quot;&gt;
-    &lt;!-- 允许联网 --&gt;
-    &lt;!-- 获取GSM（2g）、WCDMA（联通3g）等网络状态的信息 --&gt;
-    &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
-    &lt;!-- 获取wifi网络状态的信息 --&gt;
-    &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
-    &lt;!-- 获取wifi网络状态的信息 --&gt;
-    &lt;uses-permission android:name=&quot;android.permission.ACCESS_WIFI_STATE&quot; /&gt;
-    &lt;!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 --&gt;
-    &lt;uses-permission android:name=&quot;android.permission.CHANGE_WIFI_STATE&quot; /&gt;
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;manifest</span> <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="na">package=</span><span class="s">&quot;com.onbonbx.demo&quot;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- 允许联网 --&gt;</span>
+    <span class="c">&lt;!-- 获取GSM（2g）、WCDMA（联通3g）等网络状态的信息 --&gt;</span>
+    <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.INTERNET&quot;</span> <span class="nt">/&gt;</span>
+    <span class="c">&lt;!-- 获取wifi网络状态的信息 --&gt;</span>
+    <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.ACCESS_NETWORK_STATE&quot;</span> <span class="nt">/&gt;</span>
+    <span class="c">&lt;!-- 获取wifi网络状态的信息 --&gt;</span>
+    <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.ACCESS_WIFI_STATE&quot;</span> <span class="nt">/&gt;</span>
+    <span class="c">&lt;!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 --&gt;</span>
+    <span class="nt">&lt;uses-permission</span> <span class="na">android:name=</span><span class="s">&quot;android.permission.CHANGE_WIFI_STATE&quot;</span> <span class="nt">/&gt;</span>
 
-    &lt;application
-        android:name=&quot;.MyApp&quot;
-        android:allowBackup=&quot;true&quot;
-        android:icon=&quot;@mipmap/ic_launcher&quot;
-        android:label=&quot;@string/app_name&quot;
-        android:roundIcon=&quot;@mipmap/ic_launcher_round&quot;
-        android:supportsRtl=&quot;true&quot;
-        android:theme=&quot;@style/AppTheme&quot;&gt;
-        &lt;activity android:name=&quot;.MainActivity&quot;&gt;
-            &lt;intent-filter&gt;
-                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
-                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
-            &lt;/intent-filter&gt;
-        &lt;/activity&gt;
-    &lt;/application&gt;
+    <span class="nt">&lt;application</span>
+        <span class="na">android:name=</span><span class="s">&quot;.MyApp&quot;</span>
+        <span class="na">android:allowBackup=</span><span class="s">&quot;true&quot;</span>
+        <span class="na">android:icon=</span><span class="s">&quot;@mipmap/ic_launcher&quot;</span>
+        <span class="na">android:label=</span><span class="s">&quot;@string/app_name&quot;</span>
+        <span class="na">android:roundIcon=</span><span class="s">&quot;@mipmap/ic_launcher_round&quot;</span>
+        <span class="na">android:supportsRtl=</span><span class="s">&quot;true&quot;</span>
+        <span class="na">android:theme=</span><span class="s">&quot;@style/AppTheme&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;activity</span> <span class="na">android:name=</span><span class="s">&quot;.MainActivity&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;intent-filter&gt;</span>
+                <span class="nt">&lt;action</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.action.MAIN&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;category</span> <span class="na">android:name=</span><span class="s">&quot;android.intent.category.LAUNCHER&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/intent-filter&gt;</span>
+        <span class="nt">&lt;/activity&gt;</span>
+    <span class="nt">&lt;/application&gt;</span>
 
-&lt;/manifest&gt;
-</code></pre>
+<span class="nt">&lt;/manifest&gt;</span>
+</code></pre></div>
 <p><strong>步骤4：</strong> 在线程中调用相关接口</p>
 <p>在 Android 系统中，网络通讯不能放在主线程中调用，而必需另起线程。通常如下：</p>
-<pre><code class="language-java">new Thread(new Runnable() {
-    @Override
-    public void run() {
+<div class="highlight"><pre><span></span><code><span class="k">new</span> <span class="n">Thread</span><span class="p">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
 
-        Bx5GScreenClient screen = new Bx5GScreenClient(&quot;screen&quot;);
-        try {
-            // 连接控制器
-            screen.connect(ip.getText().toString(), 5005);
+        <span class="n">Bx5GScreenClient</span> <span class="n">screen</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Bx5GScreenClient</span><span class="p">(</span><span class="s">&quot;screen&quot;</span><span class="p">);</span>
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="c1">// 连接控制器</span>
+            <span class="n">screen</span><span class="p">.</span><span class="na">connect</span><span class="p">(</span><span class="n">ip</span><span class="p">.</span><span class="na">getText</span><span class="p">().</span><span class="na">toString</span><span class="p">(),</span> <span class="mi">5005</span><span class="p">);</span>
 
-            // 获取控制器状态
-            screen.ping();
+            <span class="c1">// 获取控制器状态</span>
+            <span class="n">screen</span><span class="p">.</span><span class="na">ping</span><span class="p">();</span>
 
-            // 断开链接
-            screen.disconnect();
+            <span class="c1">// 断开链接</span>
+            <span class="n">screen</span><span class="p">.</span><span class="na">disconnect</span><span class="p">();</span>
 
-        } catch (Bx5GException e) {
-            e.printStackTrace();
-            return;
-        }
-    }
-}).start();
-</code></pre>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="n">Bx5GException</span> <span class="n">e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">e</span><span class="p">.</span><span class="na">printStackTrace</span><span class="p">();</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}).</span><span class="na">start</span><span class="p">();</span>
+</code></pre></div>
 <h3 id="52-sdkdemo">5.2 获取SDK与DEMO<a class="headerlink" href="#52-sdkdemo" title="Permanent link"></a></h3>
 <p>您可以通过如下链接获取 ANDROID SDK 与 DEMO:</p>
 <p>a. android demo: </p>
@@ -667,40 +714,40 @@ implementation(name: 'java.awt4a-0.1-release', ext: 'aar')
 <p>如果您发现将中文字符发送到屏幕上不显示，或者显示为方块，此时通常是由于您选择的字体不支持中文，或者选择的字体在操作系统中没有安装。此时，选择支持中文的字体或在操作系统中安装相应字体即可解决。</p>
 <h3 id="62">6.2 文本对齐方式设置<a class="headerlink" href="#62" title="Permanent link"></a></h3>
 <p>SDK 提供了一些文本对齐方式的设置，接口如下：</p>
-<pre><code class="language-java">// 水平方向
-// 设置居左对齐
-page.setHorizontalAlignment(TextBinary.Alignment.NEAR);
-// 设置居中对齐
-page.setHorizontalAlignment(TextBinary.Alignment.CENTER);
-// 设置居右对齐
-page.setHorizontalAlignment(TextBinary.Alignment.FAR);
+<div class="highlight"><pre><span></span><code><span class="c1">// 水平方向</span>
+<span class="c1">// 设置居左对齐</span>
+<span class="n">page</span><span class="p">.</span><span class="na">setHorizontalAlignment</span><span class="p">(</span><span class="n">TextBinary</span><span class="p">.</span><span class="na">Alignment</span><span class="p">.</span><span class="na">NEAR</span><span class="p">);</span>
+<span class="c1">// 设置居中对齐</span>
+<span class="n">page</span><span class="p">.</span><span class="na">setHorizontalAlignment</span><span class="p">(</span><span class="n">TextBinary</span><span class="p">.</span><span class="na">Alignment</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+<span class="c1">// 设置居右对齐</span>
+<span class="n">page</span><span class="p">.</span><span class="na">setHorizontalAlignment</span><span class="p">(</span><span class="n">TextBinary</span><span class="p">.</span><span class="na">Alignment</span><span class="p">.</span><span class="na">FAR</span><span class="p">);</span>
 
-// 垂直方向
-// 设置居上对齐
-page.setVerticalAlignment(TextBinary.Alignmet.NEAR);
-// 设置居中对齐
-page.setVerticalAlignment(TextBinary.Alignmet.CENTER);
-// 设置居下对齐
-page.setVerticalAlignment(TextBinary.Alignmet.FAR);
-</code></pre>
+<span class="c1">// 垂直方向</span>
+<span class="c1">// 设置居上对齐</span>
+<span class="n">page</span><span class="p">.</span><span class="na">setVerticalAlignment</span><span class="p">(</span><span class="n">TextBinary</span><span class="p">.</span><span class="na">Alignmet</span><span class="p">.</span><span class="na">NEAR</span><span class="p">);</span>
+<span class="c1">// 设置居中对齐</span>
+<span class="n">page</span><span class="p">.</span><span class="na">setVerticalAlignment</span><span class="p">(</span><span class="n">TextBinary</span><span class="p">.</span><span class="na">Alignmet</span><span class="p">.</span><span class="na">CENTER</span><span class="p">);</span>
+<span class="c1">// 设置居下对齐</span>
+<span class="n">page</span><span class="p">.</span><span class="na">setVerticalAlignment</span><span class="p">(</span><span class="n">TextBinary</span><span class="p">.</span><span class="na">Alignmet</span><span class="p">.</span><span class="na">FAR</span><span class="p">);</span>
+</code></pre></div>
 <h3 id="63">6.3 节目发送成功却不显示<a class="headerlink" href="#63" title="Permanent link"></a></h3>
 <p>如果发送节目时，返回成功，但是屏上却不显示。此时，最大的可能性是区域越界造成的。例如：一个屏幕的宽度为 128， 高度为32。而一个区域如果其 (x,y) 为 (0,0), 宽高为 (192, 32)，则此区域即超过了屏幕参数的大小，此时节目发送成功后，不会被显示出来。</p>
 <p>调试过程中，可以通过如下方式获取屏幕的参数信息。</p>
-<pre><code class="language-java">// 获取屏幕的一些基本信息
-Bx5GScreenProfile profile = screen.getProfile();
-// 获取屏幕宽度
-profile.getWidth();
-// 获取屏幕高度
-profile.getHeight();
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">// 获取屏幕的一些基本信息</span>
+<span class="n">Bx5GScreenProfile</span> <span class="n">profile</span> <span class="o">=</span> <span class="n">screen</span><span class="p">.</span><span class="na">getProfile</span><span class="p">();</span>
+<span class="c1">// 获取屏幕宽度</span>
+<span class="n">profile</span><span class="p">.</span><span class="na">getWidth</span><span class="p">();</span>
+<span class="c1">// 获取屏幕高度</span>
+<span class="n">profile</span><span class="p">.</span><span class="na">getHeight</span><span class="p">();</span>
+</code></pre></div>
 <p>如果使用的是节目，则在添加完区域后，可以通过 validate() 接口进行检查，如下所示：</p>
-<pre><code class="language-java">// pf 为ProgramBxFile 对象
-// 如果返回值不库null，说明有些区域参数越界, 而返回的即存在参数越界的BxArea对象
-if(pf.validate()!=null){
-    System.out.println(&quot;pf out of range&quot;);
-    return;
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">// pf 为ProgramBxFile 对象</span>
+<span class="c1">// 如果返回值不库null，说明有些区域参数越界, 而返回的即存在参数越界的BxArea对象</span>
+<span class="k">if</span><span class="p">(</span><span class="n">pf</span><span class="p">.</span><span class="na">validate</span><span class="p">()</span><span class="o">!=</span><span class="kc">null</span><span class="p">){</span>
+    <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;pf out of range&quot;</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 <h3 id="64">6.4 如何显示表格<a class="headerlink" href="#64" title="Permanent link"></a></h3>
 <p>由于表格的编排非常复杂，因此，SDK没有集成表格功能。如果您想在屏幕上显示表格，则可以先将表格绘制成图片，然后再使用SDK的图片接口，将图片发送至屏幕。</p>
 <p>而将绘制文字和表格，可以使用 Graphics2D 相关类。</p>
@@ -708,12 +755,12 @@ if(pf.validate()!=null){
 <p>控制器的固件可以通过LedshowTW软来更新。可以在 “设置 -&gt; 控制器程序维护” (密码: 888) 页面下操作。</p>
 <h3 id="66">6.6 如何实现文本换行<a class="headerlink" href="#66" title="Permanent link"></a></h3>
 <p>控制文本换行显示有2种方法，一种是通过换行符来强制换行，另一种是通过SDK中的接口来实现换行。代码如下所示：</p>
-<pre><code class="language-java">// 通过换行符换行
-TextBxPage page = new TextBxPage(&quot;第一行\r\n第二行&quot;);
-// 通过接口换行
-TextBxPage page = new TextBxPage(&quot;第一行&quot;);
-page.newLine(&quot;第二行&quot;);
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">// 通过换行符换行</span>
+<span class="n">TextBxPage</span> <span class="n">page</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextBxPage</span><span class="p">(</span><span class="s">&quot;第一行\r\n第二行&quot;</span><span class="p">);</span>
+<span class="c1">// 通过接口换行</span>
+<span class="n">TextBxPage</span> <span class="n">page</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TextBxPage</span><span class="p">(</span><span class="s">&quot;第一行&quot;</span><span class="p">);</span>
+<span class="n">page</span><span class="p">.</span><span class="na">newLine</span><span class="p">(</span><span class="s">&quot;第二行&quot;</span><span class="p">);</span>
+</code></pre></div>
 <h3 id="67-cpu-load">6.7 CPU LOAD 过高<a class="headerlink" href="#67-cpu-load" title="Permanent link"></a></h3>
 <p>使用 SDK 过程中，如果发现 CPU LOAD 过高，通常可能是以下原因造成：</p>
 <ul>
@@ -733,6 +780,13 @@ page.newLine(&quot;第二行&quot;);
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../../../js/base.js" defer></script>
+        <script src="../../../js/raphael-min.js" defer></script>
+        <script src="../../../js/underscore-min.js" defer></script>
+        <script src="../../../js/sequence-diagram-min.js" defer></script>
+        <script src="../../../js/flowchart-min.js" defer></script>
+        <script src="../../../js/uml-converter.js" defer></script>
+        <script src="../../../js/flow-loader.js" defer></script>
+        <script src="../../../js/sequence-loader.js" defer></script>
         <script src="../../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
